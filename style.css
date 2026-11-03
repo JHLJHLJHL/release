@@ -120,16 +120,29 @@ img { display: block; max-width: 100%; }
 .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 18px; margin: 28px 0 0; font-size: 14px; color: var(--accent); font-weight: 600; }
 .links a:hover { text-decoration: underline; }
 
+/* 화면 미리보기: 한 장씩 넘기기 */
+.gallery { position: relative; width: min(880px, 100% - 32px); margin: 40px auto 0; }
 .shots {
-  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
-  padding: 24px 16px 32px; margin: 32px 0 0;
-  scrollbar-width: thin;
+  display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--soft);
+  scrollbar-width: none;
 }
-.shots img {
-  flex: none; width: min(720px, 86vw); height: auto; scroll-snap-align: center;
-  border-radius: 14px; box-shadow: var(--shadow); border: 1px solid var(--line);
+.shots::-webkit-scrollbar { display: none; }
+.shots:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.shots img { flex: 0 0 100%; width: 100%; aspect-ratio: 16 / 10; object-fit: contain; scroll-snap-align: start; }
+.shot-nav {
+  position: absolute; top: 50%; translate: 0 -50%;
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 0;
+  background: rgb(255 255 255 / 0.92); color: var(--ink); box-shadow: var(--shadow); cursor: pointer;
+  transition: opacity 0.15s ease;
 }
-.shots::before, .shots::after { content: ""; flex: 0 0 max(0px, (100vw - var(--wrap)) / 2 - 16px); }
+.shot-nav svg { width: 18px; height: 18px; }
+.shot-nav[disabled] { opacity: 0; pointer-events: none; }
+.shot-prev { left: -20px; }
+.shot-next { right: -20px; }
+.dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+.dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: #d6d6dc; cursor: pointer; transition: width 0.2s ease, background 0.2s ease; }
+.dot[aria-current="true"] { width: 22px; background: var(--ink); }
 
 .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 40px 0 0; }
 .feature { padding: 28px; border-radius: 22px; background: var(--soft); }
@@ -155,6 +168,9 @@ img { display: block; max-width: 100%; }
   .detail-hero { padding-top: 40px; }
   .icon-lg { width: 104px; height: 104px; border-radius: 24px; }
   .feature { padding: 22px; }
+  .shot-prev { left: 8px; }
+  .shot-next { right: 8px; }
+  .shot-nav { width: 34px; height: 34px; }
   .nav-links { gap: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {

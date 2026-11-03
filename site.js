@@ -51,7 +51,7 @@ function renderChrome(current) {
   const foot = document.querySelector("[data-foot]");
   if (foot) {
     foot.innerHTML = `<div class="wrap">
-      <span>© ${new Date().getFullYear()} HONEYMATH · 모든 앱 무료</span>
+      <span>© ${new Date().getFullYear()} HONEYMATH</span>
       <span><a href="apps.html">앱 목록</a> · <a href="${GITHUB}/release/releases" target="_blank" rel="noopener">모든 릴리스</a></span>
     </div>`;
   }

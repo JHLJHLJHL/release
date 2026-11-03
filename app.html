@@ -53,8 +53,13 @@
             </div>
           </div>
         </section>
-        <div class="shots" tabindex="0" aria-label="화면 미리보기">
-          ${[1, 2, 3].map((n) => `<img src="assets/${app.id}/screenshot-0${n}.png" alt="${esc(app.name)} 화면 ${n}" loading="lazy">`).join("")}
+        <div class="gallery">
+          <div class="shots" tabindex="0" aria-label="화면 미리보기, 좌우 방향키로 넘기기">
+            ${[1, 2, 3].map((n) => `<img src="assets/${app.id}/screenshot-0${n}.png" alt="${esc(app.name)} 화면 ${n}">`).join("")}
+          </div>
+          <button class="shot-nav shot-prev" type="button" aria-label="이전 화면" data-step="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg></button>
+          <button class="shot-nav shot-next" type="button" aria-label="다음 화면" data-step="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
+          <div class="dots">${[0, 1, 2].map((i) => `<button class="dot" type="button" aria-label="화면 ${i + 1}" data-go="${i}"></button>`).join("")}</div>
         </div>
         <div class="wrap">
           <div class="features">
@@ -66,6 +71,27 @@
           </div>
           ${others.length ? `<div class="more"><h2 class="section-title">함께 쓰면 좋은 앱</h2><div class="grid">${others.map(card).join("")}</div></div>` : ""}
         </div>`;
+
+      const shots = main.querySelector(".shots");
+      const count = shots.children.length;
+      const current = () => Math.round(shots.scrollLeft / shots.clientWidth);
+      const go = (i) => shots.scrollTo({ left: Math.max(0, Math.min(count - 1, i)) * shots.clientWidth });
+      const sync = () => {
+        const i = current();
+        main.querySelectorAll(".dot").forEach((d, n) => d.setAttribute("aria-current", String(n === i)));
+        main.querySelector(".shot-prev").disabled = i === 0;
+        main.querySelector(".shot-next").disabled = i === count - 1;
+      };
+      main.querySelectorAll(".shot-nav").forEach((b) => b.addEventListener("click", () => go(current() + Number(b.dataset.step))));
+      main.querySelectorAll(".dot").forEach((d) => d.addEventListener("click", () => go(Number(d.dataset.go))));
+      shots.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+          e.preventDefault();
+          go(current() + (e.key === "ArrowRight" ? 1 : -1));
+        }
+      });
+      shots.addEventListener("scroll", sync, { passive: true });
+      sync();
     }
   </script>
 </body>
