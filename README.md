@@ -5,7 +5,7 @@ https://jhljhljhl.github.io/release/
 빌드 없는 정적 사이트입니다. 앱 정보는 `apps-data.js` 한 파일에 있습니다.
 
 - `index.html` — 홈
-- `apps.html` — 앱 목록 (필터: 교사용 · 누구나 · 내려받기 · 웹)
+- `apps.html` — 앱 목록
 - `app.html?id=<앱 id>` — 앱 상세
 - `assets/<앱 id>/` — 아이콘, 스크린샷 3장
 

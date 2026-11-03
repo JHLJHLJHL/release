@@ -17,7 +17,6 @@ window.APPS = [
     updated: "2026-10-30",
     size: null,
     url: `${RELEASES}/ai-workbench-v1.3.0/ai-workbench.html`,
-    featured: true,
     features: [
       ["탐구 주제 추천", "과목과 희망 학과로 교과 안 3개 · 교과 밖 2개 주제와 계획서 초안을 만듭니다."],
       ["세특 초안", "열매카드 응답 엑셀(.xlsx)을 올리면 학생마다 초안을 쓰고 엑셀로 내려받습니다."],
@@ -40,7 +39,6 @@ window.APPS = [
     size: "187 MB",
     url: "https://github.com/JHLJHLJHL/starMD/releases/latest",
     repo: "https://github.com/JHLJHLJHL/starMD",
-    featured: true,
     features: [
       ["여러 형식 변환", "HWP · HWPX · PDF · XLSX · DOCX · 이미지를 Markdown으로, Markdown은 PDF · HWPX로 내보냅니다."],
       ["끌어다 놓기", "여러 파일을 창에 끌어다 놓으면 차례로 변환하고 실패한 파일만 다시 시도합니다."],
