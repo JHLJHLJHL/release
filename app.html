@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HONEYMATH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav" data-nav></header>
+  <main data-main></main>
+  <footer class="foot" data-foot></footer>
+  <script src="site.js"></script>
+  <script src="apps-data.js"></script>
+  <script>
+    renderChrome("apps");
+    const main = document.querySelector("[data-main]");
+    const id = new URLSearchParams(location.search).get("id");
+    const app = window.APPS.find((a) => a.id === id);
+
+    if (!app) {
+      main.innerHTML = `<section class="detail-hero wrap"><h1>앱을 찾지 못했습니다</h1>
+        <div class="actions"><a class="btn btn-dark" href="apps.html">앱 목록으로</a></div></section>`;
+    } else {
+      document.title = `${app.name} — HONEYMATH`;
+      const fmt = (d) => d.replaceAll("-", ". ") + ".";
+      const primary = app.kind === "link"
+        ? `<a class="btn btn-accent btn-lg" href="${app.url}" target="_blank" rel="noopener">${ICON.open}웹에서 열기</a>`
+        : `<a class="btn btn-accent btn-lg" href="${app.url}">${ICON.download}내려받기</a>`;
+      const repo = app.repo
+        ? `<a class="btn btn-dark btn-lg" href="${app.repo}" target="_blank" rel="noopener">${ICON.github}GitHub</a>`
+        : "";
+      const meta = [
+        ["무료", app.version && `버전 ${app.version}`, app.size].filter(Boolean).join(" · "),
+        app.platform + (app.audience === "teacher" ? " · 교사용" : " · 누구나"),
+        `${fmt(app.updated)} 업데이트`,
+      ];
+      const others = window.APPS.filter((a) => a.id !== app.id && a.audience === app.audience).slice(0, 3);
+
+      main.innerHTML = `
+        <section class="detail-hero glow">
+          <div class="wrap">
+            <div class="icon icon-lg"><img src="${iconSrc(app)}" alt="" width="128" height="128"></div>
+            <h1>${esc(app.name)}</h1>
+            <p class="tagline">${esc(app.tagline)}</p>
+            <p class="desc">${esc(app.description)}</p>
+            <div class="actions">${primary}${repo}</div>
+            <ul class="meta">${meta.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>
+            <div class="links">
+              <a href="apps.html">모든 앱</a>
+              ${app.kind === "download" && !app.repo ? `<a href="${GITHUB}/release/releases?q=${app.id}" target="_blank" rel="noopener">이전 버전</a>` : ""}
+              ${app.repo ? `<a href="${app.repo}/releases" target="_blank" rel="noopener">릴리스 노트</a>` : ""}
+            </div>
+          </div>
+        </section>
+        <div class="shots" tabindex="0" aria-label="화면 미리보기">
+          ${[1, 2, 3].map((n) => `<img src="assets/${app.id}/screenshot-0${n}.png" alt="${esc(app.name)} 화면 ${n}" loading="lazy">`).join("")}
+        </div>
+        <div class="wrap">
+          <div class="features">
+            ${app.features.map(([t, d]) => `<div class="feature"><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join("")}
+          </div>
+          <div class="requires">
+            <h2>필요한 것</h2>
+            <ul>${app.requires.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
+          </div>
+          ${others.length ? `<div class="more"><h2 class="section-title">함께 쓰면 좋은 앱</h2><div class="grid">${others.map(card).join("")}</div></div>` : ""}
+        </div>`;
+    }
+  </script>
+</body>
+</html>

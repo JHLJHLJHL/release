@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>앱 — HONEYMATH</title>
+  <meta name="description" content="교사와 누구나 쓰는 무료 앱 모음.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav" data-nav></header>
+  <main>
+    <section class="hero glow">
+      <div class="wrap">
+        <h1>교실을 위한<br><em>작은 앱들</em></h1>
+        <div class="stats" data-stats></div>
+        <div class="chips" role="group" aria-label="앱 거르기" data-chips></div>
+      </div>
+    </section>
+    <div class="wrap">
+      <div data-featured-block>
+        <h2 class="section-title">대표 앱</h2>
+        <div class="featured" data-featured></div>
+      </div>
+      <h2 class="section-title" data-grid-title>모든 앱</h2>
+      <div class="grid" data-grid></div>
+    </div>
+  </main>
+  <footer class="foot" data-foot></footer>
+  <script src="site.js"></script>
+  <script src="apps-data.js"></script>
+  <script>
+    renderChrome("apps");
+    const apps = window.APPS;
+    const FILTERS = [
+      ["all", "전체", () => true],
+      ["teacher", "교사용", (a) => a.audience === "teacher"],
+      ["everyone", "누구나", (a) => a.audience === "all"],
+      ["download", "내려받기", (a) => a.kind === "download"],
+      ["web", "웹에서 바로", (a) => a.kind === "link"],
+    ];
+
+    document.querySelector("[data-stats]").innerHTML = [
+      `${apps.length}개 앱`,
+      "모두 무료",
+      `교사용 ${apps.filter((a) => a.audience === "teacher").length}개`,
+      "로그인 없음",
+    ].map((s) => `<span>${s}</span>`).join("");
+
+    document.querySelector("[data-featured]").innerHTML = apps.filter((a) => a.featured).map((a) => `
+      <a class="fcard" href="app.html?id=${a.id}">
+        <div class="fcard-head">
+          <span class="icon"><img src="${iconSrc(a)}" alt="" width="56" height="56"></span>
+          <span><h3>${esc(a.name)}</h3><p>${esc(a.tagline)}</p></span>
+        </div>
+        <div class="fcard-shot"><img src="assets/${a.id}/screenshot-01.png" alt="${esc(a.name)} 화면" loading="lazy"></div>
+      </a>`).join("");
+
+    const chips = document.querySelector("[data-chips]");
+    const grid = document.querySelector("[data-grid]");
+    chips.innerHTML = FILTERS.map(([key, label]) => `<button class="chip" type="button" data-key="${key}">${label}</button>`).join("");
+
+    function show(key) {
+      const [, label, test] = FILTERS.find((f) => f[0] === key) || FILTERS[0];
+      chips.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.key === key)));
+      const list = apps.filter(test);
+      grid.innerHTML = list.length ? list.map(card).join("") : `<p class="empty">해당하는 앱이 없습니다.</p>`;
+      document.querySelector("[data-featured-block]").hidden = key !== "all";
+      document.querySelector("[data-grid-title]").textContent = key === "all" ? "모든 앱" : `${label} · ${list.length}개`;
+    }
+    chips.addEventListener("click", (e) => {
+      const btn = e.target.closest(".chip");
+      if (!btn) return;
+      show(btn.dataset.key);
+      history.replaceState(null, "", btn.dataset.key === "all" ? location.pathname : `#${btn.dataset.key}`);
+    });
+    show(location.hash.slice(1) || "all");
+  </script>
+</body>
+</html>
