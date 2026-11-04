@@ -142,6 +142,7 @@ window.APPS = [
   {
     id: "drop6",
     icon: "assets/drop6/icon.png",
+    iconFree: true,
     name: "DROP6",
     tagline: "6자리 코드로 파일을 보내고 받기",
     description:
