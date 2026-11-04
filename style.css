@@ -46,11 +46,10 @@ img { display: block; max-width: 100%; }
 .nav-links { margin-left: auto; display: flex; gap: 20px; font-size: 14px; color: var(--ink-2); }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--ink); }
 
-/* 뒤로 퍼지는 꿀빛 */
-.glow { position: relative; isolation: isolate; }
-.glow::before {
-  content: ""; position: absolute; z-index: -1;
-  inset: -120px 0 auto; height: 620px;
+/* 모든 쪽 뒤로 퍼지는 꿀빛 */
+body::before {
+  content: ""; position: fixed; z-index: -1;
+  inset: -40px;
   background:
     radial-gradient(40% 50% at 30% 40%, rgb(255 196 92 / 0.35), transparent 70%),
     radial-gradient(35% 45% at 70% 30%, rgb(255 150 120 / 0.22), transparent 70%),
@@ -113,7 +112,7 @@ img { display: block; max-width: 100%; }
 .badge-teacher { background: var(--teacher-soft); color: var(--teacher); }
 
 /* 앱 상세 */
-.back-row { position: relative; z-index: 1; padding-top: 12px; }
+.back-row { padding-top: 12px; }
 .back { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 14px; font-weight: 600; color: var(--ink-2); }
 .back svg { width: 16px; height: 16px; }
 .back:hover { color: var(--ink); }
