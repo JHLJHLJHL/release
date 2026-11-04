@@ -164,7 +164,7 @@ window.APPS = [
     id: "bbb",
     icon: "assets/bbb/icon.png",
     name: "BBB",
-    tagline: "《브레이킹 배드》 62편 회차 해설",
+    tagline: "'Breaking Bad' 팬 페이지, 모든 회차 해설",
     description:
       "다섯 시즌 62편을 한 편씩 풀어 둔 읽을거리입니다. 회차마다 줄거리, 제목에 숨은 의미, 명대사, 방영 반응, 비하인드, 자주 나오는 질문을 정리하고 흑백 연필 삽화를 곁들였습니다.",
     audience: "all",
@@ -183,7 +183,7 @@ window.APPS = [
     id: "bcs",
     icon: "assets/bcs/icon.png",
     name: "BCS",
-    tagline: "《베터 콜 사울》 63편 회차 해설",
+    tagline: "'Better Call Saul' 팬 페이지, 모든 회차 해설",
     description:
       "여섯 시즌 63편을 한 편씩 풀어 둔 읽을거리입니다. 줄거리와 질문 답변은 그 회차까지 방송된 내용만으로 써서, 처음 보는 중에도 스포일러 걱정 없이 읽을 수 있습니다.",
     audience: "all",
