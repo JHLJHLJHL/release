@@ -140,6 +140,26 @@ window.APPS = [
     requires: ["최신 Chrome · Edge · Safari", "본인 AI API 키"],
   },
   {
+    id: "drop6",
+    icon: "assets/drop6/icon.png",
+    name: "DROP6",
+    tagline: "6자리 코드로 파일을 보내고 받기",
+    description:
+      "보내는 사람이 파일을 고르면 6자리 코드가 만들어지고, 받는 사람(최대 3명)이 코드를 입력하거나 QR 코드를 찍으면 브라우저끼리 바로 파일을 주고받습니다. 설치도 로그인도 필요 없고, 파일은 서버에 저장되지 않습니다.",
+    audience: "all",
+    platform: "Web",
+    kind: "link",
+    updated: "2026-10-19",
+    url: "https://drop6.duckdns.org/",
+    features: [
+      ["코드 또는 QR", "받는 사람이 6자리 코드를 입력하거나 QR 코드를 찍으면 연결됩니다. 안내 메시지는 한 번에 복사됩니다."],
+      ["서버를 거치지 않음", "파일은 브라우저끼리 직접 오가고 서버에 저장되지 않습니다. 한 코드에 최대 3명이 받습니다."],
+      ["여러 파일", "받는 사람이 zip 하나로 받을지 파일별로 따로 받을지 고릅니다."],
+      ["끊겨도 이어서", "보내는 사람 연결이 끊겨도 3분 안에 돌아오면 이어서 받습니다."],
+    ],
+    requires: ["최신 브라우저, 설치 · 로그인 없음", "Windows Chrome · Edge 밖에서는 받는 파일이 파일당 500MB까지"],
+  },
+  {
     id: "bbb",
     icon: "assets/bbb/icon.png",
     name: "BBB",
