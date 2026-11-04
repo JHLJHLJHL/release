@@ -65,7 +65,7 @@ function renderChrome(current, brandHref = "index.html") {
   const foot = document.querySelector("[data-foot]");
   if (foot) {
     foot.innerHTML = `<div class="wrap">
-      <span>© ${new Date().getFullYear()} HONEYMATH</span>
+      <span>© ${new Date().getFullYear()} LJH</span>
       <button class="copy-mail" type="button" title="눌러서 복사">${EMAIL}</button>
     </div>`;
     const toast = document.createElement("div");

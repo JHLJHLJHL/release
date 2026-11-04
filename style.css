@@ -18,7 +18,7 @@
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scrollbar-gutter: stable; }
 body {
   margin: 0;
   background: var(--bg);
@@ -165,7 +165,7 @@ img { display: block; max-width: 100%; }
 
 
 /* 아랫줄 */
-.foot { margin-top: 80px; border-top: 1px solid var(--line); }
+.foot { margin-top: 80px; }
 .copy-mail { padding: 4px 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
 .copy-mail:hover { color: var(--ink); }
 .copy-mail:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
