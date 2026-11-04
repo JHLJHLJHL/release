@@ -19,9 +19,8 @@ function icon(app, size, extra = "") {
 
 function badges(app) {
   return `<div class="badges">
-    <span class="badge badge-free">무료</span>
     ${app.audience === "teacher" ? `<span class="badge badge-teacher">교사용</span>` : ""}
-    <span class="badge">${esc(app.platform.split(" · ")[0])}</span>
+    <span class="badge">${esc(app.platform.split(" · ").pop())}</span>
   </div>`;
 }
 

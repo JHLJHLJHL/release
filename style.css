@@ -76,8 +76,7 @@ img { display: block; max-width: 100%; }
 
 /* 홈 */
 .home { min-height: calc(100svh - 56px - 72px); display: grid; place-items: center; text-align: center; padding: 48px 0; }
-.home h1 { margin: 0; font-size: clamp(36px, 7vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
-.home p { margin: 12px 0 28px; font-size: clamp(17px, 2.4vw, 20px); color: var(--ink-2); }
+.home h1 { margin: 0 0 32px; font-size: clamp(36px, 7vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
 .home .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
 /* 앱 목록 머리 */
@@ -111,7 +110,6 @@ img { display: block; max-width: 100%; }
 .badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .badge { padding: 1px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; background: var(--soft); color: var(--ink-2); }
 .card:hover .badge { background: #fff; }
-.badge-free { background: var(--accent-soft); color: #a35a00; }
 .badge-teacher { background: var(--teacher-soft); color: var(--teacher); }
 
 /* 앱 상세 */
