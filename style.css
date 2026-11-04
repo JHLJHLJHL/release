@@ -98,9 +98,14 @@ img { display: block; max-width: 100%; }
 .card:hover { background: var(--soft); }
 .card h3 { margin: 0; font-size: 17px; letter-spacing: -0.01em; }
 .card p { margin: 2px 0 8px; color: var(--ink-2); font-size: 14px; line-height: 1.5; }
-.icon { flex: none; width: 56px; height: 56px; border-radius: 13px; overflow: hidden; }
+.icon { display: block; flex: none; width: 56px; height: 56px; border-radius: 13px; overflow: hidden; }
 .icon img { width: 100%; height: 100%; object-fit: cover; }
-.icon-lg { width: 128px; height: 128px; border-radius: 29px; box-shadow: var(--shadow); }
+.icon-lg { width: 128px; height: 128px; border-radius: 29px; }
+/* 모양 그대로인 아이콘: 그림 안에 그림자와 여백이 있어 자르지 않고 조금 크게 둔다 */
+.icon-free { border-radius: 0; overflow: visible; transform: scale(1.2); }
+.icon-free img { object-fit: contain; }
+.card .icon-free img { transition: transform 0.2s ease; }
+.card:hover .icon-free img { transform: translateY(-2px) rotate(-3deg); }
 
 .badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .badge { padding: 1px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; background: var(--soft); color: var(--ink-2); }
@@ -157,7 +162,7 @@ img { display: block; max-width: 100%; }
 
 /* 아랫줄 */
 .foot { margin-top: 80px; border-top: 1px solid var(--line); }
-.foot .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; padding: 24px 0; font-size: 13px; color: var(--ink-3); }
+.foot .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; padding: 24px 0; font-size: 13px; color: var(--ink-2); }
 .foot a:hover { color: var(--ink); }
 
 @media (max-width: 860px) {

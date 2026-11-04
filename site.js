@@ -18,8 +18,10 @@ function esc(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 }
 
-function iconSrc(app) {
-  return `assets/${app.id}/${app.id === "starmd" || app.id === "review" || app.id === "yeolmae" ? "icon.png" : "icon.svg"}`;
+// 타일 아이콘은 둥근 모서리로 자르고, 모양 그대로인 아이콘(iconFree)은 자르지 않는다.
+function icon(app, size, extra = "") {
+  const cls = ["icon", app.iconFree ? "icon-free" : "", extra].filter(Boolean).join(" ");
+  return `<span class="${cls}"><img src="${app.icon}" alt="" width="${size}" height="${size}"></span>`;
 }
 
 function badges(app) {
@@ -32,7 +34,7 @@ function badges(app) {
 
 function card(app) {
   return `<a class="card" href="app.html?id=${app.id}">
-    <span class="icon"><img src="${iconSrc(app)}" alt="" width="56" height="56" loading="lazy"></span>
+    ${icon(app, 56)}
     <span><h3>${esc(app.name)}</h3><p>${esc(app.tagline)}</p>${badges(app)}</span>
   </a>`;
 }

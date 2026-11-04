@@ -1,11 +1,14 @@
 // 앱 목록. 새 앱을 올리거나 버전을 바꿀 때 이 파일만 고친다.
 // kind: "download"(파일 내려받기) | "link"(웹 페이지 열기)
 // audience: "teacher"(교사용) | "all"(누구나)
+// iconFree: 배경 없이 모양 그대로인 아이콘(둥근 타일로 자르지 않음)
 const RELEASES = "https://github.com/JHLJHLJHL/release/releases/download";
 
 window.APPS = [
   {
     id: "ai-workbench",
+    icon: "assets/ai-workbench/icon.png",
+    iconFree: true,
     name: "생기부 AI 작업실",
     tagline: "탐구주제추천 · 열매세특 · 세특검토함을 한 파일에",
     description:
@@ -27,6 +30,7 @@ window.APPS = [
   },
   {
     id: "starmd",
+    icon: "assets/starmd/icon.png",
     name: "StarMD",
     tagline: "HWP · PDF · Office 문서를 Markdown으로",
     description:
@@ -49,6 +53,8 @@ window.APPS = [
   },
   {
     id: "topic",
+    icon: "assets/topic/icon.png",
+    iconFree: true,
     name: "탐구주제추천",
     tagline: "교과 탐구부터 창체 활동까지, 학생에게 맞는 주제",
     description:
@@ -69,6 +75,8 @@ window.APPS = [
   },
   {
     id: "yeolmae",
+    icon: "assets/yeolmae/icon.png",
+    iconFree: true,
     name: "열매세특",
     tagline: "열매카드 응답으로 학생별 기록 초안",
     description:
@@ -89,6 +97,8 @@ window.APPS = [
   },
   {
     id: "review",
+    icon: "assets/review/icon.png",
+    iconFree: true,
     name: "세특검토함",
     tagline: "다 쓴 특기사항을 근거와 함께 점검",
     description:
@@ -109,6 +119,7 @@ window.APPS = [
   },
   {
     id: "curriculum",
+    icon: "assets/curriculum/icon.svg",
     name: "교과연계주제 추출",
     tagline: "체험학습 날, 교시마다 교과 연계 수업 주제",
     description:
@@ -129,6 +140,7 @@ window.APPS = [
   },
   {
     id: "bbb",
+    icon: "assets/bbb/icon.svg",
     name: "BBB",
     tagline: "《브레이킹 배드》 62편 회차 해설",
     description:
@@ -147,6 +159,7 @@ window.APPS = [
   },
   {
     id: "bcs",
+    icon: "assets/bcs/icon.svg",
     name: "BCS",
     tagline: "《베터 콜 사울》 63편 회차 해설",
     description:
