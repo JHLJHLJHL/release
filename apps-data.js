@@ -119,8 +119,9 @@ window.APPS = [
   },
   {
     id: "curriculum",
-    icon: "assets/curriculum/icon.svg",
-    name: "교과연계주제 추출",
+    icon: "assets/curriculum/icon.png",
+    iconFree: true,
+    name: "교과연계주제 추천",
     tagline: "체험학습 날, 교시마다 교과 연계 수업 주제",
     description:
       "나이스 전체시간표(.xlsx)와 행사명, 인솔 교사 명단만 넣으면 각 교시 · 과목에 맞는 교과 연계 수업 주제를 AI로 만들고 지도 교사를 자동 배정합니다. 결과는 엑셀로 바로 내보냅니다.",
@@ -140,7 +141,7 @@ window.APPS = [
   },
   {
     id: "bbb",
-    icon: "assets/bbb/icon.svg",
+    icon: "assets/bbb/icon.png",
     name: "BBB",
     tagline: "《브레이킹 배드》 62편 회차 해설",
     description:
@@ -159,7 +160,7 @@ window.APPS = [
   },
   {
     id: "bcs",
-    icon: "assets/bcs/icon.svg",
+    icon: "assets/bcs/icon.png",
     name: "BCS",
     tagline: "《베터 콜 사울》 63편 회차 해설",
     description:

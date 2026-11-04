@@ -43,7 +43,6 @@ img { display: block; max-width: 100%; }
 }
 .nav .wrap { display: flex; align-items: center; gap: 24px; height: 56px; }
 .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.01em; }
-.brand svg { width: 24px; height: 24px; }
 .nav-links { margin-left: auto; display: flex; gap: 20px; font-size: 14px; color: var(--ink-2); }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--ink); }
 
@@ -77,7 +76,6 @@ img { display: block; max-width: 100%; }
 
 /* 홈 */
 .home { min-height: calc(100svh - 56px - 72px); display: grid; place-items: center; text-align: center; padding: 48px 0; }
-.home-mark { width: 120px; height: 120px; margin: 0 auto 24px; }
 .home h1 { margin: 0; font-size: clamp(36px, 7vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
 .home p { margin: 12px 0 28px; font-size: clamp(17px, 2.4vw, 20px); color: var(--ink-2); }
 .home .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -106,6 +104,9 @@ img { display: block; max-width: 100%; }
 .icon-free img { object-fit: contain; }
 .card .icon-free img { transition: transform 0.2s ease; }
 .card:hover .icon-free img { transform: translateY(-2px) rotate(-3deg); }
+/* 타일 아이콘은 안쪽 그림을 돌리면 모서리가 잘리므로 타일 전체를 움직인다 */
+.card .icon:not(.icon-free) { transition: transform 0.2s ease; }
+.card:hover .icon:not(.icon-free) { transform: translateY(-2px) rotate(-3deg); }
 
 .badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .badge { padding: 1px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; background: var(--soft); color: var(--ink-2); }
@@ -158,7 +159,6 @@ img { display: block; max-width: 100%; }
 .requires h2 { margin: 0 0 6px; font-size: 13px; letter-spacing: 0.06em; }
 .requires ul { list-style: none; margin: 0; padding: 0; }
 
-.more { margin-top: 72px; }
 
 /* 아랫줄 */
 .foot { margin-top: 80px; border-top: 1px solid var(--line); }

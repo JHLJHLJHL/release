@@ -36,7 +36,6 @@
         app.platform + (app.audience === "teacher" ? " · 교사용" : " · 누구나"),
         `${fmt(app.updated)} 업데이트`,
       ];
-      const others = window.APPS.filter((a) => a.id !== app.id && a.audience === app.audience).slice(0, 3);
 
       main.innerHTML = `
         <section class="detail-hero glow">
@@ -70,7 +69,6 @@
             <h2>필요한 것</h2>
             <ul>${app.requires.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
           </div>
-          ${others.length ? `<div class="more"><h2 class="section-title">함께 쓰면 좋은 앱</h2><div class="grid">${others.map(card).join("")}</div></div>` : ""}
         </div>`;
 
       const shots = main.querySelector(".shots");

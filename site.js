@@ -1,13 +1,6 @@
 // 세 페이지가 함께 쓰는 윗줄 · 아랫줄 · 카드 그리기.
 const GITHUB = "https://github.com/JHLJHLJHL";
 
-const MARK = `<svg viewBox="0 0 64 64" aria-hidden="true">
-  <defs><linearGradient id="hm" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#ffc35c"/><stop offset="1" stop-color="#e8890c"/></linearGradient></defs>
-  <path d="M32 3 57 17.5v29L32 61 7 46.5v-29Z" fill="url(#hm)"/>
-  <path d="M22 22v20M42 22v20M22 32h20" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
-</svg>`;
-
 const ICON = {
   download: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 20h14"/></svg>`,
   open: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5h5v5m0-5-8 8M10 5H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/></svg>`,
@@ -43,7 +36,7 @@ function renderChrome(current) {
   const nav = document.querySelector("[data-nav]");
   if (nav) {
     nav.innerHTML = `<div class="wrap">
-      <a class="brand" href="index.html">${MARK}HONEYMATH</a>
+      <a class="brand" href="index.html">HONEYMATH</a>
       <nav class="nav-links">
         <a href="apps.html"${current === "apps" ? ' aria-current="page"' : ""}>앱</a>
         <a href="${GITHUB}" target="_blank" rel="noopener">GitHub</a>
