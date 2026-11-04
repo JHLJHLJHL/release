@@ -75,7 +75,7 @@ img { display: block; max-width: 100%; }
 .btn-lg { height: 48px; padding: 0 24px; font-size: 16px; }
 
 /* 홈 */
-.home { min-height: calc(100svh - 56px - 72px); display: grid; place-items: center; text-align: center; padding: 48px 0; }
+.home { min-height: 100svh; display: grid; place-items: center; text-align: center; padding: 48px 0; }
 .home h1 { margin: 0 0 32px; font-size: clamp(36px, 7vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
 .home .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
@@ -113,7 +113,13 @@ img { display: block; max-width: 100%; }
 .badge-teacher { background: var(--teacher-soft); color: var(--teacher); }
 
 /* 앱 상세 */
+.back-row { position: relative; z-index: 1; padding-top: 12px; }
+.back { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.back svg { width: 16px; height: 16px; }
+.back:hover { color: var(--ink); }
+.back-bottom { margin-top: 48px; }
 .detail-hero { text-align: center; padding: 64px 0 24px; }
+.back-row + .detail-hero { padding-top: 24px; }
 .detail-hero .icon-lg { margin: 0 auto 24px; }
 .detail-hero h1 { margin: 0; font-size: clamp(40px, 7vw, 64px); font-weight: 850; letter-spacing: -0.035em; line-height: 1.1; }
 .detail-hero .tagline { margin: 10px 0 0; font-size: clamp(19px, 2.8vw, 24px); font-weight: 600; color: var(--ink-2); letter-spacing: -0.01em; }
@@ -160,8 +166,18 @@ img { display: block; max-width: 100%; }
 
 /* 아랫줄 */
 .foot { margin-top: 80px; border-top: 1px solid var(--line); }
+.copy-mail { padding: 4px 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
+.copy-mail:hover { color: var(--ink); }
+.copy-mail:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.toast {
+  position: fixed; left: 50%; bottom: 32px; z-index: 50; transform: translate(-50%, 12px);
+  padding: 10px 18px; border-radius: 999px; background: var(--ink); color: #fff;
+  font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
 .foot .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; padding: 24px 0; font-size: 13px; color: var(--ink-2); }
-.foot a:hover { color: var(--ink); }
 
 @media (max-width: 860px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
