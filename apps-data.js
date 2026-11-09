@@ -4,6 +4,9 @@
 // iconFree: 배경 없이 모양 그대로인 아이콘(둥근 타일로 자르지 않음)
 const RELEASES = "https://github.com/JHLJHLJHL/release/releases/download";
 
+// buttonLabel: 상세 페이지 주 버튼의 글자(생략하면 '내려받기' · '웹에서 열기').
+// url을 비워 두면 그 버튼이 비활성으로 보인다(buttonLabel이 없으면 '곧 공개합니다').
+// noShots: true면 화면 미리보기 갤러리를 숨긴다. description · features · requires · updated · version · size는 생략해도 된다.
 window.APPS = [
   {
     id: "ai-workbench",
@@ -27,6 +30,19 @@ window.APPS = [
       ["내 키, 내 브라우저", "Gemini · Claude · OpenAI 키는 이 브라우저에만 저장하고 기록도 밖으로 보내지 않습니다."],
     ],
     requires: ["최신 Chrome · Edge · Safari", "AI 사용 시 본인 API 키 (Gemini 무료 키 가능)"],
+  },
+  {
+    id: "training",
+    icon: "assets/training/icon.png",
+    iconFree: true,
+    name: "연수 자료",
+    buttonLabel: "26/11/24 죽변고 연수 자료",
+    tagline: "생기부 AI 작업실 실습 자료입니다. 가상의 학생 정보입니다.",
+    audience: "teacher",
+    platform: "연수 자료",
+    kind: "download",
+    noShots: true,
+    url: null,
   },
   {
     id: "starmd",

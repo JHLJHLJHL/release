@@ -25,17 +25,19 @@
       document.title = `${app.name} — jhljhljhl/Release`;
       document.head.insertAdjacentHTML("beforeend", `<link rel="icon" href="${app.icon}">`);
       const fmt = (d) => d.replaceAll("-", ". ") + ".";
-      const primary = app.kind === "link"
-        ? `<a class="btn btn-accent btn-lg" href="${app.url}" target="_blank" rel="noopener">${ICON.open}웹에서 열기</a>`
-        : `<a class="btn btn-accent btn-lg" href="${app.url}">${ICON.download}내려받기</a>`;
+      const primary = !app.url
+        ? `<span class="btn btn-accent btn-lg" aria-disabled="true">${ICON.download}${esc(app.buttonLabel || "곧 공개합니다")}</span>`
+        : app.kind === "link"
+        ? `<a class="btn btn-accent btn-lg" href="${app.url}" target="_blank" rel="noopener">${ICON.open}${esc(app.buttonLabel || "웹에서 열기")}</a>`
+        : `<a class="btn btn-accent btn-lg" href="${app.url}">${ICON.download}${esc(app.buttonLabel || "내려받기")}</a>`;
       const repo = app.repo
         ? `<a class="btn btn-dark btn-lg" href="${app.repo}" target="_blank" rel="noopener">${ICON.github}GitHub</a>`
         : "";
       const meta = [
         ["무료", app.version && `버전 ${app.version}`, app.size].filter(Boolean).join(" · "),
         app.platform + (app.audience === "teacher" ? " · 교사용" : " · 누구나"),
-        `${fmt(app.updated)} 업데이트`,
-      ];
+        app.updated && `${fmt(app.updated)} 업데이트`,
+      ].filter(Boolean);
 
       main.innerHTML = `
         <div class="wrap back-row"><a class="back" href="apps.html">${ICON.back}앱 목록</a></div>
@@ -44,12 +46,12 @@
             ${icon(app, 128, "icon-lg")}
             <h1>${esc(app.name)}</h1>
             <p class="tagline">${esc(app.tagline)}</p>
-            <p class="desc">${esc(app.description)}</p>
+            ${app.description ? `<p class="desc">${esc(app.description)}</p>` : ""}
             <div class="actions">${primary}${repo}</div>
             <ul class="meta">${meta.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>
             <div class="links">
               <a href="apps.html">모든 앱</a>
-              ${app.kind === "download" && !app.repo ? `<a href="${GITHUB}/release/releases?q=${app.id}" target="_blank" rel="noopener">이전 버전</a>` : ""}
+              ${app.kind === "download" && app.url && !app.repo ?`<a href="${GITHUB}/release/releases?q=${app.id}" target="_blank" rel="noopener">이전 버전</a>` : ""}
               ${app.repo ? `<a href="${app.repo}/releases" target="_blank" rel="noopener">릴리스 노트</a>` : ""}
             </div>
           </div>
@@ -63,13 +65,13 @@
           <div class="dots">${[0, 1, 2].map((i) => `<button class="dot" type="button" aria-label="화면 ${i + 1}" data-go="${i}"></button>`).join("")}</div>
         </div>`}
         <div class="wrap">
-          <div class="features">
+          ${app.features?.length ? `<div class="features">
             ${app.features.map(([t, d]) => `<div class="feature"><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join("")}
-          </div>
-          <div class="requires">
+          </div>` : ""}
+          ${app.requires?.length ? `<div class="requires">
             <h2>필요한 것</h2>
             <ul>${app.requires.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
-          </div>
+          </div>` : ""}
           <div class="back-bottom"><a class="back" href="apps.html">${ICON.back}앱 목록</a></div>
         </div>`;
 
