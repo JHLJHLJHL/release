@@ -1,4 +1,4 @@
-# HONEYMATH 앱 배포 페이지
+# jhljhljhl/Release 앱 배포 페이지
 
 https://jhljhljhl.github.io/release/
 
