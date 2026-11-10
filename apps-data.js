@@ -42,7 +42,7 @@ window.APPS = [
     platform: "연수 자료",
     kind: "download",
     noShots: true,
-    url: null,
+    url: `${RELEASES}/training-20261124/honeymath-icons-v3-both.zip`,
   },
   {
     id: "starmd",
