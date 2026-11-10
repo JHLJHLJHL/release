@@ -55,9 +55,8 @@ function renderChrome(current, brandHref = "index.html") {
   const nav = document.querySelector("[data-nav]");
   if (nav) {
     nav.innerHTML = `<div class="wrap">
-      <a class="brand" href="${brandHref}">jhljhljhl/Release</a>
+      <a class="brand" href="${brandHref}">jhljhljhl/Release<span class="brand-sub">앱 배포 페이지</span></a>
       <nav class="nav-links">
-        <a href="apps.html"${current === "apps" ? ' aria-current="page"' : ""}>앱</a>
         <a href="${GITHUB}" target="_blank" rel="noopener">GitHub</a>
       </nav>
     </div>`;
