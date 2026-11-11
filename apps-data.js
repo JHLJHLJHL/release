@@ -55,9 +55,9 @@ window.APPS = [
     platform: "Windows",
     kind: "download",
     version: "1.0.1",
-    updated: "2026-10-03",
+    updated: "2026-11-11",
     size: "187 MB",
-    url: "https://github.com/JHLJHLJHL/starMD/releases/latest",
+    url: `${RELEASES}/starmd-v1.0.1/StarMD-1.0.1-win-x64.exe`,
     repo: "https://github.com/JHLJHLJHL/starMD",
     features: [
       ["여러 형식 변환", "HWP · HWPX · PDF · XLSX · DOCX · 이미지를 Markdown으로, Markdown은 PDF · HWPX로 내보냅니다."],
