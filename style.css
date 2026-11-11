@@ -126,10 +126,9 @@ body::before {
 .detail-hero .tagline { margin: 10px 0 0; font-size: clamp(19px, 2.8vw, 24px); font-weight: 600; color: var(--ink-2); letter-spacing: -0.01em; }
 .detail-hero .desc { max-width: 620px; margin: 20px auto 0; color: var(--ink-2); }
 .detail-hero .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+.detail-hero .actions + .actions { margin-top: 10px; }
 .meta { list-style: none; padding: 0; margin: 20px 0 0; color: var(--ink-3); font-size: 14px; line-height: 1.8; }
 
-.links { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 18px; margin: 28px 0 0; font-size: 14px; color: var(--accent); font-weight: 600; }
-.links a:hover { text-decoration: underline; }
 
 /* 화면 미리보기: 한 장씩 넘기기 */
 .gallery { position: relative; width: min(880px, 100% - 32px); margin: 40px auto 0; }

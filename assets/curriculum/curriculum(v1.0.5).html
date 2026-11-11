@@ -1,0 +1,2077 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="나이스 시간표와 행사명으로 교과별 연계 수업 주제를 추천하는 도구" />
+    <title>교과 연계 주제 생성기</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,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" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("gyoyeon.theme") === "dark")
+            document.documentElement.setAttribute("data-theme", "dark");
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+      :root {
+        --paper: #fbfaf9;
+        --surface: #ffffff;
+        --surface-sunk: #f3f2ef;
+        --surface-soft: var(--surface-sunk);
+        --ink: #191b22;
+        --ink-strong: #0f1117;
+        --ink-soft: #5a5e6b;
+        --ink-faint: #8a8e9a;
+        --muted: var(--ink-soft);
+        --line: rgba(25, 27, 34, 0.1);
+        --accent: #0e9f6e;
+        --accent-ink: #087552;
+        --accent-strong: var(--accent-ink);
+        --accent-soft: #e4f6ef;
+        --accent-glow: rgba(14, 159, 110, 0.28);
+        --good: #1f9d57;
+        --warn: #b7791f;
+        --danger: #d64530;
+        --fill-ghost: rgba(0, 0, 0, 0.04);
+        --fill-hover: var(--accent-soft);
+        --button-ghost-background: var(--accent-soft);
+        --button-ghost-text: var(--accent-ink);
+        --shadow-sm: 0 1px 2px rgba(25, 27, 34, 0.05), 0 1px 3px rgba(25, 27, 34, 0.06);
+        --shadow-md: 0 4px 12px rgba(25, 27, 34, 0.1);
+        --shadow-panel: 0 18px 55px rgba(25, 27, 34, 0.12);
+        --shadow-ring: 0 0 0 2px var(--accent-glow);
+        --shadow: var(--shadow-sm);
+        --shadow-lg: var(--shadow-panel);
+        --radius-xs: 4px;
+        --radius-input: 8px;
+        --radius-buttons: 8px;
+        --radius-cards: 12px;
+        --font-sans: "Pretendard Variable", "Pretendard", "Noto Sans KR", -apple-system, "Malgun Gothic", system-ui, sans-serif;
+        --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+        --motion-standard: 200ms ease;
+        color-scheme: light;
+      }
+      :root[data-theme="dark"] {
+        --paper: #101219;
+        --surface: #171a23;
+        --surface-sunk: #0c0e14;
+        --surface-soft: var(--surface-sunk);
+        --ink: #edecf2;
+        --ink-strong: #ffffff;
+        --ink-soft: #a9adba;
+        --ink-faint: #7b7f8c;
+        --muted: var(--ink-soft);
+        --line: rgba(237, 236, 242, 0.12);
+        --accent: #34c98f;
+        --accent-ink: #7fe6bd;
+        --accent-strong: var(--accent-ink);
+        --accent-soft: #123a2d;
+        --accent-glow: rgba(52, 201, 143, 0.28);
+        --good: #48c07f;
+        --warn: #d6a34a;
+        --danger: #e0715c;
+        --fill-ghost: rgba(255, 255, 255, 0.07);
+        --fill-hover: rgba(52, 201, 143, 0.15);
+        --button-ghost-background: rgba(52, 201, 143, 0.15);
+        --button-ghost-text: #7fe6bd;
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.4);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+        --shadow-panel: 0 18px 55px rgba(0, 0, 0, 0.55);
+        --shadow-ring: 0 0 0 2px var(--accent-glow);
+        color-scheme: dark;
+      }
+
+      * { box-sizing: border-box; }
+      [hidden] { display: none !important; }
+      html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+      html, body { min-height: 100%; margin: 0; }
+      body {
+        min-height: 100dvh; background: var(--paper); color: var(--ink);
+        font-family: var(--font-sans); font-size: 14px; line-height: 1.5;
+        letter-spacing: -0.01em; -webkit-font-smoothing: antialiased;
+      }
+      #app { min-height: 100dvh; display: flex; flex-direction: column; position: relative; z-index: 1; }
+      button, input, select, textarea { font: inherit; }
+      button { color: inherit; }
+      button:focus-visible, a:focus-visible {
+        outline: none; box-shadow: var(--shadow-ring);
+      }
+      input:focus-visible, select:focus-visible, textarea:focus-visible { outline: none; }
+      button:hover:not(:disabled) { transform: translateY(-1px); }
+      button:active:not(:disabled) { transform: translateY(1px) scale(0.98); }
+      button:disabled { cursor: not-allowed; opacity: 0.4; }
+      h1, h2, h3, p { margin-top: 0; }
+      h1, h2, h3 { text-wrap: balance; color: var(--ink-strong); }
+
+      /* ---- topbar ---- */
+      .topbar {
+        position: sticky; top: 0; z-index: 20; flex: 0 0 auto;
+        border-bottom: 1px solid var(--line);
+        background: color-mix(in srgb, var(--surface) 94%, transparent);
+        box-shadow: var(--shadow-sm); backdrop-filter: blur(14px);
+      }
+      .topbar-inner {
+        width: min(1080px, calc(100% - 3rem)); height: 4rem; margin: 0 auto;
+        display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+      }
+      .brand {
+        display: inline-flex; align-items: center; gap: 0.5rem; border: 0; background: transparent;
+        padding: 0; cursor: pointer; color: var(--ink-strong); font-weight: 700;
+        letter-spacing: -0.02em; font-size: 1rem;
+      }
+      .brand-icon { width: 1.2em; height: 1.2em; object-fit: contain; flex: 0 0 auto; }
+      .version-badge {
+        display: inline-flex; align-items: center; height: 1.3em; padding: 0 0.45em;
+        border: 1px solid currentColor; border-radius: 4px; color: var(--accent);
+        font-family: var(--font-sans); font-size: 0.64em; font-weight: 800; letter-spacing: 0.03em; line-height: 1;
+      }
+      .header-actions { display: flex; align-items: center; gap: 0.5rem; }
+      .result-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 0.5rem; margin-top: 1.25rem; }
+      .nav { display: flex; align-items: center; gap: 0.25rem; }
+      .nav-link {
+        position: relative; display: inline-flex; align-items: center; gap: 0.4rem;
+        border: 0; background: transparent; cursor: pointer; min-height: 2.15rem;
+        padding: 0.42rem 0.72rem; border-radius: var(--radius-buttons); color: var(--muted);
+        font-size: 0.86rem; font-weight: 500;
+        transition: color var(--motion-standard), background var(--motion-standard);
+      }
+      .nav-link:hover, .nav-link.active { color: var(--ink-strong); background: var(--fill-hover); }
+      .nav-icon { width: 1.05em; height: 1.05em; }
+      .status-dot {
+        width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--ink-faint);
+        flex: 0 0 auto;
+      }
+      .status-dot.on { background: var(--good); }
+      .theme-toggle {
+        display: inline-grid; place-items: center; width: 2.2rem; height: 2.2rem; padding: 0;
+        border: 1px solid var(--line); border-radius: var(--radius-buttons); background: var(--surface);
+        color: var(--muted); cursor: pointer;
+      }
+      .theme-toggle:hover { color: var(--ink-strong); border-color: var(--accent); }
+      .theme-icon { width: 1.05rem; height: 1.05rem; }
+      .theme-icon-sun { display: none; }
+      :root[data-theme="dark"] .theme-icon-sun { display: block; }
+      :root[data-theme="dark"] .theme-icon-moon { display: none; }
+
+      /* ---- page ---- */
+      .page { flex: 1; width: min(1080px, calc(100% - 3rem)); margin: 0 auto; padding: 1.5rem 0 5rem; }
+      .intro { margin-bottom: 2.5rem; text-align: center; }
+      .eyebrow {
+        margin-bottom: 0.85rem; color: var(--accent); font-family: var(--font-mono);
+        font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      }
+      .intro h1 { margin-bottom: 1rem; font-size: clamp(2rem, 4vw, 2.5rem); line-height: 1.25; letter-spacing: -0.02em; font-weight: 700; }
+      .intro p:not(.eyebrow) { max-width: 640px; margin: 0 auto; color: var(--muted); font-size: 1rem; line-height: 1.7; }
+      .menu-guide { width: 100%; max-width: none; margin: 0.5rem 0 0; text-align: left; border: 1px solid var(--line); border-radius: var(--radius-cards); background: var(--surface-soft); padding: 1rem 1.25rem; }
+      .intro .menu-guide .menu-guide-title { display: flex; align-items: center; justify-content: flex-start; gap: 0.4rem; max-width: none; margin: 0 0 0.5rem; font-weight: 700; color: var(--ink-strong); font-size: 0.85rem; text-align: left; }
+      .menu-guide-title svg { width: 1.05em; height: 1.05em; color: var(--muted); flex: 0 0 auto; }
+      .intro .menu-guide p.menu-path { margin: 0.3rem 0 0; max-width: none; white-space: normal; word-break: keep-all; line-height: 1.6; font-size: 0.82rem; color: var(--muted); }
+      .intro .menu-guide p.menu-path b { color: var(--ink-strong); }
+
+      .workspace-section { margin-top: 2rem; }
+      #viewHistory .workspace-section { margin-top: 0; }
+      .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 0.6rem; }
+      .section-heading h2 { margin: 0; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; }
+      .section-meta { color: var(--muted); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+
+      .panel { border: 1px solid var(--line); border-radius: var(--radius-cards); background: var(--surface); box-shadow: var(--shadow-sm); padding: 1.25rem; }
+
+      .drop-zone {
+        min-height: 8rem; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.1rem;
+        padding: 1.5rem; border: 1px dashed color-mix(in srgb, var(--muted) 50%, transparent);
+        border-radius: var(--radius-cards); background: var(--surface); box-shadow: var(--shadow-sm); cursor: pointer;
+        transition: border-color var(--motion-standard), background var(--motion-standard), transform 180ms ease, box-shadow 180ms ease;
+      }
+      .drop-zone:hover { border-color: var(--accent); background: var(--fill-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+      .drop-zone.dragging { border-color: var(--accent); background: var(--accent-soft); box-shadow: var(--shadow-ring); }
+      .upload-symbol { display: grid; place-items: center; width: 3.25rem; height: 3.25rem; border-radius: var(--radius-buttons); background: var(--accent-soft); color: var(--accent-ink); }
+      .upload-icon { width: 1.5rem; height: 1.5rem; }
+      .upload-copy h3 { margin: 0 0 0.2rem; font-size: 0.95rem; font-weight: 600; }
+      .upload-copy p { margin: 0; color: var(--muted); font-size: 0.82rem; }
+      .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+      .upload-guide { display: flex; align-items: flex-start; gap: 0.5rem; margin-top: 0.8rem; background: var(--accent-soft); border-radius: var(--radius-input); padding: 0.7rem 0.9rem; color: var(--accent-ink); font-size: 0.82rem; line-height: 1.55; }
+      .upload-guide svg { width: 1.05em; height: 1.05em; flex: 0 0 auto; margin-top: 0.15rem; }
+      .file-list { display: grid; gap: 0.5rem; margin-top: 0.8rem; }
+      .file-row { display: flex; align-items: center; gap: 0.7rem; border: 1px solid var(--line); border-radius: var(--radius-input); background: var(--surface); padding: 0.55rem 0.75rem; }
+      .file-row .f-icon { display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: var(--radius-xs); background: var(--accent-soft); color: var(--accent-ink); flex: 0 0 auto; }
+      .file-row .f-icon svg { width: 1rem; height: 1rem; }
+      .file-row .f-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.85rem; font-weight: 600; }
+      .file-row .f-grade { flex: 0 0 auto; border-radius: var(--radius-xs); background: var(--accent-soft); color: var(--accent-ink); padding: 0.15rem 0.5rem; font-size: 0.74rem; font-weight: 700; }
+      .file-row .f-grade.warn { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+      .file-row .f-remove { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; flex: 0 0 auto; }
+      .file-row .f-remove:hover { background: color-mix(in srgb, var(--danger) 12%, transparent); color: var(--danger); }
+      .file-row .f-remove svg { width: 0.95rem; height: 0.95rem; }
+      .empty-hist { border: 1px dashed color-mix(in srgb, var(--muted) 45%, transparent); border-radius: var(--radius-cards); padding: 2rem; text-align: center; color: var(--muted); font-size: 0.9rem; }
+      .grade-tabs { display: flex; gap: 0.3rem; margin-bottom: 0.7rem; flex-wrap: wrap; }
+      .grade-tab { border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius-buttons); padding: 0.4rem 0.9rem; cursor: pointer; color: var(--muted); font-size: 0.85rem; font-weight: 600; }
+      .grade-tab:hover { border-color: var(--accent); color: var(--ink-strong); }
+      .grade-tab.is-active { background: var(--accent); color: #fff; border-color: var(--accent); }
+      :root[data-theme="dark"] .grade-tab.is-active { color: #06231a; }
+
+      .field-label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.35rem; }
+      .field-help { color: var(--muted); font-size: 0.78rem; margin: 0.35rem 0 0; }
+      #eventSection .field-label { font-size: calc(0.82rem + 1px); }
+      #eventSection .field-help { font-size: calc(0.78rem + 1px); }
+      .field-icon { width: 1em; height: 1em; vertical-align: -0.15em; margin-right: 0.35rem; color: var(--muted); }
+      .text-input {
+        width: 100%; border: 1px solid var(--line); border-radius: var(--radius-input); background: var(--surface);
+        color: var(--ink); min-height: 2.3rem; padding: 0.45rem 0.7rem; font-size: 0.9rem;
+      }
+      /* 크기 조절 핸들 제거, 내용이 많아지면 세로 스크롤 */
+      textarea.text-input { resize: none; overflow-y: auto; max-height: 7.5rem; }
+      /* 행사 정보 항목 사이 구분선 */
+      .field-divider { border: 0; border-top: 1px solid var(--line); opacity: 0.6; margin: 1.1rem 0 0; }
+      .text-input:focus { border-color: var(--accent); outline: 0; box-shadow: none; }
+      .text-input:focus-visible { box-shadow: var(--shadow-ring); }
+      .focus-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
+      .focus-grade { width: 3.4rem; flex: none; font-size: 0.85rem; font-weight: 600; }
+      .focus-row .text-input { flex: 1; min-width: 0; }
+      .date-range { display: flex; align-items: center; gap: 0.6rem; }
+      .date-range .text-input { flex: 1; max-width: 12rem; }
+      .date-sep { color: var(--muted); }
+
+      .button {
+        position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+        border: 0; border-radius: var(--radius-buttons); background: var(--accent); color: #fff;
+        min-height: 2.4rem; padding: 0.5rem 1rem; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+        box-shadow: var(--shadow-sm); transition: background var(--motion-standard), box-shadow 120ms ease, transform 120ms ease;
+      }
+      :root[data-theme="dark"] .button { color: #06231a; }
+      :root[data-theme="dark"] .button.secondary { color: var(--button-ghost-text); }
+      .button:hover:not(:disabled) { background: var(--accent-strong); box-shadow: var(--shadow-md); }
+      .button.large { min-width: 9rem; padding: 0.62rem 1.3rem; }
+      .button.secondary { background: var(--button-ghost-background); color: var(--button-ghost-text); box-shadow: none; }
+      .button.secondary:hover:not(:disabled) { background: var(--fill-hover); }
+      .button-icon { width: 1.05em; height: 1.05em; }
+
+      .notice { margin-top: 1rem; background: color-mix(in srgb, var(--danger) 8%, transparent); border-radius: var(--radius-input); padding: 0.7rem 0.9rem; color: var(--danger); font-size: 0.83rem; line-height: 1.5; }
+      .badge { display: inline-block; margin: 2px; padding: 0.2rem 0.5rem; border-radius: var(--radius-xs); background: var(--accent-soft); color: var(--accent-ink); font-size: 0.76rem; font-weight: 600; }
+      .status-line { font-size: 0.85rem; margin: 0.7rem 0 0; white-space: pre-wrap; color: var(--muted); }
+      .status-line .err { color: var(--danger); }
+      .slot-head-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 0.6rem; margin-bottom: 0.5rem; }
+      .slot-picker { overflow-x: auto; padding: 0.3rem 0.1rem 0.2rem; --chip: 2.1rem; --cols: var(--pmax); } /* 위쪽 여백: hover 시 translateY(-1px) 된 탭이 잘리지 않도록 */
+      .slot-line { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.3rem; }
+      .slot-line-head { align-items: center; margin-bottom: 0.2rem; }
+      /* 교시 칸 묶음과 「교시」 제목은 같은 폭(칸 --cols개 분량)을 써서 제목이 칸의 가운데에 온다 */
+      .slot-chips, .slot-period-title { width: calc(var(--cols) * var(--chip) + (var(--cols) - 1) * 0.3rem); flex: none; }
+      .slot-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+      .slot-head { font-size: 0.74rem; color: var(--muted); text-align: center; font-variant-numeric: tabular-nums; }
+      .slot-label { width: 6.8rem; flex: none; height: var(--chip); display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 600; white-space: nowrap; }
+      .slot-label.is-off { color: var(--ink-faint); font-weight: 500; }
+      .slot-check { width: 1rem; height: 1rem; margin: 0; accent-color: var(--accent); cursor: pointer; flex: none; }
+      .slot-corner { width: 6.8rem; flex: none; text-align: center; }
+      .slot-chip { width: var(--chip); height: var(--chip); min-width: 0; padding: 0; border: 1px solid var(--line); border-radius: var(--radius-input); background: var(--surface-sunk); color: var(--ink); font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; user-select: none; transition: background var(--motion-standard), border-color var(--motion-standard), color var(--motion-standard); }
+      .slot-chip:hover:not(:disabled) { border-color: var(--accent); }
+      .slot-chip.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }
+      .slot-chip:disabled { opacity: 0.35; cursor: default; border-style: dashed; }
+      .slot-tabbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 0.5rem; margin-bottom: 0.7rem; }
+      .slot-tabbar .grade-tabs { margin-bottom: 0; }
+      .slot-bulk { display: flex; gap: 0.4rem; }
+      .slot-bulk-btn { padding: 0.35rem 0.8rem; font-size: 0.8rem; }
+      /* 모바일: 교시 칸 5개씩 줄바꿈 (12345 / 6789) */
+      @media (max-width: 760px) {
+        .slot-picker { --chip: 2.2rem; --cols: 5; }
+        .slot-label, .slot-corner { width: 5.6rem; }
+      }
+      progress { width: 100%; height: 0.7rem; margin-top: 0.6rem; }
+
+      table { width: 100%; min-width: 760px; border-collapse: collapse; table-layout: fixed; font-size: 0.82rem; }
+      th, td { border: 1px solid var(--line); padding: 0.45rem 0.6rem; text-align: left; vertical-align: middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      td.topic { white-space: normal; word-break: break-word; }
+      th { background: var(--surface-soft); font-weight: 700; }
+      .table-wrap { border-radius: var(--radius-cards); border: 1px solid var(--line); overflow: hidden; }
+      .table-scroll { overflow: auto; max-height: 520px; }
+      .table-scroll table th { position: sticky; top: 0; z-index: 1; }
+
+      .footer { flex: 0 0 auto; border-top: 1px solid var(--line); }
+      .footer-inner { width: min(1080px, calc(100% - 3rem)); min-height: 4.25rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; color: var(--muted); font-size: 0.78rem; padding: 1rem 0; }
+      .footer-notes p { margin: 0 0 0.15rem; }
+      .footer-brand { color: var(--accent); font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.06em; }
+      .footer-signatures { display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; text-align: right; }
+      .footer-signature { position: relative; display: flex; flex-direction: column; align-items: flex-end; gap: 0.1rem; text-align: right; }
+      .footer-signature strong { color: var(--ink); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; }
+      .footer-signature a { color: var(--muted); text-decoration: none; }
+      .footer-signature a:hover { color: var(--accent-ink); text-decoration: underline; }
+      .copy-toast { position: absolute; right: 0; bottom: calc(100% + 0.3rem); border-radius: var(--radius-buttons); background: var(--ink-strong); color: var(--surface); padding: 0.25rem 0.5rem; font-size: 0.7rem; font-weight: 600; white-space: nowrap; }
+
+      /* ---- settings dialog (report_g 형식 이식) ---- */
+      dialog.settings-dialog {
+        width: min(940px, calc(100vw - 2rem)); max-width: 940px; max-height: calc(100dvh - 3rem);
+        border: 1px solid var(--line); border-radius: var(--radius-cards); background: var(--surface);
+        color: var(--ink); padding: 0; box-shadow: var(--shadow-panel); overflow: hidden;
+      }
+      dialog.settings-dialog::backdrop { background: rgba(25, 27, 34, 0.45); backdrop-filter: blur(2px); }
+      .dialog-shell { display: flex; flex-direction: column; max-height: calc(100dvh - 3rem); }
+      .dialog-header { padding: 1.4rem 1.5rem 1rem; border-bottom: 1px solid var(--line); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+      .dialog-kicker { margin: 0 0 0.2rem; color: var(--accent); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+      .dialog-header h2 { margin: 0 0 0.25rem; font-size: 1.15rem; font-weight: 700; }
+      .dialog-header p { margin: 0; color: var(--muted); font-size: 0.85rem; }
+      .dialog-close { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; flex: 0 0 auto; }
+      .dialog-close:hover { background: var(--fill-hover); color: var(--ink-strong); }
+      .dialog-body { padding: 1.25rem 1.5rem; overflow-y: auto; }
+      .settings-block { margin: 0 0 1.4rem; padding: 0; border: 0; }
+      .settings-section-heading { display: flex; align-items: center; gap: 0.45rem; margin: 0 0 0.35rem; font-size: 0.95rem; font-weight: 700; }
+      .settings-section-heading svg { width: 1.05em; height: 1.05em; color: var(--muted); }
+      .settings-section-copy { margin: 0 0 0.7rem; color: var(--muted); font-size: 0.82rem; }
+
+      .provider-tabs { display: inline-flex; gap: 0.3rem; padding: 0.25rem; border: 1px solid var(--line); border-radius: var(--radius-buttons); background: var(--surface-soft); }
+      .provider-tab { border: 0; background: transparent; border-radius: var(--radius-xs); padding: 0.4rem 0.9rem; cursor: pointer; color: var(--muted); font-size: 0.85rem; font-weight: 600; }
+      .provider-tab.is-active { background: var(--surface); color: var(--accent-ink); box-shadow: var(--shadow-sm); }
+
+      .settings-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; }
+      @media (max-width: 760px) { .settings-layout { grid-template-columns: 1fr; } dialog.settings-dialog { width: calc(100vw - 1rem); } }
+
+      .password-field { display: flex; gap: 0.5rem; align-items: stretch; }
+      .password-field .text-input { flex: 1; }
+      .icon-text-button { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid var(--line); border-radius: var(--radius-buttons); background: var(--surface); color: var(--ink); padding: 0.4rem 0.7rem; cursor: pointer; font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
+      .icon-text-button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent-ink); }
+      .icon-text-button svg { width: 1em; height: 1em; }
+      .danger-text { color: var(--danger); border-color: transparent; background: transparent; }
+      .danger-text:hover:not(:disabled) { background: color-mix(in srgb, var(--danger) 10%, transparent); color: var(--danger); border-color: transparent; }
+      .settings-guide-link { border: 0; background: transparent; color: var(--accent-ink); padding: 0.3rem 0; margin-top: 0.5rem; }
+
+      .model-card-list { display: grid; gap: 0.5rem; }
+      .model-card { display: flex; align-items: flex-start; gap: 0.6rem; border: 1px solid var(--line); border-radius: var(--radius-input); background: var(--surface); padding: 0.7rem 0.8rem; cursor: pointer; }
+      .model-card:hover { border-color: var(--accent); }
+      .model-card.is-selected { border-color: var(--accent); background: var(--accent-soft); }
+      .model-card input { margin-top: 0.2rem; accent-color: var(--accent); }
+      .model-card .m-label { font-weight: 700; font-size: 0.87rem; display: flex; align-items: center; gap: 0.4rem; }
+      .model-card .m-desc { color: var(--muted); font-size: 0.78rem; margin-top: 0.15rem; }
+      .m-tag { font-size: 0.66rem; font-weight: 700; padding: 0.05rem 0.35rem; border-radius: var(--radius-xs); background: var(--accent-soft); color: var(--accent-ink); }
+      .m-tag.free { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+      #customModelWrap { margin-top: 0.5rem; }
+
+      .choice-grid { display: grid; gap: 0.4rem; }
+      .choice-grid label, .storage-options label { display: flex; gap: 0.6rem; align-items: flex-start; border: 1px solid var(--line); border-radius: var(--radius-input); padding: 0.55rem 0.7rem; cursor: pointer; }
+      .choice-grid label:has(input:checked), .storage-options label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+      .choice-grid input, .storage-options input { margin-top: 0.15rem; accent-color: var(--accent); }
+      .choice-grid strong, .storage-options strong { display: block; font-size: 0.85rem; }
+      .choice-grid small, .storage-options small { color: var(--muted); font-size: 0.76rem; }
+
+      .advanced-settings { border: 1px solid var(--line); border-radius: var(--radius-input); padding: 0.6rem 0.8rem; }
+      .advanced-settings summary { cursor: pointer; font-weight: 600; font-size: 0.85rem; }
+      .advanced-fields { margin-top: 0.7rem; }
+      .advanced-fields textarea { width: 100%; border: 1px solid var(--line); border-radius: var(--radius-input); background: var(--surface); color: var(--ink); padding: 0.45rem 0.7rem; font-size: 0.85rem; }
+      .endpoint-warning { margin-top: 0.6rem; border-left: 3px solid var(--warn); background: color-mix(in srgb, var(--warn) 10%, transparent); border-radius: var(--radius-xs); padding: 0.5rem 0.7rem; color: var(--warn); font-size: 0.78rem; }
+
+      .transfer-box { border: 1px solid var(--line); border-radius: var(--radius-input); padding: 0.8rem; background: var(--surface-soft); }
+      .transfer-grid { display: grid; gap: 0.6rem; }
+      .transfer-grid strong { font-size: 0.8rem; }
+      .transfer-grid p { margin: 0.1rem 0 0; color: var(--muted); font-size: 0.78rem; }
+
+      .dialog-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; border-top: 1px solid var(--line); background: var(--surface); }
+      .dialog-actions .status { color: var(--muted); font-size: 0.82rem; }
+      .dialog-actions .status.ok { color: var(--good); }
+      .dialog-actions .status.err { color: var(--danger); }
+      .dialog-action-buttons { display: flex; gap: 0.6rem; width: 100%; align-items: center; }
+
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+      @media (max-width: 760px) {
+        .topbar-inner, .page, .footer-inner { width: min(100% - 1.5rem, 1080px); }
+        .drop-zone { grid-template-columns: 1fr; }
+        .nav-link span.nav-text { display: none; }
+      }
+      .provider-grid { display: grid; gap: 0.6rem; grid-template-columns: 1fr; }
+      .provider-card { display: grid; grid-template-columns: minmax(8.5rem, 0.8fr) minmax(0, 1.1fr) minmax(0, 1.8fr) minmax(0, 0.8fr) auto; gap: 0.4rem 0.8rem; align-items: start; border: 1px solid var(--line); border-radius: var(--radius-input); background: var(--surface); padding: 0.8rem 1rem; }
+      .provider-card.is-on { border-color: var(--accent); }
+      .provider-card.is-dragging { opacity: 0.45; }
+      .provider-card.is-over { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+      .provider-card.is-landed { animation: provider-landed 0.7s ease-out; }
+      @keyframes provider-landed {
+        0% { border-color: var(--accent); box-shadow: 0 0 0 0 var(--accent-soft); background: var(--accent-soft); }
+        100% { border-color: var(--line); box-shadow: 0 0 0 10px transparent; background: var(--surface); }
+      }
+      @media (prefers-reduced-motion: reduce) { .provider-card.is-landed { animation: none; } }
+      .provider-card-id { display: flex; flex-direction: column; gap: 0.1rem; align-self: start; padding-top: 0.1rem; user-select: none; }
+      .drag-handle { align-self: center; display: inline-flex; padding: 0.35rem 0.25rem; margin-left: 0.2rem; cursor: grab; color: var(--muted); border-radius: var(--radius-xs); }
+      .drag-handle:hover { color: var(--ink-strong); background: var(--fill-hover); }
+      .drag-handle:active { cursor: grabbing; }
+      .drag-handle svg { width: 0.7rem; height: 1rem; fill: currentColor; }
+      .provider-name { display: flex; align-items: center; gap: 0.45rem; }
+      .provider-card-id strong { font-size: 0.95rem; }
+      .provider-icon { width: 1.6rem; height: 1.6rem; flex: none; border-radius: 0.45rem; display: inline-grid; place-items: center; color: #fff; text-decoration: none; transition: transform 0.15s; }
+      .provider-icon:hover { transform: scale(1.08); }
+      .provider-glyph { width: 0.95rem; height: 0.95rem; fill: currentColor; }
+      .provider-icon.gemini { background: #fff; border: 1px solid var(--line); }
+      .provider-icon.gemini .provider-glyph { width: 1.15rem; height: 1.15rem; fill: initial; }
+      .provider-icon.claude { background: #d97757; }
+      .provider-icon.openai { background: #10a37f; }
+      .provider-rank { font-size: 0.72rem; font-weight: 700; color: var(--accent-ink); }
+      .provider-card-id .settings-guide-link { margin-top: 0.2rem; font-size: 0.78rem; }
+      .provider-card select.text-input:disabled { opacity: 0.5; cursor: not-allowed; }
+      .provider-card .field-label { margin-bottom: 0.25rem; height: 1.2rem; line-height: 1.2rem; white-space: nowrap; }
+      .label-row { display: flex; align-items: center; gap: 0.35rem; }
+      .label-row .field-label { margin-bottom: 0.25rem; }
+      .label-row .m-tag { margin-bottom: 0.25rem; }
+      .provider-card select.text-input { height: 2.4rem; }
+      .provider-card-status { grid-column: 1 / -1; font-size: 0.78rem; color: var(--muted); margin: 0; min-height: 1.1em; }
+      .provider-card-status:empty { display: none; }
+      .provider-card-status.ok { color: var(--good); }
+      .provider-card-status.err { color: var(--danger); }
+      @media (max-width: 760px) {
+        .provider-card { grid-template-columns: minmax(0, 1fr) auto; }
+        .provider-card-id { grid-column: 1; grid-row: 1; }
+        .drag-handle { grid-column: 2; grid-row: 1; align-self: center; margin: 0; }
+        .provider-card > div:not(.provider-card-id) { grid-column: 1 / -1; }
+        .dialog-action-buttons { flex-wrap: wrap; }
+        .dialog-action-buttons > .check-row, .dialog-action-buttons > .status { flex-basis: 100%; width: 100%; }
+      }
+      .dialog-action-buttons .button { white-space: nowrap; flex: none; }
+      .check-row { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; cursor: pointer; white-space: nowrap; }
+      .dialog-action-buttons > .status { flex: 1; margin: 0; min-width: 0; font-size: 0.82rem; }
+      .check-row input { accent-color: var(--accent); }
+          </style>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <button class="brand" type="button" id="brandHome">
+            <img class="brand-icon" src="data:image/png;base64,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" alt="" aria-hidden="true" />
+            교과 연계 주제 생성기
+            <span class="version-badge">v1.0.2</span>
+          </button>
+          <div class="header-actions">
+            <nav class="nav" aria-label="주요 메뉴">
+              <button class="nav-link" type="button" id="navHistory">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v5h5"></path><path d="M3.05 13a9 9 0 1 0 .6-5.95L3 8"></path><path d="M12 7v5l4 2"></path></svg>
+                <span class="nav-text">사용 이력</span>
+              </button>
+              <button class="nav-link" type="button" id="navSettings" aria-haspopup="dialog">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 5H3"></path><path d="M12 19H3"></path><path d="M14 3v4"></path><path d="M16 17v4"></path><path d="M21 12h-9"></path><path d="M21 19h-5"></path><path d="M21 5h-7"></path><path d="M8 10v4"></path><path d="M8 12H3"></path></svg>
+                <span class="nav-text">AI 설정</span>
+                <span class="status-dot" id="aiStatusDot" title="AI 미설정"></span>
+              </button>
+            </nav>
+            <button class="theme-toggle" type="button" id="themeToggle" aria-label="테마 전환">
+              <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+              <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="page">
+        <div id="viewMain">
+        <section class="intro">
+          <div class="menu-guide">
+            <p class="menu-guide-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>나이스 메뉴 경로</p>
+            <p class="menu-path"><b>학년 단위 생성</b>&nbsp; [교육과정]-[시간표관리]-[전체시간표조회]-[학년, 일자 조정]-[조회]-[디스켓아이콘 클릭, xls 골라 저장]</p>
+            <p class="menu-path"><b>반 단위 생성</b>&nbsp; [교육과정]-[시간표관리]-[강의실별시간표조회]-[학년, 강의실, 기간, 기간별 선택, 달력형으로 조정]-[조회]-[디스켓아이콘 클릭, xls 골라 저장]</p>
+          </div>
+        </section>
+
+        <!-- 1. 업로드 -->
+        <section class="workspace-section">
+          <div class="section-heading"><h2>1. 시간표 업로드</h2><span class="section-meta" id="fileMeta"></span></div>
+          <label class="drop-zone" id="dropZone" for="fileInput">
+            <span class="upload-symbol"><svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5"></path><path d="M12 3v12"></path></svg></span>
+            <span class="upload-copy">
+              <h3>나이스 전체시간표 파일 (.xlsx)</h3>
+              <p>클릭하거나 파일을 끌어다 놓으세요. 최대 3개까지 올릴 수 있으며, 학년이 다르면 학년별 탭으로 나뉩니다.</p>
+            </span>
+            <input class="visually-hidden" type="file" id="fileInput" accept=".xlsx,.xls" multiple />
+          </label>
+          <div class="upload-guide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+            <span>학년별로 파일을 따로 내려받아(1·2·3학년) 함께 올리면, 결과가 학년 탭으로 구분됩니다. 한 파일에 여러 학년이 있어도 자동 분리됩니다.</span>
+          </div>
+          <div id="fileList" class="file-list"></div>
+          <div id="parseNotice"></div>
+        </section>
+
+        <!-- 2. 행사 정보 -->
+        <section class="workspace-section" id="eventSection">
+          <div class="section-heading"><h2>2. 행사 정보 입력</h2></div>
+          <div class="panel">
+            <label class="field-label" for="eventName"><svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>행사명 <span style="color:var(--danger)">*</span></label>
+            <input class="text-input" id="eventName" placeholder="예: 2026학년도 수학여행" required />
+            <p class="field-help">필수. 엑셀 제목은 “{행사명} 교과 연계 수업계획” 으로 생성됩니다.</p>
+            <hr class="field-divider" />
+            <label class="field-label" for="escortTeachers" style="margin-top:0.9rem;"><svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>인솔 교사 <span style="color:var(--danger)">*</span></label>
+            <textarea class="text-input" id="escortTeachers" rows="2" placeholder="예: 이순신, 유관순, 장영실" required></textarea>
+            <p class="field-help">인솔 교사의 수는 반의 수보다 많거나 같아야 합니다.<br>
+            쉼표·줄바꿈·공백으로 구분. '지도 교사' 열에 배정됩니다.<br>
+            과목 담당 교사가 인솔진에 있으면 지도 교사로 우선 배정 후, 인솔 교사에게 공평하게 나누어 배정합니다.<br>
+            배정 대상은 「행사 기간」에서 선택한 날짜·교시(차시)입니다.<br>
+            <strong style="color:var(--danger);">교사명은 AI에 전송하지 않습니다.</strong></p>
+            <label class="field-label" for="focusTeachers" style="margin-top:0.9rem;"><svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>집중 배정 교사 <span style="color:var(--muted);font-weight:400;">(선택)</span></label>
+            <div id="focusFields"></div>
+            <p class="field-help">시간표의 학년 수만큼 입력칸이 나타납니다. 이름은 쉼표·공백으로 구분합니다. 해당 학년의 지도 교사를 이 교사들에게 먼저 몰아서 배정하며, 시수 공평 배분보다 우선합니다. 입력한 교사는 인솔 교사 목록에도 있어야 합니다.<br>
+            과목 담당 교사는 집중 배정과 상관없이 먼저 배정합니다.</p>
+            <hr class="field-divider" />
+            <label class="field-label" style="margin-top:1.4rem;"><svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>행사 기간 <span style="color:var(--danger)">*</span> <span style="color:var(--muted);font-weight:400;">(아래에 체크)</span></label>
+            <div class="slot-head-row">
+              <span class="field-help" style="margin:0;">행사에 포함할 날짜를 체크하고, 날짜별로 교시를 고르세요. 기본은 모든 교시 선택입니다.</span>
+            </div>
+            <div id="slotPicker" class="slot-picker"></div>
+            <hr class="field-divider" />
+            <label class="field-label" for="eventDetail" style="margin-top:0.9rem;"><svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>행사 내용 <span style="color:var(--muted);font-weight:400;">(선택)</span></label>
+            <textarea class="text-input" id="eventDetail" rows="3" placeholder="체험 내용, 장소 등을 간단히 키워드 수준으로 작성해주세요."></textarea>
+            <p class="field-help">입력하면 행사 내용까지 반영해 더 구체적인 주제를 만듭니다.</p>
+          </div>
+        </section>
+
+        <!-- 3. 생성 -->
+        <section class="workspace-section" id="genSection" hidden>
+          <div class="section-heading"><h2>3. 연계 주제 생성</h2><span class="section-meta" id="subjMeta"></span></div>
+          <div class="panel">
+            <div id="subjectBadges"></div>
+            <div style="margin-top: 1rem;">
+              <button class="button large" id="genBtn">
+                <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg>
+                AI로 연계 주제 생성
+              </button>
+            </div>
+            <p class="status-line" id="genHint" style="color:var(--danger);margin:0.6rem 0 0;"></p>
+            <progress id="genProgress" value="0" max="100" hidden></progress>
+            <p class="status-line" id="genStatus"></p>
+          </div>
+        </section>
+
+        <!-- 4. 결과 -->
+        <section class="workspace-section" id="resultSection" hidden>
+          <div class="section-heading">
+            <h2>4. 결과</h2>
+          </div>
+          <div class="grade-tabs" id="gradeTabs" role="tablist"></div>
+          <div class="table-wrap"><div class="table-scroll"><table id="resultTable"></table></div></div>
+          <div class="result-actions">
+            <button class="button secondary" id="regenBtn">
+              <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v6h6"></path><path d="M21 12A9 9 0 0 0 6 5.3L3 8"></path><path d="M21 22v-6h-6"></path><path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"></path></svg>
+              다시 생성
+            </button>
+            <button class="button secondary" id="resetBtn">
+              <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              초기화
+            </button>
+            <button class="button secondary" id="exportBtn">
+              <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>
+              엑셀 내보내기
+            </button>
+          </div>
+        </section>
+        </div><!-- /viewMain -->
+
+        <div id="viewHistory" hidden>
+          <section class="workspace-section">
+            <div class="section-heading">
+              <h2>생성 기록</h2>
+              <button class="button secondary" id="clearHistory" aria-label="전체 삭제" title="전체 삭제"><svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M10 11v6"></path><path d="M14 11v6"></path></svg></button>
+            </div>
+            <div id="historyList" class="file-list"></div>
+          </section>
+        </div><!-- /viewHistory -->
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-notes">
+            <p>교과 연계 수업 설계를 돕는 목적으로 사용.</p>
+            <p>행사명·과목명 외 정보는 전송하지 않음.</p>
+          </div>
+          <div class="footer-signatures">
+            <div class="footer-signature"><strong>LJH2026</strong><a href="mailto:honeymath.gbe@gmail.com" id="copyEmailLink">honeymath.gbe@gmail.com</a><span class="copy-toast" id="emailToast" role="status" aria-live="polite" hidden>메일주소 복사됨</span></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ================= AI 설정 다이얼로그 ================= -->
+    <dialog class="settings-dialog" id="settingsDialog" aria-label="AI 설정">
+      <form class="dialog-shell" id="aiSettingsForm" method="dialog">
+        <header class="dialog-header">
+          <div>
+            <p class="dialog-kicker">AI 연결</p>
+            <h2>주제 생성에 사용할 AI를 연결하세요</h2>
+            <p>상위 모델을 선택하고 노력도를 높이면 최상의 결과를 얻을 수 있습니다. 하지만 닭을 잡을 때에는 닭잡는 칼이 좋습니다. 추천 모델과 노력도로도 충분합니다. API를 여러 개 입력하면 상위 순위부터 호출합니다. 카드 오른쪽 핸들을 드래그해서 순서를 조정하세요.</p>
+          </div>
+          <button type="button" class="dialog-close" id="settingsClose" aria-label="닫기">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          </button>
+        </header>
+
+        <div class="dialog-body">
+          <div class="provider-grid" id="providerGrid"></div>
+        </div>
+
+        <footer class="dialog-actions">
+          <div class="dialog-action-buttons">
+            <label class="check-row"><input type="checkbox" id="rememberKey" /> 이 브라우저에 저장</label>
+            <p class="status" id="settingsStatus" role="status" aria-live="polite"></p>
+            <button type="button" class="button secondary" id="resetSettings">초기화</button>
+            <button type="button" class="button secondary" id="testConn">연결 시험</button>
+            <button type="button" class="button" id="saveSettings">설정 저장</button>
+          </div>
+        </footer>
+      </form>
+    </dialog>
+
+    <script>
+      "use strict";
+
+      // =============== AI 설정 (제공사 3종, 드래그로 호출 우선순위) ===============
+      const PROVIDERS = ["gemini", "claude", "openai"];
+      const PROVIDER_NAME = { gemini: "Gemini", claude: "Claude", openai: "OpenAI" };
+      const PROVIDER_ICON = {
+        gemini: `<svg class="provider-glyph" aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="#3186FF"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-0-_R_0_)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-1-_R_0_)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#lobe-icons-gemini-2-_R_0_)"></path><defs><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-0-_R_0_" x1="7" x2="11" y1="15.5" y2="12"><stop stop-color="#08B962"></stop><stop offset="1" stop-color="#08B962" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-1-_R_0_" x1="8" x2="11.5" y1="5.5" y2="11"><stop stop-color="#F94543"></stop><stop offset="1" stop-color="#F94543" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="lobe-icons-gemini-2-_R_0_" x1="3.5" x2="17.5" y1="13.5" y2="12"><stop stop-color="#FABC12"></stop><stop offset=".46" stop-color="#FABC12" stop-opacity="0"></stop></linearGradient></defs></svg>`,
+        claude: `<svg class="provider-glyph" aria-hidden="true" fill="currentColor" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z"></path></svg>`,
+        openai: `<svg class="provider-glyph" aria-hidden="true" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>`,
+      };
+      const GUIDE_LINKS = {
+        gemini: { url: "https://aistudio.google.com/apikey", label: "API 키 발급 안내" },
+        claude: { url: "https://console.anthropic.com/settings/keys", label: "API 키 발급 안내" },
+        openai: { url: "https://platform.openai.com/api-keys", label: "API 키 발급 안내" },
+      };
+      // 정식 모델 ID만 사용 (직접 입력은 지원하지 않음)
+      const MODEL_CATALOG = {
+        gemini: [
+          { id: "gemini-3.8-flash", label: "Gemini 3.8 Flash", tag: "기본" },
+          { id: "gemini-3.5-flash-lite", label: "Gemini 3.5 Flash-Lite", tag: "빠름" },
+          { id: "gemini-3.1-pro-preview", label: "Gemini 3.1 Pro", tag: "최고 성능" },
+        ],
+        claude: [
+          { id: "claude-sonnet-5-5", label: "Claude Sonnet 5.5", tag: "기본" },
+          { id: "claude-haiku-4-5-20251001", label: "Claude Haiku 4.5", tag: "빠름" },
+          { id: "claude-opus-5-5", label: "Claude Opus 5.5", tag: "최고 성능" },
+        ],
+        openai: [
+          { id: "gpt-6-luna", label: "GPT-6 Luna", tag: "기본" },
+          { id: "gpt-6.1-sol", label: "GPT-6.1 Sol", tag: "균형" },
+          { id: "gpt-6-astra", label: "GPT-6 Astra", tag: "최고 성능" },
+        ],
+      };
+      // 이전 세대 모델 (모델 목록에 같은 형식으로 포함)
+      const LEGACY_MODELS = {
+        gemini: [
+          { id: "gemini-3-pro-preview", label: "Gemini 3 Pro" },
+          { id: "gemini-3-flash-preview", label: "Gemini 3 Flash" },
+          { id: "gemini-2.5-pro", label: "Gemini 2.5 Pro" },
+          { id: "gemini-2.5-flash", label: "Gemini 2.5 Flash" },
+          { id: "gemini-2.5-flash-lite", label: "Gemini 2.5 Flash-Lite" },
+        ],
+        claude: [
+          { id: "claude-opus-4-1-20250805", label: "Claude Opus 4.1" },
+          { id: "claude-sonnet-4-5-20250929", label: "Claude Sonnet 4.5" },
+          { id: "claude-sonnet-4-20250514", label: "Claude Sonnet 4" },
+          { id: "claude-3-7-sonnet-20250219", label: "Claude 3.7 Sonnet" },
+          { id: "claude-3-5-haiku-20241022", label: "Claude 3.5 Haiku" },
+        ],
+        openai: [
+          { id: "gpt-5.5", label: "GPT-5.5" },
+          { id: "gpt-5.4", label: "GPT-5.4" },
+          { id: "gpt-5.4-mini", label: "GPT-5.4 mini" },
+          { id: "gpt-5", label: "GPT-5" },
+          { id: "gpt-4.1", label: "GPT-4.1" },
+        ],
+      };
+      const DEFAULT_MODEL = { gemini: "gemini-3.8-flash", claude: "claude-sonnet-5-5", openai: "gpt-6-luna" };
+      // 노력도 3단계 (슬라이더 0·1·2 = 낮음·보통·높음, 보통이 추천)
+      const EFFORT_KEYS = ["low", "medium", "high"];
+      const EFFORT_NAME = { low: "낮음", medium: "보통", high: "높음" };
+      const GEMINI_EFFORT_LEVEL = { low: "LOW", medium: "MEDIUM", high: "HIGH" };
+      const CLAUDE_EFFORT_BUDGET = { low: 1024, medium: 4096, high: 16000 };
+      const OPENAI_MAX_TOKENS = { low: 8192, medium: 12288, high: 16384 }; // 추론 토큰 포함 여유분
+      const MAX_TOKENS = 4096;
+      const OPENAI_URL = "https://api.openai.com/v1/chat/completions";
+      const STORE_KEY = "gyoyeon.ai";
+
+      const $ = (id) => document.getElementById(id);
+
+      // =============== 설정 상태 ===============
+      const defaultSettings = () => ({
+        order: [...PROVIDERS],
+        keys: { gemini: "", claude: "", openai: "" },
+        models: { ...DEFAULT_MODEL },
+        efforts: { gemini: "low", claude: "low", openai: "low" },
+        remember: false,
+      });
+      let settings = defaultSettings();
+      let draftOrder = [...PROVIDERS]; // 설정창에서 드래그 중인 순서 (저장 시 반영)
+      let lastUsedLabel = "";
+      let usedCombos = new Set(); // 생성 1회 중 실제 사용한 모델·노력도 조합
+
+      // 호출 순서(settings.order) 기준으로 키가 입력된 제공사만
+      function connectedProviders() {
+        return settings.order.filter((p) => (settings.keys[p] || "").trim());
+      }
+
+      function loadSettings() {
+        let raw = null;
+        try { raw = localStorage.getItem(STORE_KEY) || sessionStorage.getItem(STORE_KEY); } catch (e) {}
+        if (!raw) return;
+        try {
+          const s = JSON.parse(raw);
+          const base = defaultSettings();
+          if (s.keys) Object.assign(base.keys, s.keys);
+          // 이전 버전 저장 형식 마이그레이션 (단일 키 / OpenAI 호환 키 이름)
+          if (s.apiKeys) {
+            base.keys.gemini = s.apiKeys.gemini || base.keys.gemini;
+            base.keys.claude = s.apiKeys.claude || base.keys.claude;
+            base.keys.openai = s.apiKeys["openai-compatible"] || base.keys.openai;
+          }
+          if (Array.isArray(s.order)) {
+            // 알 수 없는 값은 버리고, 빠진 제공사는 뒤에 붙임
+            const valid = s.order.filter((p, i) => PROVIDERS.includes(p) && s.order.indexOf(p) === i);
+            base.order = [...valid, ...PROVIDERS.filter((p) => !valid.includes(p))];
+          }
+          if (s.models) Object.assign(base.models, s.models);
+          if (s.efforts) Object.assign(base.efforts, s.efforts);
+          base.remember = !!s.remember || s.storageMode === "browser";
+          settings = base;
+          PROVIDERS.forEach((p) => { autoKey[p] = settings.keys[p] || ""; });
+        } catch (e) {}
+      }
+      function persistSettings() {
+        const json = JSON.stringify(settings);
+        try {
+          if (settings.remember) {
+            localStorage.setItem(STORE_KEY, json);
+            sessionStorage.removeItem(STORE_KEY);
+          } else {
+            sessionStorage.setItem(STORE_KEY, json);
+            localStorage.removeItem(STORE_KEY);
+          }
+        } catch (e) {}
+      }
+      function updateStatusDot() {
+        if (typeof updateGenState === "function") updateGenState();
+        const dot = $("aiStatusDot");
+        const list = connectedProviders();
+        dot.classList.toggle("on", list.length > 0);
+        dot.title = list.length ? "AI 연결됨: " + list.map((p) => PROVIDER_NAME[p]).join(" → ") : "AI 미설정";
+      }
+
+      // =============== 설정 UI ===============
+      function buildProviderCards() {
+        const grid = $("providerGrid");
+        grid.innerHTML = PROVIDERS.map((p) => {
+          const g = GUIDE_LINKS[p];
+          const current = MODEL_CATALOG[p]
+            .map((m) => '<option value="' + m.id + '">' + m.label + "</option>")
+            .join("");
+          const legacy = LEGACY_MODELS[p]
+            .map((m) => '<option value="' + m.id + '">' + m.label + "</option>")
+            .join("");
+          const models = current + legacy;
+          return (
+            '<section class="provider-card" data-provider="' + p + '">' +
+              '<div class="provider-card-id">' +
+                '<span class="provider-rank"></span>' +
+                '<div class="provider-name"><a class="provider-icon ' + p + '" href="' + g.url + '" target="_blank" rel="noopener" title="' + g.label + '" aria-label="' + PROVIDER_NAME[p] + ' ' + g.label + '">' + PROVIDER_ICON[p] + "</a><strong>" + PROVIDER_NAME[p] + "</strong>" +
+                  (p === "gemini" ? '<span class="m-tag free">무료</span>' : "") + "</div>" +
+              "</div>" +
+              "<div>" +
+                '<label class="field-label" for="key-' + p + '">API 키</label>' +
+                '<div class="password-field">' +
+                  '<input class="text-input" id="key-' + p + '" type="password" autocomplete="new-password" spellcheck="false" />' +
+                  '<button type="button" class="icon-text-button" data-toggle="' + p + '">표시</button>' +
+                "</div>" +
+              "</div>" +
+              '<div><div class="label-row"><label class="field-label" for="model-' + p + '">모델</label><span class="m-tag" id="rec-' + p + '" hidden>추천</span></div>' +
+                '<select class="text-input" id="model-' + p + '">' + models + "</select></div>" +
+              '<div><label class="field-label" for="effort-' + p + '">노력도</label>' +
+                '<select class="text-input" id="effort-' + p + '">' +
+                  '<option value="low">낮음</option><option value="medium">보통</option><option value="high">높음</option>' +
+                "</select></div>" +
+              '<span class="drag-handle" draggable="true" title="끌어서 호출 순서 변경" aria-label="끌어서 호출 순서 변경">' +
+                '<svg viewBox="0 0 10 16" aria-hidden="true"><circle cx="2.5" cy="2.5" r="1.4"/><circle cx="7.5" cy="2.5" r="1.4"/><circle cx="2.5" cy="8" r="1.4"/><circle cx="7.5" cy="8" r="1.4"/><circle cx="2.5" cy="13.5" r="1.4"/><circle cx="7.5" cy="13.5" r="1.4"/></svg>' +
+              "</span>" +
+              '<p class="provider-card-status" id="status-' + p + '" role="status"></p>' +
+            "</section>"
+          );
+        }).join("");
+        grid.querySelectorAll("[data-toggle]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const inp = $("key-" + btn.dataset.toggle);
+            const show = inp.type === "password";
+            inp.type = show ? "text" : "password";
+            btn.textContent = show ? "숨김" : "표시";
+          });
+        });
+        PROVIDERS.forEach((p) => $("key-" + p).addEventListener("input", () => { refreshCards(); refreshModels(p); }));
+        PROVIDERS.forEach((p) => $("model-" + p).addEventListener("change", () => updateRecTag(p)));
+
+        // 드래그로 호출 순서 변경 (핸들을 놓은 카드 자리로 이동)
+        let dragging = null;
+        grid.addEventListener("dragstart", (e) => {
+          const card = e.target.closest(".provider-card");
+          if (!card) return;
+          dragging = card.dataset.provider;
+          card.classList.add("is-dragging");
+          e.dataTransfer.effectAllowed = "move";
+          e.dataTransfer.setData("text/plain", dragging);
+        });
+        grid.addEventListener("dragover", (e) => {
+          if (!dragging) return;
+          e.preventDefault();
+          e.dataTransfer.dropEffect = "move";
+          const over = e.target.closest(".provider-card");
+          grid.querySelectorAll(".provider-card").forEach((c) => c.classList.toggle("is-over", c === over && over.dataset.provider !== dragging));
+        });
+        grid.addEventListener("drop", (e) => {
+          if (!dragging) return;
+          e.preventDefault();
+          const target = e.target.closest(".provider-card");
+          if (target && target.dataset.provider !== dragging) {
+            const fromIdx = draftOrder.indexOf(dragging);
+            const toIdx = draftOrder.indexOf(target.dataset.provider);
+            draftOrder = draftOrder.filter((p) => p !== dragging);
+            // 아래로 내릴 때는 대상 카드 뒤에, 위로 올릴 때는 대상 카드 앞에 끼워 넣음
+            const insertAt = draftOrder.indexOf(target.dataset.provider) + (fromIdx < toIdx ? 1 : 0);
+            draftOrder.splice(insertAt, 0, dragging);
+            renderOrder(true);
+            const landed = grid.querySelector('.provider-card[data-provider="' + dragging + '"]');
+            landed.classList.add("is-landed");
+            landed.addEventListener("animationend", () => landed.classList.remove("is-landed"), { once: true });
+          }
+        });
+        grid.addEventListener("dragend", () => {
+          dragging = null;
+          grid.querySelectorAll(".provider-card").forEach((c) => c.classList.remove("is-dragging", "is-over"));
+        });
+      }
+      // draftOrder 순서대로 카드를 다시 배치하고 순위 표시를 갱신
+      // animate=true면 이전 위치에서 새 위치로 밀려 이동하는 애니메이션을 준다 (FLIP)
+      function renderOrder(animate) {
+        const grid = $("providerGrid");
+        const cards = [...grid.querySelectorAll(".provider-card")];
+        const before = new Map(cards.map((c) => [c, c.getBoundingClientRect().top]));
+        draftOrder.forEach((p, i) => {
+          const card = grid.querySelector('.provider-card[data-provider="' + p + '"]');
+          grid.appendChild(card);
+          card.querySelector(".provider-rank").textContent = (i + 1) + "순위";
+        });
+        const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!animate || reduce) return;
+        cards.forEach((c) => {
+          const dy = before.get(c) - c.getBoundingClientRect().top;
+          if (!dy) return;
+          c.animate([{ transform: "translateY(" + dy + "px)" }, { transform: "translateY(0)" }], { duration: 320, easing: "cubic-bezier(0.2, 0.8, 0.2, 1)" });
+        });
+      }
+      // 키 입력 후 해당 제공사의 실제 사용 가능한 모델 목록을 가져와서 드롭다운을 채움
+      const remoteModels = {};
+      const recModel = {}; // 제공사별 추천 모델 ID
+      const autoKey = {};  // 자동 선택을 이미 적용한 키 (같은 키면 사용자가 고른 값을 유지)
+      const modelTimers = {};
+      function modelHttpError(provider, res) {
+        const name = PROVIDER_NAME[provider];
+        if (res.status === 401 || res.status === 403) return providerError(res.status, "API 키가 잘못됐거나 만료됐습니다.");
+        if (res.status === 404) return providerError(404, name + ": 모델 목록 주소를 찾을 수 없습니다.");
+        return providerError(res.status, name + ": 모델 목록 오류 (코드 " + res.status + ")");
+      }
+      async function fetchModelList(p, key) {
+        if (p === "gemini") {
+          const res = await fetch("https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000", { headers: { "x-goog-api-key": key } });
+          if (!res.ok) throw modelHttpError(p, res);
+          const data = await res.json();
+          return (data.models || [])
+            .filter((m) => (m.supportedGenerationMethods || []).includes("generateContent"))
+            .filter((m) => /^models\/gemini-/.test(m.name))
+            .filter((m) => !/embedding|image|tts|audio|live|aqa/.test(m.name))
+            .map((m) => ({ id: m.name.replace(/^models\//, ""), label: m.displayName || m.name.replace(/^models\//, "") }));
+        }
+        if (p === "claude") {
+          const res = await fetch("https://api.anthropic.com/v1/models?limit=1000", {
+            headers: { "x-api-key": key, "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
+          });
+          if (!res.ok) throw modelHttpError(p, res);
+          const data = await res.json();
+          const since = Date.now() - 365 * 24 * 60 * 60 * 1000; // 최근 1년 이내 출시만
+          return (data.data || [])
+            .filter((m) => !m.created_at || Date.parse(m.created_at) >= since)
+            .map((m) => ({ id: m.id, label: m.display_name || m.id }));
+        }
+        const res = await fetch("https://api.openai.com/v1/models", { headers: { Authorization: "Bearer " + key } });
+        if (!res.ok) throw modelHttpError(p, res);
+        const data = await res.json();
+        return (data.data || [])
+          .filter((m) => Date.now() - (m.created || 0) * 1000 < 365 * 24 * 60 * 60 * 1000) // 최근 1년 이내 출시만
+          .filter((m) => /^(gpt-|o\d)/.test(m.id))
+          .filter((m) => !/image|audio|realtime|tts|transcribe|embedding|search|codex|moderation|whisper|dall|instruct|-preview-/.test(m.id))
+          .map((m) => ({ id: m.id, label: m.id }));
+      }
+      // 목록이 있으면 그 목록을, 없으면 기본 카탈로그(현재 + 레거시)를 드롭다운 항목으로 사용
+      function itemsFor(p, list) {
+        return list.length
+          ? list.map((m) => ({ id: m.id, label: m.label }))
+          : MODEL_CATALOG[p].map((m) => ({ id: m.id, label: m.label }))
+              .concat(LEGACY_MODELS[p].map((m) => ({ id: m.id, label: m.label })));
+      }
+      // 빠른 계열 중 최신 모델을 추천으로 고름 (미리보기 제외)
+      const REC_PATTERN = { gemini: [/flash-lite/, /flash/], claude: [/haiku/], openai: [/nano|mini|luna/] };
+      function recommendedModel(p, items) {
+        const ids = items.map((i) => i.id).filter((id) => !/preview|exp/.test(id));
+        for (const re of REC_PATTERN[p]) {
+          const hit = ids.filter((id) => re.test(id)).sort((a, b) => b.localeCompare(a))[0];
+          if (hit) return hit;
+        }
+        return DEFAULT_MODEL[p];
+      }
+      // 추천 뱃지는 항상 표시 (현재 선택과 무관하게 추천 모델을 알려 줌)
+      function updateRecTag(p) {
+        const tag = $("rec-" + p);
+        tag.hidden = !recModel[p];
+        tag.title = recModel[p] ? "추천 모델: " + recModel[p] : "";
+      }
+      function populateModels(p, list, selected) {
+        const sel = $("model-" + p);
+        const items = itemsFor(p, list);
+        recModel[p] = recommendedModel(p, items);
+        const want = selected || sel.value || DEFAULT_MODEL[p];
+        if (want && !items.some((i) => i.id === want)) items.unshift({ id: want, label: want });
+        sel.innerHTML = items
+          .map((i) => '<option value="' + i.id + '">' + i.label + (i.id === recModel[p] ? " · 추천" : "") + "</option>")
+          .join("");
+        sel.value = want;
+        updateRecTag(p);
+      }
+      function refreshModels(p) {
+        clearTimeout(modelTimers[p]);
+        modelTimers[p] = setTimeout(() => loadModels(p), 700);
+      }
+      async function loadModels(p) {
+        const key = $("key-" + p).value.trim();
+        const changed = autoKey[p] !== key; // 키가 바뀐 경우에만 자동 선택
+        if (!key) { populateModels(p, [], $("model-" + p).value); return; }
+        if (changed) {
+          autoKey[p] = key;
+          $("effort-" + p).value = "low";
+        }
+        setCardStatus(p, "모델 목록 불러오는 중...", "");
+        try {
+          const list = await fetchModelList(p, key);
+          if (!list.length) throw new Error("사용 가능한 모델이 없습니다.");
+          list.sort((a, b) => b.id.localeCompare(a.id));
+          remoteModels[p] = list;
+          populateModels(p, list, changed ? recommendedModel(p, itemsFor(p, list)) : $("model-" + p).value);
+          setCardStatus(p, "모델 " + list.length + "개를 불러왔습니다.", "ok");
+        } catch (err) {
+          setCardStatus(p, "모델 목록 실패: " + err.message, "err");
+          populateModels(p, [], changed ? recommendedModel(p, itemsFor(p, [])) : $("model-" + p).value);
+        }
+      }
+
+      // 키가 있는 제공사만 모델·노력도 드롭다운 활성화
+      function refreshCards() {
+        PROVIDERS.forEach((p) => {
+          const on = !!$("key-" + p).value.trim();
+          $("model-" + p).disabled = !on;
+          $("effort-" + p).disabled = !on;
+          document.querySelector('.provider-card[data-provider="' + p + '"]').classList.toggle("is-on", on);
+        });
+      }
+      // 노력도 키(low/medium/high)를 슬라이더 위치와 표시 이름에 반영
+      function setEffortUi(p, key) {
+        $("effort-" + p).value = EFFORT_KEYS.includes(key) ? key : "medium";
+      }
+      function fillSettingsForm() {
+        draftOrder = [...settings.order];
+        renderOrder();
+        PROVIDERS.forEach((p) => {
+          $("key-" + p).value = settings.keys[p] || "";
+          populateModels(p, remoteModels[p] || [], settings.models[p] || DEFAULT_MODEL[p]);
+          setEffortUi(p, settings.efforts[p] || "medium");
+          setCardStatus(p, "", "");
+        });
+        $("rememberKey").checked = !!settings.remember;
+        refreshCards();
+      }
+      function collectFormIntoSettings() {
+        settings.order = [...draftOrder];
+        PROVIDERS.forEach((p) => {
+          settings.keys[p] = $("key-" + p).value.trim();
+          settings.models[p] = $("model-" + p).value;
+          settings.efforts[p] = $("effort-" + p).value;
+        });
+        settings.remember = $("rememberKey").checked;
+      }
+      function setSettingsStatus(msg, kind) {
+        const el = $("settingsStatus");
+        el.textContent = msg;
+        el.className = "status" + (kind ? " " + kind : "");
+      }
+      function setCardStatus(p, msg, kind) {
+        const el = $("status-" + p);
+        el.textContent = msg;
+        el.className = "provider-card-status" + (kind ? " " + kind : "");
+      }
+
+      $("saveSettings").addEventListener("click", () => {
+        collectFormIntoSettings();
+        if (!connectedProviders().length) { setSettingsStatus("API 키를 1개 이상 입력하세요.", "err"); return; }
+        persistSettings();
+        updateStatusDot();
+        setSettingsStatus("저장했습니다.", "ok");
+        setTimeout(() => $("settingsDialog").close(), 500);
+      });
+
+      $("testConn").addEventListener("click", async () => {
+        collectFormIntoSettings();
+        const list = connectedProviders();
+        if (!list.length) { setSettingsStatus("API 키를 1개 이상 입력하세요.", "err"); return; }
+        setSettingsStatus("연결 시험 중...", "");
+        PROVIDERS.forEach((p) => setCardStatus(p, "", ""));
+        await Promise.all(list.map(async (p) => {
+          setCardStatus(p, "시험 중...", "");
+          try {
+            await callProvider(p, '{"ok":true} 만 JSON으로 출력하라.', true);
+            setCardStatus(p, "연결 성공", "ok");
+          } catch (err) {
+            setCardStatus(p, "연결 실패: " + err.message, "err");
+          }
+        }));
+        setSettingsStatus("시험 완료. 실제 생성은 위 순위대로 연결된 AI를 사용합니다.", "");
+      });
+
+      $("resetSettings").addEventListener("click", () => {
+        if (!confirm("저장된 API 키와 모델 설정을 모두 지울까요?")) return;
+        try { localStorage.removeItem(STORE_KEY); sessionStorage.removeItem(STORE_KEY); } catch (e) {}
+        settings = defaultSettings();
+        PROVIDERS.forEach((p) => { autoKey[p] = ""; });
+        fillSettingsForm();
+        updateStatusDot();
+        setSettingsStatus("모든 설정을 초기화했습니다.", "err");
+      });
+
+      // dialog open/close
+      function openSettings() {
+        fillSettingsForm();
+        PROVIDERS.forEach((p) => { if ($("key-" + p).value.trim()) loadModels(p); });
+        setSettingsStatus("", "");
+        $("settingsDialog").showModal();
+      }
+      $("navSettings").addEventListener("click", openSettings);
+      $("settingsClose").addEventListener("click", () => $("settingsDialog").close());
+      $("settingsDialog").addEventListener("click", (e) => {
+        // backdrop 클릭 닫기
+        const rect = $("aiSettingsForm").getBoundingClientRect();
+        if (e.target === $("settingsDialog") && (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom)) {
+          $("settingsDialog").close();
+        }
+      });
+      buildProviderCards();
+
+      // =============== 테마 토글 ===============
+      $("themeToggle").addEventListener("click", () => {
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        if (isDark) { document.documentElement.removeAttribute("data-theme"); try { localStorage.setItem("gyoyeon.theme", "light"); } catch (e) {} }
+        else { document.documentElement.setAttribute("data-theme", "dark"); try { localStorage.setItem("gyoyeon.theme", "dark"); } catch (e) {} }
+      });
+      // =============== 뷰 전환 (메인 / 사용 이력) ===============
+      function showView(view) {
+        const history = view === "history";
+        $("viewMain").hidden = history;
+        $("viewHistory").hidden = !history;
+        $("navHistory").classList.toggle("active", history);
+        if (history) renderHistory();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      $("navHistory").addEventListener("click", () => showView("history"));
+      $("brandHome").addEventListener("click", () => showView("main"));
+
+      // =============== 시간표 파싱 ===============
+      let parsedRows = [];
+      let uniqueSubjects = [];
+      let selectedSlots = new Set(); // "날짜|교시" 중 생성 대상으로 선택된 칸
+      let selectedDates = new Set(); // 행사에 포함된 날짜 (기본: 없음, 체크해야 활성)
+      let knownSlots = new Set();    // 지금까지 본 적 있는 칸 (새로 올라온 칸만 기본 선택)
+      function cleanSubject(cell) {
+        if (cell == null) return "";
+        let s = String(cell).trim();
+        if (!s) return "";
+        if (s.includes("/")) s = s.split("/").pop().trim();
+        s = s.replace(/\s*\([^)]*\)\s*$/, "").trim();
+        return s;
+      }
+      // 셀 끝 괄호 안의 담당 교사명을 추출 ("과목(교사)" 형태)
+      function extractTeacher(cell) {
+        if (cell == null) return "";
+        let s = String(cell).trim();
+        if (!s) return "";
+        if (s.includes("/")) s = s.split("/").pop().trim();
+        const m = /\(([^)]*)\)\s*$/.exec(s);
+        return m ? m[1].trim() : "";
+      }
+      const DATE_RE = /(\d{4})\.\s*(\d{1,2})\.\s*(\d{1,2})/;
+      function extractDate(cell) {
+        if (cell == null) return null;
+        const m = DATE_RE.exec(String(cell));
+        if (!m) return null;
+        return m[1] + "." + String(m[2]).padStart(2, "0") + "." + String(m[3]).padStart(2, "0");
+      }
+      function parseClassHeader(cell) {
+        if (cell == null) return null;
+        const m = /\(\s*(\d+)\s*학년\s*(.+?)\s*\)/.exec(String(cell).trim());
+        if (!m) return null;
+        return { 학년: m[1], 반: m[2].trim() };
+      }
+      function parseTimetable(aoa) {
+        const rows = [];
+        let colClasses = {};
+        let currentDate = null;
+        for (let r = 0; r < aoa.length; r++) {
+          const row = aoa[r] || [];
+          const gyosiCol = row.findIndex((c) => c != null && String(c).trim() === "교시");
+          if (gyosiCol !== -1) {
+            const next = aoa[r + 1] || [];
+            const map = {};
+            for (let c = 0; c < next.length; c++) {
+              const ch = parseClassHeader(next[c]);
+              if (ch) map[c] = ch;
+            }
+            if (Object.keys(map).length) colClasses = map;
+            continue;
+          }
+          for (let c = 0; c < Math.min(row.length, 3); c++) {
+            const dt = extractDate(row[c]);
+            if (dt) { currentDate = dt; break; }
+          }
+          const firstClassCol = Object.keys(colClasses).map(Number).sort((a, b) => a - b)[0];
+          if (firstClassCol == null) continue;
+          let gyosi = null;
+          for (let c = 0; c < firstClassCol; c++) {
+            const v = row[c];
+            if (v != null && /^\d+(\.0)?$/.test(String(v).trim())) { gyosi = String(parseInt(v, 10)); break; }
+          }
+          if (gyosi == null) continue;
+          for (const [colStr, cls] of Object.entries(colClasses)) {
+            const cell = row[Number(colStr)];
+            const subj = cleanSubject(cell);
+            if (!subj) continue;
+            rows.push({ 날짜: currentDate || "", 학년: cls.학년, 반: cls.반, 교시: gyosi, 과목: subj, 담당교사: extractTeacher(cell) });
+          }
+        }
+        return rows;
+      }
+
+      const MAX_FILES = 3;
+      let files = []; // { name, rows, grades:[..] }
+
+      function readFileRows(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            try {
+              const wb = XLSX.read(e.target.result, { type: "array" });
+              const ws = wb.Sheets[wb.SheetNames[0]];
+              const aoa = XLSX.utils.sheet_to_json(ws, { header: 1, raw: false, defval: null });
+              const isRoom = aoa.some((r) => (r || []).some((c) => c != null && String(c).includes("강의실별 시간표")));
+              resolve({ rows: isRoom ? parseRoomTimetable(aoa) : parseTimetable(aoa), format: isRoom ? "room" : "full" });
+            } catch (err) { reject(err); }
+          };
+          reader.onerror = () => reject(new Error("파일 읽기 실패"));
+          reader.readAsArrayBuffer(file);
+        });
+      }
+
+      // 강의실별 시간표(달력형): 행=교시, 열=날짜(요일). 메타줄에 학년·강의실(반).
+      function parseRoomTimetable(aoa) {
+        const rows = [];
+        let meta = { 학년: "", 반: "" };
+        let dateCols = {};
+        for (let r = 0; r < aoa.length; r++) {
+          const row = aoa[r] || [];
+          const joined = row.map((c) => (c == null ? "" : String(c))).join(" ");
+          if (joined.includes("강의실명")) {
+            const gm = /(\d+)\s*학년(?!도)/.exec(joined);
+            let ban = "";
+            const rm = /강의실명:\s*([^/]+?)\s*(?:\/|조회기간|$)/.exec(joined);
+            if (rm) { const tok = rm[1].trim(); const inner = /\(([^)]*)\)/.exec(tok); ban = inner ? inner[1].trim() : tok; }
+            meta = { 학년: gm ? gm[1] : "", 반: ban };
+            dateCols = {};
+            continue;
+          }
+          // 날짜 헤더 행 (요일 표기가 붙은 날짜 셀이 2개 이상)
+          const dc = {};
+          for (let c = 0; c < row.length; c++) {
+            const cell = row[c];
+            if (cell == null) continue;
+            const dt = extractDate(cell);
+            if (dt && /[월화수목금토일)]/.test(String(cell))) dc[c] = dt;
+          }
+          if (Object.keys(dc).length >= 2) { dateCols = dc; continue; }
+          // 교시 행
+          let gyosi = null;
+          for (let c = 0; c < row.length; c++) {
+            const v = row[c];
+            if (v != null) { const m = /^(\d+)\s*교시/.exec(String(v).trim()); if (m) { gyosi = m[1]; break; } }
+          }
+          if (gyosi == null) continue;
+          for (const [colStr, 날짜] of Object.entries(dateCols)) {
+            const raw = row[Number(colStr)];
+            if (raw == null) continue;
+            if (!/\([^)]*\)/.test(String(raw))) continue; // 교사명 없는 셀(공휴일·빈칸) 제외
+            const subj = cleanSubject(raw);
+            if (!subj) continue;
+            rows.push({ 날짜, 학년: meta.학년, 반: meta.반, 교시: gyosi, 과목: subj, 담당교사: extractTeacher(raw) });
+          }
+        }
+        return rows;
+      }
+
+      async function addFiles(fileList) {
+        const picked = Array.from(fileList);
+        // 생성이 끝난 뒤 파일을 추가하면 초기화하고 새 작업으로 시작. 취소하면 현재 화면에 머무름.
+        if (resultRows.length) {
+          if (!confirm("생성을 마치고 난 후 파일을 추가하면 초기화 후 새 작업을 실행합니다.\n확인: 초기화 후 새 작업 시작 / 취소: 현재 화면 유지")) return;
+          resetAll();
+        }
+        $("parseNotice").innerHTML = "";
+        for (const file of picked) {
+          if (files.length >= MAX_FILES) {
+            $("parseNotice").innerHTML = '<div class="notice">최대 ' + MAX_FILES + "개까지만 업로드할 수 있습니다.</div>";
+            break;
+          }
+          if (files.some((f) => f.name === file.name)) continue;
+          try {
+            const { rows, format } = await readFileRows(file);
+            const grades = [...new Set(rows.map((r) => r.학년))].sort((a, b) => Number(a) - Number(b));
+            // 학년을 못 읽은 파일은 목록에 넣지 않고 시간표 확인 안내만 표시
+            if (!grades.length) {
+              $("parseNotice").innerHTML = '<div class="notice">' + escapeHtml(file.name) + " 에서 학년을 인식하지 못해 추가하지 않았습니다. 시간표 파일을 확인해 주세요.<br>" +
+                "[교육과정]-[시간표관리]-[전체시간표조회]-[학년, 일자 조정]-[조회]-[디스켓 아이콘 클릭, xls 골라 저장]<br>" +
+                "[교육과정]-[시간표관리]-[강의실별시간표조회]-[학년, 강의실, 기간, 기간별 선택, 달력형으로 조정]-[조회]-[디스켓 아이콘 클릭, xls 골라 저장]</div>";
+              continue;
+            }
+            files.push({ name: file.name, rows, grades, format });
+          } catch (err) {
+            $("parseNotice").innerHTML = '<div class="notice">' + escapeHtml(file.name) + " 을(를) 읽지 못했습니다: " + escapeHtml(err.message) + "</div>";
+          }
+        }
+        recompute();
+      }
+
+      function removeFile(idx) {
+        files.splice(idx, 1);
+        recompute();
+      }
+
+      function renderFileList() {
+        const wrap = $("fileList");
+        if (!files.length) { wrap.innerHTML = ""; return; }
+        wrap.innerHTML = files.map((f, i) => {
+          const noGrade = !f.grades.length;
+          const gradeLabel = noGrade ? "학년 미인식" : f.grades.map((g) => g + "학년").join(", ");
+          return (
+            '<div class="file-row">' +
+            '<span class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg></span>' +
+            '<span class="f-name">' + escapeHtml(f.name) + "</span>" +
+            '<span class="f-grade' + (noGrade ? " warn" : "") + '">' + escapeHtml(gradeLabel) + "</span>" +
+            '<button type="button" class="f-remove" data-idx="' + i + '" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>' +
+            "</div>"
+          );
+        }).join("");
+        wrap.querySelectorAll(".f-remove").forEach((b) => b.addEventListener("click", () => removeFile(Number(b.dataset.idx))));
+      }
+
+      // 학년 오름차순 → 반 오름차순 → 파일명 순 (드래그 순서와 무관). 학년 미인식 파일은 맨 뒤.
+      function sortFiles() {
+        const gradeKey = (f) => (f.grades.length ? Number(f.grades[0]) : Infinity);
+        const classKey = (f) => [...new Set(f.rows.map((r) => String(r.반 || "")))].sort((a, b) => a.localeCompare(b, "ko", { numeric: true }))[0] || "";
+        files.sort((a, b) =>
+          gradeKey(a) - gradeKey(b) ||
+          classKey(a).localeCompare(classKey(b), "ko", { numeric: true }) ||
+          a.name.localeCompare(b.name, "ko", { numeric: true })
+        );
+      }
+
+      function recompute() {
+        sortFiles();
+        renderFileList();
+        parsedRows = files.flatMap((f) => f.rows);
+        syncSlots();
+        renderSlotPicker();
+        renderFocusFields();
+        $("fileMeta").textContent = files.length ? files.length + "개 파일" : "";
+        if (!parsedRows.length) {
+          uniqueSubjects = [];
+          $("genSection").hidden = true;
+          $("resultSection").hidden = true;
+          return;
+        }
+        uniqueSubjects = [...new Set(parsedRows.map((x) => x.과목))].sort();
+        const grades = [...new Set(parsedRows.map((r) => r.학년))].sort((a, b) => Number(a) - Number(b));
+        $("subjMeta").textContent = "수업 " + parsedRows.length + "건 · 과목 " + uniqueSubjects.length + "개 · " + grades.map((g) => g + "학년").join("/");
+        $("subjectBadges").innerHTML =
+          '<b style="font-size:0.82rem;">인식된 과목</b><div style="margin-top:0.4rem;">' +
+          uniqueSubjects.map((s) => '<span class="badge">' + escapeHtml(s) + "</span>").join("") + "</div>";
+        $("genSection").hidden = false;
+        $("resultSection").hidden = true;
+      }
+
+      $("fileInput").addEventListener("change", (e) => { addFiles(e.target.files); e.target.value = ""; });
+      const dz = $("dropZone");
+      ["dragenter", "dragover"].forEach((ev) => dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.add("dragging"); }));
+      ["dragleave", "drop"].forEach((ev) => dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.remove("dragging"); }));
+      dz.addEventListener("drop", (e) => { if (e.dataTransfer.files.length) addFiles(e.dataTransfer.files); });
+
+      // =============== AI 호출 ===============
+      const TOPIC_SCHEMA = { type: "OBJECT", properties: { 연계주제: { type: "STRING" } }, required: ["연계주제"] };
+      function jsonSchemaLower(v) {
+        if (Array.isArray(v)) return v.map(jsonSchemaLower);
+        if (!v || typeof v !== "object") return v;
+        const out = {};
+        for (const [k, val] of Object.entries(v)) out[k] = k === "type" && typeof val === "string" ? val.toLowerCase() : jsonSchemaLower(val);
+        if (out.type === "object") out.additionalProperties = false;
+        return out;
+      }
+      function parseJsonResponse(text) {
+        const cleaned = String(text || "").trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "");
+        return JSON.parse(cleaned);
+      }
+      // 한 제공사에 한 번 요청. 실패 시 status를 달아서 던짐 (폴백 판단에 사용)
+      async function callProvider(provider, prompt, isTest) {
+        const apiKey = (settings.keys[provider] || "").trim();
+        const model = settings.models[provider] || DEFAULT_MODEL[provider];
+        const effort = settings.efforts[provider] || "low";
+        const suffix = "\n\n반드시 JSON 객체만 출력하라.";
+        let url, headers, body;
+        if (provider === "gemini") {
+          url = "https://generativelanguage.googleapis.com/v1beta/models/" + encodeURIComponent(model) + ":generateContent";
+          headers = { "Content-Type": "application/json", "x-goog-api-key": apiKey };
+          body = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+          if (!isTest) body.generationConfig = { responseMimeType: "application/json", responseSchema: TOPIC_SCHEMA, thinkingConfig: { thinkingLevel: GEMINI_EFFORT_LEVEL[effort] || "MEDIUM" } };
+        } else if (provider === "claude") {
+          url = "https://api.anthropic.com/v1/messages";
+          headers = { "Content-Type": "application/json", "x-api-key": apiKey, "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" };
+          body = { model, max_tokens: MAX_TOKENS, messages: [{ role: "user", content: prompt + suffix }] };
+          if (!isTest) {
+            // thinking 예산보다 max_tokens가 커야 함
+            const budget = CLAUDE_EFFORT_BUDGET[effort] || 1024;
+            body.thinking = { type: "enabled", budget_tokens: budget };
+            body.max_tokens = budget + MAX_TOKENS;
+          }
+        } else {
+          url = OPENAI_URL;
+          headers = { "Content-Type": "application/json", Authorization: "Bearer " + apiKey };
+          body = { model, messages: [{ role: "user", content: prompt + suffix }], reasoning_effort: effort };
+          // gpt-5 계열 이후 모델은 max_tokens 대신 max_completion_tokens를 요구함
+          body.max_completion_tokens = isTest ? MAX_TOKENS : OPENAI_MAX_TOKENS[effort] || MAX_TOKENS;
+          if (!isTest) body.response_format = { type: "json_object" };
+        }
+
+        const name = PROVIDER_NAME[provider];
+        const RETRYABLE = new Set([429, 503]);
+        let res;
+        for (let attempt = 0; ; attempt++) {
+          res = await fetch(url, { method: "POST", headers, body: JSON.stringify(body) });
+          if (res.ok) break;
+          if (RETRYABLE.has(res.status) && attempt < 3) {
+            await new Promise((r) => setTimeout(r, Math.min(2000 * 2 ** attempt, 15000)));
+            continue;
+          }
+          break;
+        }
+        if (!res.ok) {
+          if (res.status === 401 || res.status === 403) throw providerError(res.status, name + ": API 키가 잘못됐거나 만료됐습니다.");
+          if (res.status === 400) {
+            // 서버가 준 실제 사유를 메시지 끝과 콘솔에 남겨서 원인 확인이 가능하게 함
+            const detail = await res.text().catch(() => "");
+            console.error(name + " 400 응답 본문:", detail);
+            throw providerError(400, name + ": 요청 내용에 문제가 있습니다. 모델명을 확인하세요. (" + detail.slice(0, 200) + ")");
+          }
+          if (res.status === 404) throw providerError(404, name + ": API 주소/모델을 찾을 수 없습니다.");
+          throw providerError(res.status, name + ": AI 오류 (코드 " + res.status + ")");
+        }
+        const data = await res.json();
+        if (provider === "gemini") return (data.candidates?.[0]?.content?.parts || []).map((p) => p.text || "").join("");
+        if (provider === "claude") return (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("");
+        return data.choices?.[0]?.message?.content || "";
+      }
+
+      function providerError(status, message) {
+        const err = new Error(message);
+        err.status = status;
+        return err;
+      }
+
+      // 연결된 제공사를 순서대로 시도. 키·한도·서버·네트워크 문제만 다음 제공사로 넘김.
+      // 400(요청 형식 오류)은 다른 제공사에서도 같은 이유로 실패하므로 바로 중단.
+      async function callAi(prompt, isTest) {
+        const list = connectedProviders();
+        if (!list.length) throw new Error("API 키를 입력하세요.");
+        let lastErr = null;
+        for (const p of list) {
+          try {
+            const text = await callProvider(p, prompt, isTest);
+            const effort = settings.efforts[p] || "low";
+            lastUsedLabel = PROVIDER_NAME[p] + " · " + settings.models[p];
+            if (!isTest) usedCombos.add(PROVIDER_NAME[p] + " " + settings.models[p] + " (노력도 " + (EFFORT_NAME[effort] || effort) + ")");
+            if (isTest) return text;
+            const obj = parseJsonResponse(text);
+            return String(obj.연계주제 || "").trim();
+          } catch (err) {
+            lastErr = err;
+            if (err.status === 400) break;
+            console.warn(PROVIDER_NAME[p] + " 실패, 다음 제공사로 전환:", err.message);
+          }
+        }
+        throw lastErr;
+      }
+
+      // allowEvent=true: 행사명 포함 허용 (행사명 포함 비율 상한 안에서만 사용)
+      // allowEvent=false: 행사명 포함 금지
+      function buildPrompt(eventName, subject, eventDetail, allowEvent) {
+        const lines = [
+          '너는 고등학교 교사의 "교과 연계 수업" 설계를 돕는다.',
+          '학교 행사 "' + eventName + '"와 교과목 "' + subject + '"를 연결한 수업 주제(제목)를 1개 제안하라.',
+        ];
+        if (eventDetail) lines.push('행사 내용: ' + eventDetail);
+        lines.push("조건:", '- 2022 개정 교육과정 "' + subject + '" 과목의 성격에 부합할 것.');
+        if (allowEvent) {
+          lines.push(
+            "- 행사명" + (eventDetail ? "과 행사 내용" : "") + "을 반영하되, 교과의 학습 내용이 주제의 절반 이상을 차지할 것.",
+            "- 행사명·체험 장소 등 행사 관련 표현이 주제 전체 글자 수의 50%를 넘지 않게 할 것."
+          );
+        } else {
+          lines.push(
+            '- 【필수】 주제에 행사명 "' + eventName + '"을 그대로 넣지 말 것. 띄어쓰기만 바꾼 형태도 금지.',
+            "- 행사의 성격은 간접적으로만 드러내고, 주제의 중심은 교과 학습 내용으로 할 것."
+          );
+        }
+        lines.push(
+          '- 과목명을 그대로 쓰지 말 것. "' + subject + '" 같은 정식 과목명(예: 공통영어2, 통합과학1)을 주제에 넣지 말 것.',
+          '- 단, "영어", "과학", "수학" 같은 일반 교과 영역·개념 표현은 사용해도 됨.',
+          // 외국어 교과는 해당 언어로 주제를 써도 됨
+          ...(/영어|일본어|중국어/.test(subject)
+            ? ["- 외국어 교과(영어·일본어·중국어)이므로 주제는 해당 외국어로 진술해도 되고, 한국어로 써도 됨."]
+            : []),
+          "- 결과는 수업 주제 제목만. 한 줄, 25자 내외.",
+          '- "진로활동" 등 창의적 체험활동이면 활동 성격에 맞게 제안.',
+          'JSON으로만 답하라: {"연계주제": "..."}'
+        );
+        return lines.join("\n");
+      }
+
+      // 띄어쓰기 무시하고 행사명 포함 여부 확인
+      const normText = (s) => String(s).replace(/\s+/g, "");
+      function includesEventName(topic, eventName) {
+        return !!eventName && normText(topic).includes(normText(eventName));
+      }
+      // 행사명 부분을 제거 (최후 수단)
+      function stripEventName(topic, eventName) {
+        const pattern = eventName.split("").map((c) => c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("\\s*");
+        return topic.replace(new RegExp(pattern, "g"), "")
+          .replace(/\s{2,}/g, " ")
+          .replace(/^[\s·:\-–—,~]+|[\s·:\-–—,~]+$/g, "")
+          .trim();
+      }
+
+      // =============== 생성 ===============
+      let resultRows = [];
+      function setGenStatus(msg, isErr) {
+        $("genStatus").innerHTML = isErr ? '<span class="err">' + escapeHtml(msg) + "</span>" : escapeHtml(msg);
+      }
+      let isGenerating = false;
+      async function runGeneration() {
+        if (isGenerating) return;
+        const eventName = $("eventName").value.trim();
+        const eventDetail = $("eventDetail").value.trim();
+        const escorts = parseEscorts($("escortTeachers").value);
+        if (!eventName) { setGenStatus("행사명을 입력하세요. (필수)", true); $("eventName").focus(); return; }
+        if (!escorts.length) { setGenStatus("인솔 교사를 1명 이상 입력하세요. (필수)", true); $("escortTeachers").focus(); return; }
+        const focus = parseFocus(escorts);
+        if (focus.error) {
+          setGenStatus(focus.error, true);
+          const firstFocus = document.querySelector("#focusFields .focus-input");
+          if (firstFocus) firstFocus.focus();
+          return;
+        }
+        if (!connectedProviders().length) { setGenStatus("먼저 상단 'AI 설정'에서 API 키를 저장하세요.", true); openSettings(); return; }
+        const rows0 = effectiveRows();
+        if (!rows0.length) { setGenStatus("행사 기간에서 날짜와 교시를 선택하세요.", true); return; }
+        const subjects = [...new Set(rows0.map((x) => x.과목))].sort();
+        // 행사명 포함 상한: 결과 표 전체 행의 30% 이하 (행 단위 계산, 과목별 주제는 해당 과목 모든 행에 적용)
+        const rowCountBySubject = {};
+        rows0.forEach((x) => { rowCountBySubject[x.과목] = (rowCountBySubject[x.과목] || 0) + 1; });
+        const eventLimit = Math.floor(rows0.length * 0.3);
+        const allowEventBySubject = {};
+        let eventRowTotal = 0;
+        // 행 수가 적은 과목부터 배정해 행사명 포함 과목 수를 최대화
+        const bySmallest = [...subjects].sort((a, b) => rowCountBySubject[a] - rowCountBySubject[b] || a.localeCompare(b));
+        for (const subj of bySmallest) {
+          allowEventBySubject[subj] = eventRowTotal + rowCountBySubject[subj] <= eventLimit;
+          if (allowEventBySubject[subj]) eventRowTotal += rowCountBySubject[subj];
+        }
+        isGenerating = true;
+        usedCombos = new Set();
+        $("genBtn").disabled = true; $("regenBtn").disabled = true;
+        const prog = $("genProgress");
+        prog.hidden = false; prog.value = 0; prog.max = subjects.length;
+        const topicBySubject = {};
+        let done = 0;
+        for (const subj of subjects) {
+          setGenStatus("생성 중... (" + (done + 1) + "/" + subjects.length + ") " + subj);
+          try {
+            const allowEvent = allowEventBySubject[subj];
+            let topic = await callAi(buildPrompt(eventName, subj, eventDetail, allowEvent), false);
+            // 행사명 금지 과목인데 포함되면 재생성 (최대 2회)
+            for (let retry = 0; !allowEvent && includesEventName(topic, eventName) && retry < 2; retry++) {
+              topic = await callAi(buildPrompt(eventName, subj, eventDetail, false), false);
+            }
+            // 그래도 포함되면 행사명 부분 제거
+            if (!allowEvent && includesEventName(topic, eventName)) topic = stripEventName(topic, eventName);
+            topicBySubject[subj] = topic;
+          }
+          catch (err) { console.error(subj, err); topicBySubject[subj] = "[생성 실패: " + err.message + "]"; }
+          done++; prog.value = done;
+        }
+        resultRows = rows0.map((row) => ({ ...row, 연계주제: topicBySubject[row.과목] || "" }));
+        const eventCount = resultRows.filter((r) => includesEventName(r.연계주제, eventName)).length;
+        if (eventCount > eventLimit) console.error("행사명 포함 상한 초과:", eventCount, eventLimit);
+        sortRows(resultRows);
+        const unassigned = assignSupervisors(resultRows, escorts, focus.byGrade);
+        resultGrades = [...new Set(resultRows.map((r) => r.학년))].sort((a, b) => Number(a) - Number(b));
+        activeGrade = resultGrades[0];
+        renderGradeTabs();
+        renderResult();
+        saveHistory(eventName, eventDetail, resultRows, [...usedCombos]);
+        setGenStatus("완료: " + resultRows.length + "행 생성. 행사명 포함 " + eventCount + "행 (상한 " + eventLimit + "행, 30%)." + (lastUsedLabel ? " 사용 AI: " + lastUsedLabel + "." : "") +
+          (unassigned ? " 같은 교시에 배정할 인솔 교사가 부족해 " + unassigned + "행은 지도 교사를 비웠습니다." : ""));
+        isGenerating = false;
+        $("genBtn").disabled = false; $("regenBtn").disabled = false;
+        $("resultSection").hidden = false;
+        $("resultSection").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      $("genBtn").addEventListener("click", runGeneration);
+      $("regenBtn").addEventListener("click", runGeneration);
+
+      // =============== 초기화 (전체 입력·결과 지움) ===============
+      function resetAll() {
+        files = [];
+        parsedRows = [];
+        uniqueSubjects = [];
+        resultRows = [];
+        resultGrades = [];
+        activeGrade = null;
+        $("eventName").value = "";
+        $("eventDetail").value = "";
+        $("escortTeachers").value = "";
+        focusValues = {};
+        $("focusFields").innerHTML = "";
+        $("fileInput").value = "";
+        $("parseNotice").innerHTML = "";
+        setGenStatus("");
+        const prog = $("genProgress"); prog.hidden = true; prog.value = 0;
+        recompute();
+        $("resultSection").hidden = true;
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      $("resetBtn").addEventListener("click", () => {
+        if (confirm("입력과 결과를 모두 지우고 처음부터 다시 시작할까요? (AI 설정·사용 이력은 유지됩니다.)")) resetAll();
+      });
+
+      let resultGrades = [];
+      let activeGrade = null;
+
+      function renderGradeTabs() {
+        const wrap = $("gradeTabs");
+        wrap.innerHTML = resultGrades.map((g) =>
+          '<button type="button" class="grade-tab' + (g === activeGrade ? " is-active" : "") + '" data-grade="' + g + '">' + g + "학년</button>"
+        ).join("");
+        wrap.querySelectorAll(".grade-tab").forEach((b) => b.addEventListener("click", () => {
+          activeGrade = b.dataset.grade;
+          renderGradeTabs();
+          renderResult();
+        }));
+      }
+
+      function renderResult() {
+        const head = ["날짜", "학년", "반", "교시", "과목", "담당교사", "지도 교사", "연계주제"];
+        const widths = ["108px", "56px", "132px", "56px", "150px", "96px", "96px", "auto"];
+        const rows = resultRows.filter((r) => r.학년 === activeGrade);
+        let html = "<colgroup>" + widths.map((w) => '<col style="width:' + w + '">').join("") + "</colgroup>";
+        html += "<thead><tr>" + head.map((h) => "<th>" + h + "</th>").join("") + "</tr></thead><tbody>";
+        for (const r of rows) {
+          const cells = [r.날짜, r.학년, r.반, r.교시, r.과목, r.담당교사 || "", r.지도교사 || "", r.연계주제];
+          html += "<tr>" + cells.map((v, i) => '<td' + (i === 7 ? ' class="topic"' : "") + ">" + escapeHtml(String(v ?? "")) + "</td>").join("") + "</tr>";
+        }
+        $("resultTable").innerHTML = html + "</tbody>";
+      }
+
+      // =============== 행사 기간 (학년별 날짜 체크 · 학년 탭 · 교시 다중 선택) ===============
+      const DOW_LABEL = ["일", "월", "화", "수", "목", "금", "토"];
+      let activeSlotGrade = null; // 지금 보고 있는 학년 탭 (파일 1개 = 학년 1개)
+      function slotKey(날짜, 학년, 교시) { return 날짜 + "|" + Number(학년) + "|" + Number(교시); }
+      function dateKey(학년, 날짜) { return Number(학년) + "|" + 날짜; } // 날짜 체크는 학년마다 따로
+      function splitDate(d) { const [y, m, dd] = String(d).split("."); return { y: Number(y), m: Number(m), d: Number(dd) }; }
+      function shortDate(d) { const p = splitDate(d); return p.m + "/" + p.d; }
+      function dayLabel(d) { const p = splitDate(d); return p.m + "/" + p.d + " (" + DOW_LABEL[new Date(p.y, p.m - 1, p.d).getDay()] + ")"; }
+      // 시간표 기준으로 선택 상태 동기화. 칸은 새로 나타나면 기본 선택, 날짜 체크는 기본 미선택.
+      function syncSlots() {
+        const dks = new Set(parsedRows.map((r) => dateKey(r.학년, r.날짜)));
+        const keys = new Set(parsedRows.map((r) => slotKey(r.날짜, r.학년, r.교시)));
+        for (const k of [...selectedDates]) if (!dks.has(k)) selectedDates.delete(k);
+        for (const k of [...selectedSlots]) if (!keys.has(k)) selectedSlots.delete(k);
+        for (const k of keys) if (!knownSlots.has(k)) { knownSlots.add(k); selectedSlots.add(k); }
+        for (const k of [...knownSlots]) if (!keys.has(k)) knownSlots.delete(k);
+      }
+      // 시간표 전체: 날짜 → 학년 → (교시 → 과목 Set), 모두 오름차순
+      function slotMatrix() {
+        const m = new Map();
+        for (const r of parsedRows) {
+          const g = Number(r.학년), p = Number(r.교시);
+          if (!m.has(r.날짜)) m.set(r.날짜, new Map());
+          const grades = m.get(r.날짜);
+          if (!grades.has(g)) grades.set(g, new Map());
+          const day = grades.get(g);
+          if (!day.has(p)) day.set(p, new Set());
+          day.get(p).add(r.과목);
+        }
+        const sortMap = (mp) => new Map([...mp].sort((a, b) => a[0] - b[0]));
+        return new Map([...m].sort((a, b) => a[0].localeCompare(b[0]))
+          .map(([d, grades]) => [d, sortMap(new Map([...grades].map(([g, day]) => [g, sortMap(day)])))]));
+      }
+      function setSlot(날짜, 학년, 교시, on) {
+        const k = slotKey(날짜, 학년, 교시);
+        if (on) selectedSlots.add(k); else selectedSlots.delete(k);
+      }
+      function setDate(학년, 날짜, on) {
+        if (on) selectedDates.add(dateKey(학년, 날짜)); else selectedDates.delete(dateKey(학년, 날짜));
+      }
+      // [2, 3, 5] → "2~3, 5"
+      function compressPeriods(ps) {
+        const out = [];
+        let start = ps[0], prev = ps[0];
+        for (let i = 1; i <= ps.length; i++) {
+          const p = ps[i];
+          if (p === prev + 1) { prev = p; continue; }
+          out.push(start === prev ? String(start) : start + "~" + prev);
+          start = p; prev = p;
+        }
+        return out.join(", ");
+      }
+      function renderSlotPicker() {
+        const wrap = $("slotPicker");
+        if (!wrap) return;
+        const matrix = slotMatrix();
+        if (!matrix.size) {
+          wrap.innerHTML = '<p class="field-help">시간표를 업로드하면 날짜가 표시됩니다.</p>';
+          renderSlotSummary(matrix);
+          return;
+        }
+        const grades = [...new Set([...matrix.values()].flatMap((gs) => [...gs.keys()]))].sort((a, b) => a - b);
+        if (!grades.includes(activeSlotGrade)) activeSlotGrade = grades[0];
+        const g = activeSlotGrade;
+        const maxP = Math.max(9, ...parsedRows.map((r) => Number(r.교시) || 0));
+        const periods = Array.from({ length: maxP }, (_, i) => i + 1);
+        let html = "";
+        // 전체 선택/해제(왼쪽)와 학년 탭(오른쪽)을 같은 줄에 둔다
+        html += '<div class="slot-tabbar">';
+        html += '<span class="slot-bulk">' +
+          '<button type="button" class="button secondary slot-bulk-btn" id="slotAllOn">전체 선택</button>' +
+          '<button type="button" class="button secondary slot-bulk-btn" id="slotAllOff">전체 해제</button>' +
+          "</span>";
+        if (grades.length > 1) {
+          html += '<div class="grade-tabs slot-grade-tabs" role="tablist">' + grades.map((x) =>
+            '<button type="button" class="grade-tab slot-grade-tab' + (x === g ? " is-active" : "") + '" data-grade="' + x + '">' + x + "학년</button>"
+          ).join("") + "</div>";
+        }
+        html += "</div>";
+        // 날짜마다 한 줄: [날짜 체크] + [교시 칸들]. 모바일에서는 교시 칸이 5개씩 줄바꿈된다.
+        html += '<div class="slot-line slot-line-head"><span class="slot-head slot-corner">날짜</span><span class="slot-head slot-period-title">교시</span></div>';
+        for (const [d, gs] of matrix) {
+          const day = gs.get(g);
+          if (!day) continue; // 이 학년 시간표가 없는 날짜는 숨김
+          const checked = selectedDates.has(dateKey(g, d));
+          const cls = checked ? "" : " is-off";
+          html += '<div class="slot-line"><span class="slot-label' + cls + '">' +
+            '<input type="checkbox" class="slot-check" data-date="' + escapeHtml(d) + '" data-grade="' + g + '"' + (checked ? " checked" : "") +
+            ' aria-label="' + escapeHtml(g + "학년 " + dayLabel(d)) + ' 선택">' + escapeHtml(dayLabel(d)) + '</span><div class="slot-chips">';
+          for (const p of periods) {
+            if (!day.has(p)) { html += '<button type="button" class="slot-chip" disabled>' + p + "</button>"; continue; }
+            const on = checked && selectedSlots.has(slotKey(d, g, p));
+            html += '<button type="button" class="slot-chip' + (on ? " is-on" : "") + '" data-date="' + escapeHtml(d) + '" data-p="' + p + '"' +
+              (checked ? "" : " disabled") + ' aria-pressed="' + on + '" title="' + escapeHtml([...day.get(p)].join(", ")) + '">' + p + "</button>";
+          }
+          html += "</div></div>";
+        }
+        wrap.style.setProperty("--pmax", maxP);
+        wrap.innerHTML = html;
+        renderSlotSummary(matrix);
+      }
+      // 선택 상태 변경 시 생성 버튼 상태 갱신
+      function renderSlotSummary(matrix) {
+        updateGenState();
+      }
+      // 생성 버튼 활성 조건: AI 설정 완료 + 업로드한 모든 학년에 체크된 날짜 1개 이상 + 선택된 교시 1개 이상
+      function updateGenState() {
+        const rows = effectiveRows();
+        const grades = [...new Set(parsedRows.map((r) => Number(r.학년)))].sort((a, b) => a - b);
+        const missing = grades.filter((g) => ![...selectedDates].some((k) => k.startsWith(g + "|")));
+        let msg = "";
+        if (!connectedProviders().length) msg = "AI 설정을 확인해 주세요.";
+        else if (!selectedDates.size) msg = "날짜를 체크하세요.";
+        else if (missing.length) msg = missing.map((g) => g + "학년").join(", ") + " 날짜를 체크하세요.";
+        else if (!rows.length) msg = "선택된 교시가 없습니다.";
+        const hint = $("genHint");
+        if (hint) hint.textContent = msg;
+        if (!isGenerating) $("genBtn").disabled = !!msg;
+      }
+      // 현재 학년 탭 기준 날짜 행 전체/해제
+      // 전체 선택: 모든 학년·날짜 체크 + 모든 교시 선택 / 전체 해제: 모든 체크 해제
+      function setAll(on) {
+        for (const [d, gs] of slotMatrix()) {
+          for (const [g, day] of gs) {
+            setDate(g, d, on);
+            if (on) for (const p of day.keys()) setSlot(d, g, p, true);
+          }
+        }
+        renderSlotPicker();
+      }
+      $("slotPicker").addEventListener("change", (e) => {
+        const cb = e.target.closest("input.slot-check");
+        if (!cb) return;
+        setDate(Number(cb.dataset.grade), cb.dataset.date, cb.checked);
+        renderSlotPicker();
+      });
+      $("slotPicker").addEventListener("click", (e) => {
+        const tab = e.target.closest(".slot-grade-tab");
+        if (tab) { activeSlotGrade = Number(tab.dataset.grade); renderSlotPicker(); return; }
+        const bulk = e.target.closest("#slotAllOn, #slotAllOff");
+        if (bulk) { setAll(bulk.id === "slotAllOn"); return; }
+        const chip = e.target.closest(".slot-chip[data-date]");
+        if (!chip || chip.disabled) return;
+        const d = chip.dataset.date, g = activeSlotGrade, p = Number(chip.dataset.p);
+        setSlot(d, g, p, !selectedSlots.has(slotKey(d, g, p)));
+        renderSlotPicker();
+      });
+
+
+      // =============== 생성 대상 (날짜 체크 + 교시 선택) ===============
+      function isSelected(r) { return selectedDates.has(dateKey(r.학년, r.날짜)) && selectedSlots.has(slotKey(r.날짜, r.학년, r.교시)); }
+      function effectiveRows() { return parsedRows.filter(isSelected); }
+
+
+      // =============== 정렬 (날짜 > 학년 > 반 > 교시) ===============
+      function sortRows(rows) {
+        const num = (v) => { const n = parseInt(v, 10); return Number.isNaN(n) ? Infinity : n; };
+        rows.sort((a, b) =>
+          String(a.날짜).localeCompare(String(b.날짜)) ||
+          num(a.학년) - num(b.학년) ||
+          String(a.반).localeCompare(String(b.반), "ko") ||
+          num(a.교시) - num(b.교시)
+        );
+        return rows;
+      }
+
+      // =============== 지도 교사 배정 ===============
+      // 인솔 교사 입력 문자열 → 중복 제거된 이름 배열 (쉼표/줄바꿈/공백 구분)
+      function parseEscorts(text) {
+        return [...new Set(String(text || "").split(/[\s,，、]+/).map((s) => s.trim()).filter(Boolean))];
+      }
+      // 담당 교사 셀 문자열 → 개별 이름 토큰 (여러 명 병기 대비)
+      function teacherTokens(raw) {
+        return String(raw || "").split(/[\s,，、/]+/).map((s) => s.trim()).filter(Boolean);
+      }
+      // 각 행에 지도 교사(r.지도교사)를 부여한다. rows는 선택한 교시(생성 대상)만 담기므로 시수도 선택 범위 기준이다.
+      // 1차: 담당 교사가 인솔 교사면 우선 배정. 2차: 나머지는 배정 차시(행) 수가
+      // 가장 적은 인솔 교사에게 배정해 최종 시수를 공평하게 맞춘다.
+      // 학년별 집중 배정 입력칸: 시간표의 학년 수만큼 만든다. 입력값은 다시 그릴 때도 유지한다.
+      const FOCUS_EXAMPLE = { 1: "예: 안중근, 김구, 윤동주", 2: "예: 정약용, 신사임당, 허준", 3: "예: 이황, 이이, 정몽주" };
+      let focusValues = {};
+      function renderFocusFields() {
+        const wrap = $("focusFields");
+        wrap.querySelectorAll(".focus-input").forEach((el) => { focusValues[el.dataset.grade] = el.value; });
+        const grades = [...new Set(parsedRows.map((r) => Number(r.학년)))].sort((a, b) => a - b);
+        if (!grades.length) { wrap.innerHTML = '<p class="field-help">시간표를 업로드하면 학년별 입력칸이 나타납니다.</p>'; return; }
+        wrap.innerHTML = grades.map((g) =>
+          '<div class="focus-row"><span class="focus-grade">' + g + '학년</span>' +
+          '<input class="text-input focus-input" type="text" data-grade="' + g + '" value="' + escapeHtml(focusValues[g] || "") +
+          '" placeholder="' + escapeHtml(FOCUS_EXAMPLE[g] || "쉼표로 구분해 입력") + '"></div>'
+        ).join("");
+      }
+      // 학년별 입력칸 → { byGrade: { "1": [이름, …] }, error }
+      // 집중 배정 교사는 인솔 교사 목록에 있어야 하고, 한 교사는 한 학년에만 넣는다.
+      function parseFocus(escorts) {
+        const byGrade = {};
+        const seen = new Set();
+        const escortSet = new Set(escorts);
+        for (const el of document.querySelectorAll("#focusFields .focus-input")) {
+          const names = parseEscorts(el.value);
+          if (!names.length) continue;
+          for (const n of names) {
+            if (!escortSet.has(n)) return { byGrade: {}, error: "집중 배정 교사 " + n + "님이 인솔 교사 목록에 없습니다. 인솔 교사에 먼저 추가해 주세요." };
+            if (seen.has(n)) return { byGrade: {}, error: "집중 배정 교사 " + n + "님이 여러 학년에 입력되어 있습니다." };
+            seen.add(n);
+          }
+          byGrade[el.dataset.grade] = names;
+        }
+        return { byGrade, error: "" };
+      }
+      // 같은 날짜·교시에는 한 사람이 한 반만 맡는다 (학년·반 무관). 이 규칙이 시수 공평 배분보다 앞선다.
+      // 순서: ① 과목 담당 교사(인솔 교사인 경우) ② 집중 배정 학년의 행은 그 학년 집중 교사 우선
+      // ③ 집중 교사를 쓸 수 없는 행은 ③-1 나머지 행을 모두 배정한 뒤, 대체 허용 학년(FALLBACK_GRADES)에 한해 집중 교사가 아닌 인솔 교사로 채움
+      // ④ 집중 배정 학년이 아닌 행은 집중 교사를 제외한 인솔 교사 중 시수가 적은 교사.
+      // 배정할 인솔 교사가 모두 그 교시에 이미 배정된 경우에만 지도 교사를 비우고, 그 행 수를 반환한다.
+      const FALLBACK_GRADES = ["1"]; // 집중 교사가 찬 교시에 다른 인솔 교사로 대체를 허용하는 학년
+      function assignSupervisors(rows, escorts, focusByGrade = {}) {
+        rows.forEach((r) => { r.지도교사 = ""; });
+        if (!escorts || !escorts.length) return 0;
+        const count = Object.fromEntries(escorts.map((e) => [e, 0]));
+        const escortSet = new Set(escorts);
+        const busy = new Set(); // "날짜|교시|이름"
+        const slotOf = (r) => r.날짜 + "|" + r.교시 + "|";
+        const isBusy = (r, t) => busy.has(slotOf(r) + t);
+        const take = (r, t) => { r.지도교사 = t; count[t]++; busy.add(slotOf(r) + t); };
+        const pending = [];
+        for (const r of rows) {
+          const owner = teacherTokens(r.담당교사).find((t) => escortSet.has(t) && !isBusy(r, t));
+          if (owner) take(r, owner);
+          else pending.push(r);
+        }
+        // 집중 배정 교사는 자기 학년 행에 우선 쓴다. 집중 교사가 같은 교시에 모두 찼으면 대체 후보(leftovers)로 넘긴다.
+        const focusAll = new Set(Object.values(focusByGrade).flat());
+        let unassigned = 0;
+        const rest = [];
+        const leftovers = [];
+        for (const r of pending) {
+          const list = focusByGrade[String(Number(r.학년))] || [];
+          if (!list.length) { rest.push(r); continue; }
+          const free = list.filter((t) => !isBusy(r, t));
+          if (!free.length) { leftovers.push(r); continue; }
+          // 집중 배정은 몰아주기: 이미 많이 맡은 교사 우선
+          let pick = free[0];
+          for (const e of free) { if (count[e] > count[pick]) pick = e; }
+          take(r, pick);
+        }
+        for (const r of rest) {
+          const free = escorts.filter((e) => !focusAll.has(e) && !isBusy(r, e));
+          if (!free.length) { unassigned++; continue; }
+          let pick = free[0];
+          for (const e of free) { if (count[e] < count[pick]) pick = e; }
+          take(r, pick);
+        }
+        // 빈칸이 생길 수밖에 없을 때만: 대체 허용 학년의 행을 집중 교사가 아닌 인솔 교사로 채움
+        for (const r of leftovers) {
+          if (!FALLBACK_GRADES.includes(String(Number(r.학년)))) { unassigned++; continue; }
+          const free = escorts.filter((e) => !focusAll.has(e) && !isBusy(r, e));
+          if (!free.length) { unassigned++; continue; }
+          let pick = free[0];
+          for (const e of free) { if (count[e] < count[pick]) pick = e; }
+          take(r, pick);
+        }
+        return unassigned;
+      }
+
+      // =============== 엑셀 내보내기 (생성할 폼.xlsx 서식, 학년별 시트) ===============
+      function buildGradeSheet(title, rows) {
+        const header = ["날짜", "학년", "반", "교시", "과목", "담당교사", "지도 교사", "연계주제"];
+        const FONT = "맑은 고딕";
+        const thin = { style: "thin", color: { rgb: "FFB0B0B0" } };
+        const border = { top: thin, bottom: thin, left: thin, right: thin };
+        // 전체 셀 공통: 가로 가운데, 세로 가운데, 자동 줄바꿈 OFF, 셀에 맞춤 ON
+        const align = { horizontal: "center", vertical: "center", wrapText: false, shrinkToFit: true };
+
+        const body = rows.map((r) => [r.날짜, r.학년, r.반, r.교시, r.과목, r.담당교사 || "", r.지도교사 || "", r.연계주제]);
+        // 날짜·학년이 같은 연속 행은 날짜·학년 셀을, 날짜·학년·반이 같은 연속 행은 반 셀을 병합한다.
+        // 병합에 가려지는 아래 셀은 빈 값으로 둔다.
+        const merges = [{ s: { r: 0, c: 0 }, e: { r: 0, c: header.length - 1 } }];
+        const dateGradeKey = (r) => r.날짜 + "|" + r.학년;
+        const classKey = (r) => dateGradeKey(r) + "|" + r.반;
+        const mergeRuns = (keyFn, col) => {
+          let start = 0;
+          for (let i = 1; i <= rows.length; i++) {
+            if (i === rows.length || keyFn(rows[i]) !== keyFn(rows[start])) {
+              if (i - 1 > start) merges.push({ s: { r: 3 + start, c: col }, e: { r: 3 + i - 1, c: col } });
+              for (let k = start + 1; k < i; k++) body[k][col] = "";
+              start = i;
+            }
+          }
+        };
+        mergeRuns(dateGradeKey, 0);
+        mergeRuns(dateGradeKey, 1);
+        mergeRuns(classKey, 2);
+
+        const aoa = [[title], [], header, ...body];
+        const ws = XLSX.utils.aoa_to_sheet(aoa);
+        const totalRows = 3 + rows.length;
+
+        ws["A1"].s = { font: { name: FONT, sz: 16, bold: true }, alignment: align };
+        ws["!merges"] = merges;
+        for (let c = 0; c < header.length; c++) {
+          const ref = XLSX.utils.encode_cell({ r: 2, c });
+          if (ws[ref]) ws[ref].s = { font: { name: FONT, sz: 12, bold: true }, fill: { patternType: "solid", fgColor: { rgb: "FFDDEBF7" } }, alignment: align, border };
+        }
+        for (let i = 0; i < rows.length; i++) {
+          for (let c = 0; c < header.length; c++) {
+            const ref = XLSX.utils.encode_cell({ r: 3 + i, c });
+            if (ws[ref]) ws[ref].s = { font: { name: FONT, sz: 12 }, alignment: align, border };
+          }
+        }
+        ws["!cols"] = [{ wch: 13.57 }, { wch: 7.57 }, { wch: 26.43 }, { wch: 9.29 }, { wch: 27.71 }, { wch: 12 }, { wch: 12 }, { wch: 82.86 }];
+        ws["!rows"] = Array.from({ length: totalRows }, (_, i) => ({ hpt: i === 0 ? 26.25 : 17.25 }));
+        return ws;
+      }
+
+      // 수업집계 시트: 교사별 본시수·보강시수·합계 (제목·표 서식은 학년별 시트와 동일)
+      function buildSupervisorSheet(rows, escorts) {
+        const header = ["지도교사", "본시수", "보강시수", "합계"];
+        const FONT = "맑은 고딕";
+        const thin = { style: "thin", color: { rgb: "FFB0B0B0" } };
+        const border = { top: thin, bottom: thin, left: thin, right: thin };
+        const align = { horizontal: "center", vertical: "center", wrapText: false, shrinkToFit: true };
+
+        const teachers = [...new Set(escorts)];
+        const stat = Object.fromEntries(teachers.map((t) => [t, { 본: 0, 보강: 0 }]));
+        // 본시수: 담당 교사가 지도 교사와 같은 차시 / 보강시수: 시수 균등 배분으로 배정된 차시
+        for (const r of rows) {
+          if (!stat[r.지도교사]) continue;
+          if (teacherTokens(r.담당교사).includes(r.지도교사)) stat[r.지도교사].본++;
+          else stat[r.지도교사].보강++;
+        }
+        const body = teachers.map((t) => [t, stat[t].본, stat[t].보강, stat[t].본 + stat[t].보강]);
+        const aoa = [["교사별 수업 시수 집계"], [], header, ...body];
+        const ws = XLSX.utils.aoa_to_sheet(aoa);
+
+        ws["A1"].s = { font: { name: FONT, sz: 16, bold: true }, alignment: align };
+        ws["!merges"] = [{ s: { r: 0, c: 0 }, e: { r: 0, c: header.length - 1 } }];
+        for (let c = 0; c < header.length; c++) {
+          const ref = XLSX.utils.encode_cell({ r: 2, c });
+          if (ws[ref]) ws[ref].s = { font: { name: FONT, sz: 12, bold: true }, fill: { patternType: "solid", fgColor: { rgb: "FFDDEBF7" } }, alignment: align, border };
+        }
+        for (let i = 0; i < body.length; i++) {
+          for (let c = 0; c < header.length; c++) {
+            const ref = XLSX.utils.encode_cell({ r: 3 + i, c });
+            if (ws[ref]) ws[ref].s = { font: { name: FONT, sz: 12 }, alignment: align, border };
+          }
+        }
+        ws["!cols"] = [{ wch: 16 }, { wch: 10 }, { wch: 10 }, { wch: 10 }];
+        ws["!rows"] = aoa.map((_, i) => ({ hpt: i === 0 ? 26.25 : 17.25 }));
+        return ws;
+      }
+
+      async function exportWorkbook(eventName, rows, escorts) {
+        if (!rows || !rows.length) return;
+        const title = (eventName || "행사") + " 교과 연계 수업계획";
+        const fileName = "붙임." + title;
+        const grades = [...new Set(rows.map((r) => r.학년))].sort((a, b) => Number(a) - Number(b));
+        const wb = XLSX.utils.book_new();
+        for (const g of grades) {
+          XLSX.utils.book_append_sheet(wb, buildGradeSheet(title, rows.filter((r) => r.학년 === g)), g + "학년");
+        }
+        // 이력 내보내기처럼 인솔 명단이 없으면 행에 배정된 교사로 대체
+        const teacherList = escorts && escorts.length ? escorts : rows.map((r) => r.지도교사).filter(Boolean);
+        XLSX.utils.book_append_sheet(wb, buildSupervisorSheet(rows, teacherList), "수업집계");
+        // xlsx-js-style은 alignment의 shrinkToFit(셀에 맞춤)을 출력하지 않는다.
+        // 생성된 styles.xml을 후처리해 모든 셀에 shrinkToFit="1"을 주입한다.
+        const out = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+        try {
+          const zip = await JSZip.loadAsync(out);
+          let styles = await zip.file("xl/styles.xml").async("string");
+          styles = styles.replace(/<alignment /g, '<alignment shrinkToFit="1" ');
+          zip.file("xl/styles.xml", styles);
+          const blob = await zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url; a.download = fileName + ".xlsx";
+          document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+        } catch (err) {
+          console.error("shrinkToFit 후처리 실패, 기본 저장", err);
+          XLSX.writeFile(wb, fileName + ".xlsx");
+        }
+      }
+
+      $("exportBtn").addEventListener("click", () => exportWorkbook($("eventName").value.trim(), resultRows, parseEscorts($("escortTeachers").value)));
+
+      // =============== 사용 이력 ===============
+      const HISTORY_KEY = "gyoyeon.history";
+      function loadHistory() {
+        try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]"); } catch (e) { return []; }
+      }
+      function saveHistory(eventName, eventDetail, rows, models) {
+        const list = loadHistory();
+        list.unshift({
+          id: Date.now(),
+          ts: new Date().toISOString(),
+          event: eventName,
+          detail: eventDetail || "",
+          grades: [...new Set(rows.map((r) => r.학년))].sort((a, b) => Number(a) - Number(b)),
+          count: rows.length,
+          rows: rows,
+          models: models || [],
+        });
+        try { localStorage.setItem(HISTORY_KEY, JSON.stringify(list)); } catch (e) {}
+      }
+      function deleteHistory(id) {
+        const list = loadHistory().filter((h) => h.id !== id);
+        try { localStorage.setItem(HISTORY_KEY, JSON.stringify(list)); } catch (e) {}
+        renderHistory();
+      }
+      function fmtTs(iso) {
+        const d = new Date(iso);
+        const p = (n) => String(n).padStart(2, "0");
+        return d.getFullYear() + "." + p(d.getMonth() + 1) + "." + p(d.getDate()) + " " + p(d.getHours()) + ":" + p(d.getMinutes());
+      }
+      function renderHistory() {
+        const list = loadHistory();
+        const wrap = $("historyList");
+        if (!list.length) { wrap.innerHTML = '<div class="empty-hist">아직 생성 기록이 없습니다.</div>'; return; }
+        wrap.innerHTML = list.map((h) =>
+          '<div class="file-row">' +
+          '<span class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg></span>' +
+          '<span class="f-name" style="white-space:normal;"><b>' + escapeHtml(h.event) + "</b>" +
+          '<span style="display:block;color:var(--muted);font-weight:400;font-size:0.76rem;">' +
+          fmtTs(h.ts) + " · " + h.grades.map((g) => g + "학년").join("/") + " · " + h.count + "행" +
+          (h.detail ? " · " + escapeHtml(h.detail.slice(0, 40)) + (h.detail.length > 40 ? "…" : "") : "") +
+          "</span>" +
+          (h.models && h.models.length
+            ? '<span style="display:block;color:var(--muted);font-weight:400;font-size:0.76rem;">' + escapeHtml(h.models.join(", ")) + "</span>"
+            : "") +
+          "</span>" +
+          '<button type="button" class="icon-text-button" data-export="' + h.id + '" aria-label="엑셀 다운로드" title="엑셀 다운로드"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></button>' +
+          '<button type="button" class="f-remove" data-del="' + h.id + '" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>' +
+          "</div>"
+        ).join("");
+        wrap.querySelectorAll("[data-export]").forEach((b) => b.addEventListener("click", () => {
+          const h = loadHistory().find((x) => x.id === Number(b.dataset.export));
+          if (h) exportWorkbook(h.event, h.rows);
+        }));
+        wrap.querySelectorAll("[data-del]").forEach((b) => b.addEventListener("click", () => deleteHistory(Number(b.dataset.del))));
+      }
+      $("clearHistory").addEventListener("click", () => {
+        if (!loadHistory().length) return;
+        if (confirm("모든 사용 이력을 삭제할까요?")) {
+          try { localStorage.removeItem(HISTORY_KEY); } catch (e) {}
+          renderHistory();
+        }
+      });
+
+      // =============== 유틸 ===============
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+      }
+
+      // =============== 이메일 복사 ===============
+      $("copyEmailLink").addEventListener("click", (e) => {
+        e.preventDefault();
+        const email = "honeymath.gbe@gmail.com";
+        const toast = $("emailToast");
+        const done = () => { toast.hidden = false; setTimeout(() => (toast.hidden = true), 1500); };
+        if (navigator.clipboard) navigator.clipboard.writeText(email).then(done).catch(done);
+        else done();
+      });
+
+      // =============== 초기화 ===============
+      loadSettings();
+      updateStatusDot();
+    </script>
+  </body>
+</html>

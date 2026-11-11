@@ -29,7 +29,10 @@
         ? `<span class="btn btn-accent btn-lg" aria-disabled="true">${ICON.download}${esc(app.buttonLabel || "곧 공개합니다")}</span>`
         : app.kind === "link"
         ? `<a class="btn btn-accent btn-lg" href="${app.url}" target="_blank" rel="noopener">${ICON.open}${esc(app.buttonLabel || "웹에서 열기")}</a>`
-        : `<a class="btn btn-accent btn-lg" href="${app.url}">${ICON.download}${esc(app.buttonLabel || "내려받기")}</a>`;
+        : `<a class="btn btn-accent btn-lg" href="${app.url}"${app.downloadName ? ` download="${esc(app.downloadName)}"` : ""}>${ICON.download}${esc(app.buttonLabel || "내려받기")}</a>`;
+      const top = (app.topButtons || [])
+        .map((b) => `<div class="actions"><a class="btn btn-accent btn-lg" href="${b.url}" target="_blank" rel="noopener">${ICON.open}${esc(b.label)}</a></div>`)
+        .join("");
       const repo = app.repo
         ? `<a class="btn btn-dark btn-lg" href="${app.repo}" target="_blank" rel="noopener">${ICON.github}GitHub</a>`
         : "";
@@ -47,13 +50,9 @@
             <h1>${esc(app.name)}</h1>
             <p class="tagline">${esc(app.tagline)}</p>
             ${app.description ? `<p class="desc">${esc(app.description)}</p>` : ""}
+            ${top}
             <div class="actions">${primary}${repo}</div>
             <ul class="meta">${meta.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>
-            <div class="links">
-              <a href="apps.html">모든 앱</a>
-              ${app.kind === "download" && app.url && !app.repo ?`<a href="${GITHUB}/release/releases?q=${app.id}" target="_blank" rel="noopener">이전 버전</a>` : ""}
-              ${app.repo ? `<a href="${app.repo}/releases" target="_blank" rel="noopener">릴리스 노트</a>` : ""}
-            </div>
           </div>
         </section>
         ${app.noShots ? "" : `<div class="gallery">

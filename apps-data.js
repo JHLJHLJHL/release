@@ -6,6 +6,8 @@ const RELEASES = "https://github.com/JHLJHLJHL/release/releases/download";
 
 // buttonLabel: 상세 페이지 주 버튼의 글자(생략하면 '내려받기' · '웹에서 열기').
 // url을 비워 두면 그 버튼이 비활성으로 보인다(buttonLabel이 없으면 '곧 공개합니다').
+// downloadName: 내려받을 때 저장될 파일 이름. 같은 사이트 안의 파일(url이 상대 경로)일 때만 적용된다.
+// topButtons: 주 버튼 위에 한 줄씩 더 놓을 웹 링크 버튼 [{ label, url }].
 // noShots: true면 화면 미리보기 갤러리를 숨긴다. description · features · requires · updated · version · size는 생략해도 된다.
 window.APPS = [
   {
@@ -37,6 +39,7 @@ window.APPS = [
     iconFree: true,
     name: "연수 자료",
     buttonLabel: "26/11/24 죽변고 연수 자료",
+    topButtons: [{ label: "생기부 AI 작업실 연수 Slide", url: "https://jhljhljhl.github.io/ai-teacher-workshop/deck/" }],
     tagline: "생기부 AI 작업실 실습 자료입니다. 가상의 학생 정보입니다.",
     audience: "teacher",
     platform: "연수 자료",
@@ -145,9 +148,10 @@ window.APPS = [
     platform: "Web · 단일 HTML",
     kind: "download",
     version: "1.0.5",
-    updated: "2026-10-19",
-    size: "133 KB",
-    url: `${RELEASES}/curriculum-v1.0.5/curriculum.html`,
+    updated: "2026-11-11",
+    size: "143 KB",
+    url: "assets/curriculum/curriculum(v1.0.5).html",
+    downloadName: "curriculum(v1.0.5).html",
     features: [
       ["시간표 자동 분리", "나이스 시간표를 학년별로 나누고 파일 세 개까지 한 번에 올립니다."],
       ["교사 자동 배정", "시간표의 담당 교사를 바탕으로 시수를 공평하게 나눠 배정합니다."],
