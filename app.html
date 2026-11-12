@@ -25,6 +25,7 @@
       main.innerHTML = `<section class="detail-hero wrap"><h1>앱을 찾지 못했습니다</h1>
         <div class="actions"><a class="btn btn-dark" href="apps.html">앱 목록으로</a></div></section>`;
     } else {
+      document.title = `${app.name} — JHL 앱배포 페이지`;
       const fmt = (d) => d.replaceAll("-", ". ") + ".";
       const primary = !app.url
         ? `<span class="btn btn-accent btn-lg" aria-disabled="true">${ICON.download}${esc(app.buttonLabel || "곧 공개합니다")}</span>`
