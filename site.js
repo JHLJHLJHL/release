@@ -26,7 +26,7 @@ function badges(app) {
   return `<div class="badges">
     ${app.audience === "teacher" ? `<span class="badge badge-teacher">교사용</span>` : ""}
     <span class="badge">${esc(app.platform.split(" · ").pop())}</span>
-    ${app.updated ? `<span class="card-date">${fmtDate(app.updated)} 업데이트</span>` : ""}
+    ${app.updated ? `<span class="card-date">${fmtDate(app.updated)}</span>` : ""}
   </div>`;
 }
 
