@@ -125,6 +125,7 @@ body::before {
 .detail-hero h1 { margin: 0; font-size: clamp(40px, 7vw, 64px); font-weight: 850; letter-spacing: -0.035em; line-height: 1.1; }
 .detail-hero .tagline { margin: 10px 0 0; font-size: clamp(19px, 2.8vw, 24px); font-weight: 600; color: var(--ink-2); letter-spacing: -0.01em; }
 .detail-hero .desc { max-width: 620px; margin: 20px auto 0; color: var(--ink-2); }
+.detail-hero .desc em { font-style: normal; font-weight: 600; color: var(--accent); }
 .detail-hero .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
 .detail-hero .actions + .actions { margin-top: 10px; }
 .meta { list-style: none; padding: 0; margin: 20px 0 0; color: var(--ink-3); font-size: 14px; line-height: 1.8; }

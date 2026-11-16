@@ -39,7 +39,7 @@
         ? `<a class="btn btn-dark btn-lg" href="${app.repo}" target="_blank" rel="noopener">${ICON.github}GitHub</a>`
         : "";
       const meta = [
-        ["무료", app.version && `버전 ${app.version}`, app.size].filter(Boolean).join(" · "),
+        [app.version && `버전 ${app.version}`, app.size].filter(Boolean).join(" · "),
         app.platform + (app.audience === "teacher" ? " · 교사용" : " · 누구나"),
         app.updated && `${fmt(app.updated)} 업데이트`,
       ].filter(Boolean);
@@ -51,7 +51,7 @@
             ${icon(app, 128, "icon-lg")}
             <h1>${esc(app.name)}</h1>
             <p class="tagline">${esc(app.tagline)}</p>
-            ${app.description ? `<p class="desc">${esc(app.description).replaceAll("&lt;br&gt;", "<br>")}</p>` : ""}
+            ${app.description ? `<p class="desc">${esc(app.description).replace(/&lt;(br|\/?em)&gt;/g, "<$1>")}</p>` : ""}
             ${top}
             <div class="actions">${primary}${repo}</div>
             <ul class="meta">${meta.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>
