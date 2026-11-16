@@ -23,7 +23,7 @@ window.APPS = [
     kind: "download",
     version: "1.0.0",
     updated: "2026-11-16",
-    size: "13.7 MB",
+    size: "13.8 MB",
     url: "assets/ai-workbench/AI_Workbench(V1.0.0).html",
     downloadName: "AI_Workbench(V1.0.0).html",
     features: [
@@ -83,7 +83,7 @@ window.APPS = [
     kind: "download",
     version: "1.0.0",
     updated: "2026-11-16",
-    size: "9.7 MB",
+    size: "9.8 MB",
     url: "assets/topic/Report_g(V1.0.0).html",
     downloadName: "Report_g(V1.0.0).html",
     features: [
@@ -106,7 +106,7 @@ window.APPS = [
     kind: "download",
     version: "1.0.0",
     updated: "2026-11-16",
-    size: "9.7 MB",
+    size: "9.8 MB",
     url: "assets/yeolmae/YMseteuk(V1.0.0).html",
     downloadName: "YMseteuk(V1.0.0).html",
     features: [
@@ -129,7 +129,7 @@ window.APPS = [
     kind: "download",
     version: "1.0.0",
     updated: "2026-11-16",
-    size: "9.7 MB",
+    size: "9.8 MB",
     url: "assets/review/Checkr(V1.0.0).html",
     downloadName: "Checkr(V1.0.0).html",
     features: [
