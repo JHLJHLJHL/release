@@ -151,8 +151,8 @@ window.APPS = [
     platform: "Web · 단일 HTML",
     kind: "download",
     version: "1.0.5",
-    updated: "2026-11-11",
-    size: "143 KB",
+    updated: "2026-11-16",
+    size: "4.5 MB",
     url: "assets/curriculum/curriculum(v1.0.5).html",
     downloadName: "curriculum(v1.0.5).html",
     features: [
