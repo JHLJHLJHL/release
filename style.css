@@ -45,7 +45,7 @@ img { display: block; max-width: 100%; }
 .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; }
 /* 이름 위로 빛이 왼쪽에서 오른쪽으로 한 번 훑고 지나간다. */
 .brand-name {
-  background: linear-gradient(105deg, var(--ink) 44%, #f2a64b 50%, var(--ink) 56%) 100% 0 / 250% 100% no-repeat;
+  background: linear-gradient(105deg, var(--ink) 44%, #8f96a1 47.5%, #e4e7ec 50%, #8f96a1 52.5%, var(--ink) 56%) 100% 0 / 250% 100% no-repeat;
   -webkit-background-clip: text; background-clip: text;
   color: transparent;
   animation: brand-shine 5s ease-in-out infinite;
