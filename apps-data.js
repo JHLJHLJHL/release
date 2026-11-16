@@ -32,7 +32,7 @@ window.APPS = [
       ["기록 점검", "기록 한 건을 첨삭하거나 NEIS 'XLS data' 엑셀을 일괄 점검해 보고서를 만듭니다."],
       ["내 키, 내 브라우저", "Gemini · Claude · OpenAI 키는 이 브라우저에만 저장하고 기록도 밖으로 보내지 않습니다."],
     ],
-    requires: ["최신 Chrome · Edge · Safari", "AI 사용 시 본인 API 키 (Gemini 무료 키 가능)"],
+    requires: ["최신 Chrome · Edge · Safari", "AI 사용 시 본인 API 키"],
   },
   {
     id: "training",
