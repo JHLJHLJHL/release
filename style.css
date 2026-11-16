@@ -111,6 +111,7 @@ body::before {
 .badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .badge { padding: 1px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; background: var(--soft); color: var(--ink-2); }
 .card:hover .badge { background: #fff; }
+.card-date { align-self: center; font-size: 12px; color: var(--ink-3); }
 .badge-teacher { background: var(--teacher-soft); color: var(--teacher); }
 
 /* 앱 상세 */

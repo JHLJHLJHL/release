@@ -19,10 +19,14 @@ function icon(app, size, extra = "") {
   return `<span class="${cls}"><img src="${app.icon}" alt="" width="${size}" height="${size}"></span>`;
 }
 
+// "2026-11-16" → "2026. 11. 16."
+const fmtDate = (d) => d.replaceAll("-", ". ") + ".";
+
 function badges(app) {
   return `<div class="badges">
     ${app.audience === "teacher" ? `<span class="badge badge-teacher">교사용</span>` : ""}
     <span class="badge">${esc(app.platform.split(" · ").pop())}</span>
+    ${app.updated ? `<span class="card-date">${fmtDate(app.updated)} 업데이트</span>` : ""}
   </div>`;
 }
 
