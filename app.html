@@ -27,6 +27,10 @@
     } else {
       document.title = `${app.name} — JHL 앱배포 페이지`;
       const fmt = (d) => d.replaceAll("-", ". ") + ".";
+      // 설명에서는 <br> · <em> · <a href="https://…"> 만 살리고 나머지 태그는 글자로 둔다.
+      const rich = (s) => esc(s)
+        .replace(/&lt;(br|\/?em|\/a)&gt;/g, "<$1>")
+        .replace(/&lt;a href=&quot;(https:\/\/[^&<>\s]+)&quot;&gt;/g, '<a href="$1" target="_blank" rel="noopener">');
       const primary = !app.url
         ? `<span class="btn btn-accent btn-lg" aria-disabled="true">${ICON.download}${esc(app.buttonLabel || "곧 공개합니다")}</span>`
         : app.kind === "link"
@@ -51,7 +55,7 @@
             ${icon(app, 128, "icon-lg")}
             <h1>${esc(app.name)}</h1>
             <p class="tagline">${esc(app.tagline)}</p>
-            ${app.description ? `<p class="desc">${esc(app.description).replace(/&lt;(br|\/?em)&gt;/g, "<$1>")}</p>` : ""}
+            ${app.description ? `<p class="desc">${rich(app.description)}</p>` : ""}
             ${top}
             <div class="actions">${primary}${repo}</div>
             <ul class="meta">${meta.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>

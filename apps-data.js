@@ -54,7 +54,7 @@ window.APPS = [
     name: "StarMD",
     tagline: "HWP · PDF · Office 문서를 Markdown으로",
     description:
-      "한글(HWP/HWPX) · PDF · Office 문서와 이미지를 Markdown, PDF, HWPX, RAG용 청크(JSON)로 바꿉니다. 인터넷 연결이나 외부 AI, 계정 없이 내 컴퓨터 안에서만 처리합니다.",
+      "한글(HWP/HWPX) · PDF · Office 문서와 이미지를 Markdown, PDF, HWPX, RAG용 청크(JSON)로 바꿉니다. 인터넷 연결없이 내 컴퓨터 안에서만 처리합니다.<br>한글 문서로 작성하는 대량의 반복작업에 대한 솔루션을 제공합니다.<br><a href=\"https://github.com/chrisryugj/kordoc\">kordoc</a>을 기반으로 제작되었습니다.",
     audience: "all",
     platform: "Windows",
     kind: "download",
@@ -62,7 +62,6 @@ window.APPS = [
     updated: "2026-11-11",
     size: "187 MB",
     url: `${RELEASES}/starmd-v1.0.1/StarMD-1.0.1-win-x64.exe`,
-    repo: "https://github.com/JHLJHLJHL/starMD",
     features: [
       ["여러 형식 변환", "HWP · HWPX · PDF · XLSX · DOCX · 이미지를 Markdown으로, Markdown은 PDF · HWPX로 내보냅니다."],
       ["끌어다 놓기", "여러 파일을 창에 끌어다 놓으면 차례로 변환하고 실패한 파일만 다시 시도합니다."],
