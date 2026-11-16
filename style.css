@@ -55,9 +55,6 @@ img { display: block; max-width: 100%; }
   0% { background-position: 100% 0; }
   30%, 100% { background-position: 0 0; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .brand-name, .home h1 { animation: none; background: none; color: inherit; }
-}
 .brand-sub { font-size: 14px; font-weight: 300; color: var(--ink-2); }
 .nav-links { margin-left: auto; display: flex; gap: 20px; font-size: 14px; color: var(--ink-2); }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--ink); }
