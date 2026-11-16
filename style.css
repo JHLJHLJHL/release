@@ -43,8 +43,8 @@ img { display: block; max-width: 100%; }
 }
 .nav .wrap { display: flex; align-items: center; gap: 24px; height: 56px; }
 .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; }
-/* 이름 위로 빛이 왼쪽에서 오른쪽으로 한 번 훑고 지나간다. */
-.brand-name {
+/* 이름 위로 빛이 왼쪽에서 오른쪽으로 한 번 훑고 지나간다. 윗줄 이름과 첫 화면 제목에 쓴다. */
+.brand-name, .home h1 {
   background: linear-gradient(105deg, var(--ink) 44%, #8f96a1 47.5%, #e4e7ec 50%, #8f96a1 52.5%, var(--ink) 56%) 100% 0 / 250% 100% no-repeat;
   -webkit-background-clip: text; background-clip: text;
   color: transparent;
@@ -55,7 +55,7 @@ img { display: block; max-width: 100%; }
   30%, 100% { background-position: 0 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .brand-name { animation: none; background: none; color: inherit; }
+  .brand-name, .home h1 { animation: none; background: none; color: inherit; }
 }
 .brand-sub { font-size: 14px; font-weight: 300; color: var(--ink-2); }
 .nav-links { margin-left: auto; display: flex; gap: 20px; font-size: 14px; color: var(--ink-2); }
