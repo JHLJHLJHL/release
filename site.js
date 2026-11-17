@@ -31,7 +31,7 @@ function badges(app) {
 
 function card(app) {
   return `<a class="card" href="app.html?id=${app.id}">
-    ${icon(app, 56)}
+    ${icon(app, 96)}
     <span><h3>${esc(app.name)}</h3><p>${esc(app.tagline)}</p>${badges(app)}</span>
   </a>`;
 }
