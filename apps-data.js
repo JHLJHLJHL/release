@@ -44,7 +44,7 @@ window.APPS = [
     name: "연수 자료",
     buttonLabel: "26/11/24 죽변고 연수 자료",
     topButtons: [{ label: "생기부 AI 작업실 연수 Slide", url: "https://jhljhljhl.github.io/ai-teacher-workshop/deck/" }],
-    tagline: "생기부 AI 작업실 실습 자료입니다. 가상의 학생 정보입니다.",
+    tagline: "생기부 AI 작업실 실습 자료입니다. (가상 학생 정보)",
     audience: "teacher",
     platform: "연수 자료",
     kind: "download",
