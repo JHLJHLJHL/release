@@ -30,7 +30,8 @@ function badges(app) {
 }
 
 function card(app) {
-  return `<a class="card" href="app.html?id=${app.id}">
+  const scale = app.iconScale ? ` style="--icon-scale:${Number(app.iconScale)}"` : "";
+  return `<a class="card" href="app.html?id=${app.id}"${scale}>
     ${icon(app, 96)}
     <span><h3>${esc(app.name)}</h3><p>${esc(app.tagline)}</p>${badges(app)}</span>
   </a>`;

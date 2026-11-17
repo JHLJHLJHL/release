@@ -129,8 +129,10 @@ body::before {
 .card .icon-free img { transition: transform 0.2s ease; }
 .card:hover .icon-free img { transform: translateY(-2px) rotate(-3deg); }
 /* 타일 아이콘은 안쪽 그림을 돌리면 모서리가 잘리므로 타일 전체를 움직인다 */
-.card .icon:not(.icon-free) { transition: transform 0.2s ease; }
-.card:hover .icon:not(.icon-free) { transform: translateY(-2px) rotate(-3deg); }
+.card .icon:not(.icon-free) { transition: transform 0.2s ease; transform: scale(var(--icon-scale, 1)); }
+.card:hover .icon:not(.icon-free) { transform: translateY(-2px) rotate(-3deg) scale(var(--icon-scale, 1)); }
+/* 카드마다 --icon-scale 로 아이콘 크기를 맞춘다(apps-data.js 의 iconScale) */
+.card .icon-free { transform: scale(var(--icon-scale, 1.2)); }
 
 .badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .badge { padding: 1px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; background: var(--soft); color: var(--ink-2); }

@@ -2,6 +2,8 @@
 // kind: "download"(파일 내려받기) | "link"(웹 페이지 열기)
 // audience: "teacher"(교사용) | "all"(누구나)
 // iconFree: 배경 없이 모양 그대로인 아이콘(둥근 타일로 자르지 않음)
+// iconScale: 앱 목록 카드에서만 아이콘 크기를 조절한다. 최종 배율이며 생략하면 iconFree는 1.2, 타일은 1이다.
+//            꽉 찬 타일 아이콘이 다른 아이콘보다 커 보일 때 1보다 작게 쓴다.
 const RELEASES = "https://github.com/JHLJHLJHL/release/releases/download";
 
 // buttonLabel: 상세 페이지 주 버튼의 글자(생략하면 '내려받기' · '웹에서 열기').
@@ -38,6 +40,7 @@ window.APPS = [
     id: "training",
     icon: "assets/training/icon.png",
     iconFree: true,
+    iconScale: 1.02,
     name: "연수 자료",
     buttonLabel: "26/11/24 죽변고 연수 자료",
     topButtons: [{ label: "생기부 AI 작업실 연수 Slide", url: "https://jhljhljhl.github.io/ai-teacher-workshop/deck/" }],
@@ -51,6 +54,7 @@ window.APPS = [
   {
     id: "starmd",
     icon: "assets/starmd/icon.png",
+    iconScale: 0.85,
     name: "StarMD",
     tagline: "HWP · PDF · Office 문서를 Markdown으로",
     description:
