@@ -108,11 +108,11 @@ body::before {
   grid-template-columns: repeat(auto-fill, minmax(min(var(--card-w), 100%), var(--card-w)));
   justify-content: center;
   grid-auto-rows: 1fr;
-  gap: 16px;
+  gap: 8px 16px;
 }
 .card {
   display: flex; gap: 22px; align-items: center;
-  padding: 28px; border-radius: var(--radius);
+  padding: 18px 28px; border-radius: var(--radius);
   transition: background 0.15s ease;
 }
 .card:hover { background: var(--soft); }
@@ -208,7 +208,8 @@ body::before {
 
 /* 휴대폰 폭: 카드 안쪽 여백과 아이콘을 모바일에 맞춘다 */
 @media (max-width: 480px) {
-  .card { gap: 16px; padding: 20px; }
+  .grid { row-gap: 10px; }
+  .card { gap: 16px; padding: 12px 20px; }
   .card .icon { width: 80px; height: 80px; border-radius: 18px; }
 }
 @media (max-width: 640px) {
