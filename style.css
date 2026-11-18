@@ -119,7 +119,7 @@ body::before {
 .card > span:last-child { min-width: 0; }
 .card h3 { margin: 0; font-size: 20px; letter-spacing: -0.015em; }
 .card p { margin: 4px 0 10px; color: var(--ink-2); font-size: 15px; line-height: 1.5; }
-.card .icon { width: 96px; height: 96px; border-radius: 22px; }
+.card .icon { width: 86px; height: 86px; border-radius: 20px; }
 .icon { display: block; flex: none; width: 56px; height: 56px; border-radius: 13px; overflow: hidden; }
 .icon img { width: 100%; height: 100%; object-fit: cover; }
 .icon-lg { width: 128px; height: 128px; border-radius: 29px; }
@@ -211,7 +211,7 @@ body::before {
 @media (max-width: 480px) {
   .grid { row-gap: 10px; }
   .card { gap: 16px; padding: 12px 20px; }
-  .card .icon { width: 80px; height: 80px; border-radius: 18px; }
+  .card .icon { width: 72px; height: 72px; border-radius: 16px; }
 }
 @media (max-width: 640px) {
   .features { grid-template-columns: 1fr; }
