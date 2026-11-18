@@ -9,6 +9,7 @@ const RELEASES = "https://github.com/JHLJHLJHL/release/releases/download";
 // buttonLabel: 상세 페이지 주 버튼의 글자(생략하면 '내려받기' · '웹에서 열기').
 // url을 비워 두면 그 버튼이 비활성으로 보인다(buttonLabel이 없으면 '곧 공개합니다').
 // downloadName: 내려받을 때 저장될 파일 이름. 같은 사이트 안의 파일(url이 상대 경로)일 때만 적용된다.
+// features: [제목, 설명, 참조 링크 주소(생략 가능)]. 주소를 쓰면 카드 아래에 '참조 링크'가 붙는다.
 // topButtons: 주 버튼 위에 한 줄씩 더 놓을 웹 링크 버튼 [{ label, url }].
 // noShots: true면 화면 미리보기 갤러리를 숨긴다. description · features · requires · updated · version · size는 생략해도 된다.
 window.APPS = [
@@ -71,6 +72,8 @@ window.APPS = [
       ["끌어다 놓기", "여러 파일을 창에 끌어다 놓으면 차례로 변환하고 실패한 파일만 다시 시도합니다."],
       ["탐색기 메뉴", "파일을 우클릭해 MD · PDF · HWPX · 청크로 같은 폴더에 바로 변환합니다."],
       ["완전 로컬", "변환은 kordoc을 내 컴퓨터에서 돌려 처리합니다. 파일이 밖으로 나가지 않습니다."],
+      ["양식 일괄 입력", "방대한 양의 반복 작업을 한번에", "https://www.youtube.com/@chris_gomdori/featured"],
+      ["평가계획서 병합", "여러 한글 문서를 하나의 파일로"],
     ],
     requires: ["Windows 10 · 11 (64비트)"],
   },

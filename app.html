@@ -71,7 +71,7 @@
         </div>`}
         <div class="wrap">
           ${app.features?.length ? `<div class="features">
-            ${app.features.map(([t, d]) => `<div class="feature"><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join("")}
+            ${app.features.map(([t, d, link]) => `<div class="feature"><h3>${esc(t)}</h3><p>${esc(d)}</p>${link ? `<a class="feature-link" href="${esc(link)}" target="_blank" rel="noopener noreferrer">참조 링크</a>` : ""}</div>`).join("")}
           </div>` : ""}
           ${app.requires?.length ? `<div class="requires">
             <h2>필요한 것</h2>
