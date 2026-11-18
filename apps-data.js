@@ -82,7 +82,7 @@ window.APPS = [
     icon: "assets/topic/icon.png",
     iconFree: true,
     name: "탐구주제추천",
-    tagline: "교과, 창체 활동, 학생에게 맞는 주제 추천",
+    tagline: "교과부터 창체까지, 탐구 주제 추천",
     description:
       "학생의 교과목과 희망 학과 또는 창체 활동 응답을 입력해 탐구 주제를 추천합니다.<br>탐구 계획서와 활동 초안을 Word 문서로 내려받을 수 있습니다.<br>경상북도교육청 소속 교원에게 배포합니다.<br><em>암호는 업무용메신져 아이디 'ljh0213'으로 문의바랍니다.</em>",
     audience: "teacher",
