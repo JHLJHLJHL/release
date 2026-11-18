@@ -18,7 +18,7 @@ window.APPS = [
     icon: "assets/ai-workbench/icon.png",
     iconFree: true,
     name: "생기부 AI 작업실",
-    tagline: "탐구주제추천 · 열매세특 · 세특검토함을 한 파일에",
+    tagline: "수업의 설계부터 기록까지",
     description:
       "학생 정보와 희망 학과로 탐구 주제를 추천, 열매카드 응답 엑셀로 학생별 세특 초안 생성, 작성한 기록을 규정과 루브릭으로 점검합니다.<br>세 앱을 HTML 파일 하나에 담아 서버나 설치 없이 브라우저에서 열어 사용합니다.<br>경상북도교육청 소속 교원에게 배포합니다.<br><em>암호는 업무용메신져 아이디 'ljh0213'으로 문의바랍니다.</em>",
     audience: "teacher",
@@ -45,7 +45,7 @@ window.APPS = [
     name: "연수 자료",
     buttonLabel: "26/11/24 죽변고 연수 자료",
     topButtons: [{ label: "생기부 AI 작업실 연수 Slide", url: "https://jhljhljhl.github.io/ai-teacher-workshop/deck/" }],
-    tagline: "생기부 AI 작업실 실습 자료입니다. (가상 학생 정보)",
+    tagline: "생기부AI작업실 실습 자료(가상 학생)",
     audience: "teacher",
     platform: "연수 자료",
     kind: "download",
@@ -57,7 +57,7 @@ window.APPS = [
     icon: "assets/starmd/icon.png",
     iconScale: 0.85,
     name: "StarMD",
-    tagline: "HWP · PDF · Office 문서를 Markdown으로",
+    tagline: "여러 포맷의 문서를 MD로",
     description:
       "한글(HWP/HWPX) · PDF · Office 문서와 이미지를 Markdown, PDF, HWPX, RAG용 청크(JSON)로 바꿉니다. 인터넷 연결없이 내 컴퓨터 안에서만 처리합니다.<br>한글 문서로 작성하는 대량의 반복작업에 대한 솔루션을 제공합니다.<br><a href=\"https://github.com/chrisryugj/kordoc\">kordoc</a>을 기반으로 제작되었습니다.",
     audience: "all",
@@ -82,7 +82,7 @@ window.APPS = [
     icon: "assets/topic/icon.png",
     iconFree: true,
     name: "탐구주제추천",
-    tagline: "교과 탐구부터 창체 활동까지, 학생에게 맞는 주제",
+    tagline: "교과, 창체 활동, 학생에게 맞는 주제 추천",
     description:
       "학생의 교과목과 희망 학과 또는 창체 활동 응답을 입력해 탐구 주제를 추천합니다.<br>탐구 계획서와 활동 초안을 Word 문서로 내려받을 수 있습니다.<br>경상북도교육청 소속 교원에게 배포합니다.<br><em>암호는 업무용메신져 아이디 'ljh0213'으로 문의바랍니다.</em>",
     audience: "teacher",
@@ -151,7 +151,7 @@ window.APPS = [
     icon: "assets/curriculum/icon.png",
     iconFree: true,
     name: "교과연계주제 추천",
-    tagline: "체험학습 날, 교시마다 교과 연계 수업 주제",
+    tagline: "체험학습 날, 교과 연계 수업 주제 추출",
     description:
       "나이스 전체시간표(.xlsx)와 행사명, 인솔 교사 명단만 넣으면 각 교시 · 과목에 맞는 교과 연계 수업 주제를 생성하고 지도 교사를 자동 배정합니다.",
     audience: "teacher",
@@ -194,7 +194,7 @@ window.APPS = [
     id: "bbb",
     icon: "assets/bbb/icon.png",
     name: "BBB",
-    tagline: "'Breaking Bad' 팬 페이지, 모든 회차 해설",
+    tagline: "'Breaking Bad' 팬 페이지",
     description:
       "다섯 시즌 62편을 한 편씩 풀어 둔 읽을거리입니다. 회차마다 줄거리, 제목에 숨은 의미, 명대사, 방영 반응, 비하인드, 자주 나오는 질문을 정리하고 흑백 연필 삽화를 곁들였습니다.",
     audience: "all",
@@ -213,7 +213,7 @@ window.APPS = [
     id: "bcs",
     icon: "assets/bcs/icon.png",
     name: "BCS",
-    tagline: "'Better Call Saul' 팬 페이지, 모든 회차 해설",
+    tagline: "'Better Call Saul' 팬 페이지",
     description:
       "여섯 시즌 63편을 한 편씩 풀어 둔 읽을거리입니다. 줄거리와 질문 답변은 그 회차까지 방송된 내용만으로 써서, 처음 보는 중에도 스포일러 걱정 없이 읽을 수 있습니다.",
     audience: "all",
