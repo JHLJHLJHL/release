@@ -113,6 +113,7 @@ body::before {
 .card {
   display: flex; gap: 22px; align-items: center;
   padding: 18px 28px; border-radius: var(--radius);
+  border: 1px solid #f2f2f5;
   transition: background 0.15s ease;
 }
 .card:hover { background: var(--soft); }
