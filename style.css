@@ -188,6 +188,22 @@ body::before {
 .feature p { margin: 0; color: var(--ink-2); }
 .feature-link { display: inline-block; margin-top: 10px; font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 
+/* 설치 안내 (SmartScreen 경고 등) */
+.notice { max-width: 720px; margin: 56px auto 0; padding: 32px; border-radius: 22px; background: var(--soft); }
+.notice h2 { margin: 0 0 12px; font-size: 22px; letter-spacing: -0.02em; line-height: 1.35; }
+.notice-intro { margin: 0; color: var(--ink-2); }
+.notice-steps { counter-reset: step; list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 28px; }
+.notice-steps li { counter-increment: step; position: relative; padding-left: 40px; }
+.notice-steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 0;
+  display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--ink); color: #fff; font-size: 14px; font-weight: 700;
+}
+.notice-steps p { margin: 0; line-height: 28px; color: var(--ink); }
+.notice-steps strong { font-weight: 800; }
+.notice-steps img { display: block; width: 100%; max-width: 560px; height: auto; margin-top: 12px; border-radius: 12px; border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow); }
+.notice-steps img[hidden] { display: none; }
+
 .requires { margin: 40px auto 0; max-width: 620px; text-align: center; color: var(--ink-3); font-size: 14px; }
 .requires h2 { margin: 0 0 6px; font-size: 13px; letter-spacing: 0.06em; }
 .requires ul { list-style: none; margin: 0; padding: 0; }
@@ -219,6 +235,8 @@ body::before {
   .detail-hero { padding-top: 40px; }
   .icon-lg { width: 104px; height: 104px; border-radius: 24px; }
   .feature { padding: 22px; }
+  .notice { margin-top: 40px; padding: 22px; }
+  .notice h2 { font-size: 19px; }
   .shot-prev { left: 8px; }
   .shot-next { right: 8px; }
   .shot-nav { width: 34px; height: 34px; }

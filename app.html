@@ -73,6 +73,16 @@
           ${app.features?.length ? `<div class="features">
             ${app.features.map(([t, d, link]) => `<div class="feature"><h3>${esc(t)}</h3><p>${esc(d)}</p>${link ? `<a class="feature-link" href="${esc(link)}" target="_blank" rel="noopener noreferrer">참조 링크</a>` : ""}</div>`).join("")}
           </div>` : ""}
+          ${app.notice ? `<section class="notice">
+            <h2>${esc(app.notice.title)}</h2>
+            <p class="notice-intro">${esc(app.notice.intro)}</p>
+            <ol class="notice-steps">
+              ${app.notice.steps.map((s) => `<li>
+                <p>${esc(s.text).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}</p>
+                ${s.image ? `<img src="${esc(s.image)}" alt="${esc(s.alt || "")}" loading="lazy" onerror="this.hidden=true">` : ""}
+              </li>`).join("")}
+            </ol>
+          </section>` : ""}
           ${app.requires?.length ? `<div class="requires">
             <h2>필요한 것</h2>
             <ul>${app.requires.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
