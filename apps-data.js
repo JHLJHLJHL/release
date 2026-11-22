@@ -51,7 +51,8 @@ window.APPS = [
     platform: "연수 자료",
     kind: "download",
     noShots: true,
-    url: `${RELEASES}/training-20261124/honeymath-icons-v3-both.zip`,
+    url: "assets/training/workbench-practice.zip",
+    downloadName: "생기부AI작업실_실습자료.zip",
   },
   {
     id: "starmd",
