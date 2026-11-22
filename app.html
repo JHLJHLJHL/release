@@ -63,11 +63,11 @@
         </section>
         ${app.noShots ? "" : `<div class="gallery">
           <div class="shots" tabindex="0" aria-label="화면 미리보기, 좌우 방향키로 넘기기">
-            ${[1, 2, 3].map((n) => `<img src="assets/${app.id}/screenshot-0${n}.png" alt="${esc(app.name)} 화면 ${n}">`).join("")}
+            ${Array.from({ length: app.shots || 3 }, (_, i) => i + 1).map((n) => `<img src="assets/${app.id}/screenshot-0${n}.png" alt="${esc(app.name)} 화면 ${n}">`).join("")}
           </div>
           <button class="shot-nav shot-prev" type="button" aria-label="이전 화면" data-step="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg></button>
           <button class="shot-nav shot-next" type="button" aria-label="다음 화면" data-step="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
-          <div class="dots">${[0, 1, 2].map((i) => `<button class="dot" type="button" aria-label="화면 ${i + 1}" data-go="${i}"></button>`).join("")}</div>
+          <div class="dots">${(app.shots || 3) > 1 ? Array.from({ length: app.shots || 3 }, (_, i) => i).map((i) => `<button class="dot" type="button" aria-label="화면 ${i + 1}" data-go="${i}"></button>`).join("") : ""}</div>
         </div>`}
         <div class="wrap">
           ${app.features?.length ? `<div class="features">

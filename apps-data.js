@@ -12,6 +12,7 @@ const RELEASES = "https://github.com/JHLJHLJHL/release/releases/download";
 // features: [제목, 설명, 참조 링크 주소(생략 가능)]. 주소를 쓰면 카드 아래에 '참조 링크'가 붙는다.
 // topButtons: 주 버튼 위에 한 줄씩 더 놓을 웹 링크 버튼 [{ label, url }].
 // noShots: true면 화면 미리보기 갤러리를 숨긴다. description · features · requires · updated · version · size는 생략해도 된다.
+// shots: 화면 미리보기 장수. screenshot-01.png부터 이 장수만큼 보여 준다(생략하면 3장).
 window.APPS = [
   {
     id: "ai-workbench",
@@ -102,7 +103,17 @@ window.APPS = [
     updated: "2026-11-22",
     size: "254.1 MB",
     url: `${RELEASES}/snag-v0.1.0-beta/SNAG-0.1.0-beta-windows-x64.zip`,
-    noShots: true,
+    shots: 1,
+    notice: {
+      title: "실행 시 \"Windows에서 PC를 보호했습니다\" 경고가 뜨는 경우",
+      intro:
+        "이 앱은 개인 개발자가 만든 베타 프로그램으로, 아직 코드 서명 인증서를 발급받지 않아 Windows SmartScreen이 \"알 수 없는 게시자\"로 인식해 경고를 표시합니다. 악성 프로그램이 아니니 압축을 모두 푼 뒤 SNAG(beta).exe를 아래 순서로 실행해 주세요.",
+      steps: [
+        { text: "경고창에서 **추가 정보** 클릭", image: "assets/snag/smartscreen-1.png", alt: "추가 정보 클릭" },
+        { text: "하단에 나타나는 **실행** 버튼 클릭" },
+        { text: "정상적으로 실행" },
+      ],
+    },
     requires: ["Windows 10 · 11 (64비트)"],
   },
   {
