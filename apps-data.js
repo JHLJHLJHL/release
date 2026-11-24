@@ -101,13 +101,14 @@ window.APPS = [
     platform: "Windows",
     kind: "download",
     version: "0.1.0 beta",
-    updated: "2026-11-22",
-    size: "254.1 MB",
-    url: `${RELEASES}/snag-v0.1.0-beta/SNAG-0.1.0-beta-windows-x64.zip`,
+    updated: "2026-11-24",
+    size: "212.3 MB",
+    url: `${RELEASES}/snag-v0.1.0-beta/SNAG-0.1.0-portable.exe`,
+    downloadName: "SNAG-0.1.0-portable.exe",
     notice: {
       title: "실행 시 \"Windows에서 PC를 보호했습니다\" 경고가 뜨는 경우",
       intro:
-        "이 앱은 개인 개발자가 만든 베타 프로그램으로, 아직 코드 서명 인증서를 발급받지 않아 Windows SmartScreen이 \"알 수 없는 게시자\"로 인식해 경고를 표시합니다. 악성 프로그램이 아니니 압축을 모두 푼 뒤 SNAG(beta).exe를 아래 순서로 실행해 주세요.",
+        "이 앱은 개인 개발자가 만든 베타 프로그램으로, 아직 코드 서명 인증서를 발급받지 않아 Windows SmartScreen이 \"알 수 없는 게시자\"로 인식해 경고를 표시합니다. 악성 프로그램이 아니니 설치나 압축 해제 없이 내려받은 SNAG-0.1.0-portable.exe를 아래 순서로 실행해 주세요. 처음 실행할 때는 필요한 파일을 이 컴퓨터에 자동으로 준비하느라 시간이 조금 걸립니다.",
       steps: [
         { text: "경고창에서 **추가 정보** 클릭", image: "assets/snag/smartscreen-1.png", alt: "추가 정보 클릭" },
         { text: "하단에 나타나는 **실행** 버튼 클릭", image: "assets/snag/smartscreen-2.png", alt: "실행 클릭" },
